@@ -1,0 +1,13 @@
+src/parser/venv
+src/title/venv
+src/bot/venv
+src/bot/node_modules
+src/bot/package-lock.json
+src/parser/output/title.json
+logs/
+.DS_Store
+node_modules
+package-lock.json
+.idea
+output
+/src/parser/pages
