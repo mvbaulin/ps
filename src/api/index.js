@@ -1,12 +1,14 @@
 import express from 'express'
 import mysql from 'mysql2/promise';
 
-const PORT = 5001;
+const API_HOST = 'localhost'
+const API_PORT = 5001;
+
 const app = express();
 app.use(express.json());
 
 const pool = mysql.createPool({
-  host: 'localhost',
+  host: API_HOST,
   user: 'admin',
   password: 'admin',
   database: 'ps_test',
@@ -77,6 +79,7 @@ app.get('/api/search/:input', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log("Server started");
+app.listen(API_PORT, () => {
+  console.log(
+    "Server started on", `http://${API_HOST}:${API_PORT}`);
 })
