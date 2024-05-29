@@ -13,6 +13,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <meta name="theme-color" content="#515e94" />
 </head>
 
 <body>

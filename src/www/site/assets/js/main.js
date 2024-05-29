@@ -49,4 +49,4 @@ info_close.addEventListener("click", () => {
   info.classList.add("hidden");
 })
 
-set_active("orders");
+set_active("profile");

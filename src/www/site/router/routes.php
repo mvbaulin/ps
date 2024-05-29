@@ -8,9 +8,6 @@ Router::page("/", "home");
 Router::page("/auth", "auth");
 Router::page("/dashboard", "dashboard");
 
-Router::page("/store", "store");
-Router::page("/store/search", "store_search");
-
 Router::post("/login", Auth::class, "login", true);
 Router::post("/logout", Auth::class, "logout", true);
 Router::post("/password", Auth::class, "password", true);

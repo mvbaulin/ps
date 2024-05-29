@@ -493,14 +493,14 @@ def put_data(data: object):
             port=DB.port
         ) as db:
             cur = db.cursor()
-            cur.execute("SELECT id FROM products WHERE id = %s", (data['id'],))
+            cur.execute("SELECT id FROM titles WHERE id = %s", (data['id'],))
             existing_record = cur.fetchone()
 
             if existing_record:
                 logging.info(f"Updating {data['id']}")
                 cur.execute(
                     """
-                    UPDATE products
+                    UPDATE titles
                     SET
                         title = %s,
                         concept_id = %s,
@@ -573,7 +573,7 @@ def put_data(data: object):
                 logging.info(f"Inserting {data['id']}")
                 cur.execute(
                     """
-                    INSERT INTO products(
+                    INSERT INTO titles(
                         id,
                         title,
                         concept_id,
