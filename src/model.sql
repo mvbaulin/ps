@@ -33,42 +33,42 @@ CREATE TABLE info (
 
 
 -- Rates
-DROP TABLE IF EXISTS price_rate_range;
-CREATE TABLE price_rate_range (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    start DECIMAL(10, 2) NOT NULL,
-    end DECIMAL(10, 2) NOT NULL,
-    price DECIMAL(10, 2) NOT NULL
-);
-INSERT INTO price_rate_range (start, end, price) VALUES
-    (0, 799.99, 5.4),
-    (800, 1499.99, 4.9),
-    (1500, NULL, 4.3);
+-- DROP TABLE IF EXISTS price_rate_range;
+-- CREATE TABLE price_rate_range (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     start DECIMAL(10, 2) NOT NULL,
+--     end DECIMAL(10, 2) NOT NULL,
+--     price DECIMAL(10, 2) NOT NULL
+-- );
+-- INSERT INTO price_rate_range (start, end, price) VALUES
+--     (0, 799.99, 5.4),
+--     (800, 1499.99, 4.9),
+--     (1500, NULL, 4.3);
 
-DROP TABLE IF EXISTS replenishment_rate_range;
-CREATE TABLE replenishment_rate_range (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    start DECIMAL(10, 2),
-    end DECIMAL(10, 2),
-    price DECIMAL(10, 2)
-);
-INSERT INTO replenishment_rate_range (start, end, price) VALUES
-    (0, 1999.99, 5.5),
-    (1200, NULL, 5);
+-- DROP TABLE IF EXISTS replenishment_rate_range;
+-- CREATE TABLE replenishment_rate_range (
+--     id INT PRIMARY KEY AUTO_INCREMENT,
+--     start DECIMAL(10, 2),
+--     end DECIMAL(10, 2),
+--     price DECIMAL(10, 2)
+-- );
+-- INSERT INTO replenishment_rate_range (start, end, price) VALUES
+--     (0, 1999.99, 5.5),
+--     (1200, NULL, 5);
 
 
 -- Order statuses
-DROP TABLE IF EXISTS order_statuses;
-CREATE TABLE order_statuses (
-    id INT PRIMARY KEY NOT NULL,
-    name VARCHAR(30) NOT NULL DEFAULT 'Draft',
-    name_rus VARCHAR(30) NOT NULL DEFAULT 'Черновик'
-);
-INSERT INTO order_statuses (id, name, name_rus) VALUES
-    (1, 'Draft', 'Черновик'),
-    (2, 'New', 'Новый'),
-    (3, 'Accepted', 'Принят менеджером'),
-    (4, 'Cancelled', 'Отменен');
+-- DROP TABLE IF EXISTS order_statuses;
+-- CREATE TABLE order_statuses (
+--     id INT PRIMARY KEY NOT NULL,
+--     name VARCHAR(30) NOT NULL DEFAULT 'Draft',
+--     name_rus VARCHAR(30) NOT NULL DEFAULT 'Черновик'
+-- );
+-- INSERT INTO order_statuses (id, name, name_rus) VALUES
+--     (1, 'Draft', 'Черновик'),
+--     (2, 'New', 'Новый'),
+--     (3, 'Accepted', 'Принят менеджером'),
+--     (4, 'Cancelled', 'Отменен');
 
 
 -- -- Orders
@@ -182,6 +182,7 @@ CREATE VIEW v_info AS
 DROP FUNCTION IF EXISTS get_password_age;
 DELIMITER $$
 CREATE FUNCTION get_password_age(user_id INT) RETURNS INT
+DETERMINISTIC READS SQL DATA
 BEGIN
     DECLARE password_age INT;
 
@@ -192,7 +193,7 @@ BEGIN
 
     RETURN password_age;
 END$$
-DELIMITER;
+DELIMITER ;
 
 
 -- Procedures

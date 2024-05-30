@@ -24,12 +24,24 @@ class App
     if ($env === "prod") {
       $config_prod = require_once "config/db_prod.php";
 
-      \R::setup(
-        "mysql:host={$config_prod["host"]};
-          dbname={$config_prod["db"]}",
-        $config_prod["username"],
-        $config_prod["password"]
-      );
+      if ($config_prod["port"]) {
+        \R::setup(
+          "mysql:host={$config_prod['host']};
+            port={$config_prod['port']};
+            dbname={$config_prod['db']}",
+          $config_prod["username"],
+          $config_prod["password"]
+        );
+      }
+      else {
+        \R::setup(
+          "mysql:host={$config_prod["host"]};
+            dbname={$config_prod["db"]}",
+          $config_prod["username"],
+          $config_prod["password"]
+        );
+      }
+
     } else if ($env === "test") {
       $config_test = require_once "config/db_test.php";
 
