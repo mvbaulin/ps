@@ -5,6 +5,7 @@
     <bpmn:participant id="Participant_1asl1o2" name="Обновление каталога" processRef="Process_0fn1qug" />
     <bpmn:participant id="Participant_1ffzc8i" name="Обновление тайтла" processRef="Process_07m4t75" />
     <bpmn:participant id="Participant_0et0nak" name="Заказ" processRef="Process_0s40t3m" />
+    <bpmn:participant id="Participant_19ue2lx" name="Свзяь сервисов" processRef="Process_0h54w7w" />
   </bpmn:collaboration>
   <bpmn:process id="Process_122o7kp">
     <bpmn:laneSet id="LaneSet_0ttde06">
@@ -803,6 +804,25 @@
       <bpmn:incoming>Flow_08rpa3u</bpmn:incoming>
       <bpmn:outgoing>Flow_1ghqf7n</bpmn:outgoing>
     </bpmn:manualTask>
+  </bpmn:process>
+  <bpmn:process id="Process_0h54w7w">
+    <bpmn:laneSet id="LaneSet_1ttjlbb">
+      <bpmn:lane id="Lane_04dbig6">
+        <bpmn:childLaneSet id="LaneSet_0r6u0jy">
+          <bpmn:lane id="Lane_1aoqpz2" />
+        </bpmn:childLaneSet>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_1h7nyhf" name="Ddata">
+        <bpmn:childLaneSet id="LaneSet_0sq98nt">
+          <bpmn:lane id="Lane_00xociv" />
+        </bpmn:childLaneSet>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_06smyak" name="CRM">
+        <bpmn:childLaneSet id="LaneSet_1cj9w2t">
+          <bpmn:lane id="Lane_0l75bm3" />
+        </bpmn:childLaneSet>
+      </bpmn:lane>
+    </bpmn:laneSet>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0drcjdy">
@@ -1772,6 +1792,30 @@
         <di:waypoint x="1530" y="0" />
         <di:waypoint x="1750" y="0" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_19ue2lx_di" bpmnElement="Participant_19ue2lx" isHorizontal="true">
+        <dc:Bounds x="-1910" y="-1900" width="1160" height="1170" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_04dbig6_di" bpmnElement="Lane_04dbig6" isHorizontal="true">
+        <dc:Bounds x="-1880" y="-1900" width="1130" height="390" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1aoqpz2_di" bpmnElement="Lane_1aoqpz2" isHorizontal="true">
+        <dc:Bounds x="-1850" y="-1900" width="1100" height="390" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1h7nyhf_di" bpmnElement="Lane_1h7nyhf" isHorizontal="true">
+        <dc:Bounds x="-1880" y="-1510" width="1130" height="390" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_00xociv_di" bpmnElement="Lane_00xociv" isHorizontal="true">
+        <dc:Bounds x="-1850" y="-1510" width="1100" height="390" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_06smyak_di" bpmnElement="Lane_06smyak" isHorizontal="true">
+        <dc:Bounds x="-1880" y="-1120" width="1130" height="390" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_0l75bm3_di" bpmnElement="Lane_0l75bm3" isHorizontal="true">
+        <dc:Bounds x="-1850" y="-1120" width="1100" height="390" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="DataOutputAssociation_0pxnriq_di" bpmnElement="DataOutputAssociation_0pxnriq">
         <di:waypoint x="-1729" y="-590" />
         <di:waypoint x="-1625" y="-590" />
@@ -1818,10 +1862,6 @@
         <di:waypoint x="-680" y="-362" />
         <di:waypoint x="-680" y="-275" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="DataInputAssociation_0ia73jl_di" bpmnElement="DataInputAssociation_0ia73jl">
-        <di:waypoint x="355" y="-256" />
-        <di:waypoint x="308" y="-266" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataInputAssociation_04cfxsn_di" bpmnElement="DataInputAssociation_04cfxsn">
         <di:waypoint x="372" y="-285" />
         <di:waypoint x="303" y="-348" />
@@ -1856,6 +1896,10 @@
         <di:waypoint x="-45" y="-50" />
         <di:waypoint x="190" y="-50" />
         <di:waypoint x="190" y="-100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_0ia73jl_di" bpmnElement="DataInputAssociation_0ia73jl">
+        <di:waypoint x="355" y="-256" />
+        <di:waypoint x="308" y="-266" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataOutputAssociation_0f0it5x_di" bpmnElement="DataOutputAssociation_0f0it5x">
         <di:waypoint x="2170" y="-90" />

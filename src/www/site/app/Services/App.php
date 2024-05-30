@@ -7,7 +7,7 @@ class App
   public static function start()
   {
     self::libs();
-    self::db("test");
+    self::db("prod");
   }
 
   public static function libs()
