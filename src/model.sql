@@ -150,6 +150,24 @@ CREATE TABLE titles(
 );
 
 
+-- Functions
+DROP FUNCTION IF EXISTS get_password_age;
+DELIMITER $$
+CREATE FUNCTION get_password_age(user_id INT) RETURNS INT
+DETERMINISTIC READS SQL DATA
+BEGIN
+    DECLARE password_age INT;
+
+    SELECT TIMESTAMPDIFF(DAY, password_date, current_timestamp)
+    INTO password_age
+    FROM users
+    WHERE id = user_id;
+
+    RETURN password_age;
+END$$
+DELIMITER ;
+
+
 -- Views
 DROP VIEW IF EXISTS v_managers;
 CREATE VIEW v_managers AS
@@ -176,24 +194,6 @@ CREATE VIEW v_info AS
     FROM info i
     ORDER BY i.date DESC
     LIMIT 1;
-
-
--- Functions
-DROP FUNCTION IF EXISTS get_password_age;
-DELIMITER $$
-CREATE FUNCTION get_password_age(user_id INT) RETURNS INT
-DETERMINISTIC READS SQL DATA
-BEGIN
-    DECLARE password_age INT;
-
-    SELECT TIMESTAMPDIFF(DAY, password_date, current_timestamp)
-    INTO password_age
-    FROM users
-    WHERE id = user_id;
-
-    RETURN password_age;
-END$$
-DELIMITER ;
 
 
 -- Procedures

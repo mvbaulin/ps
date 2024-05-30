@@ -1,9 +1,9 @@
 <?php
 
 return [
-  "host" => "95.163.222.11",
-  "port" => 3306,
+  "host" => "79.174.88.192",
+  "port" => 17598,
   "username" => "admin",
-  "password" => "12345slK",
+  "password" => "12345slK-",
   "db" => "ps_store",
 ];
