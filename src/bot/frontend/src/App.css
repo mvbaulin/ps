@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+  font-size: inherit;
+  line-height: inherit;
+  -webkit-tap-highlight-color: transparent;
+  /* outline: 1px solid rgba(255, 255, 255, 0.1); */
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  font-size: var(--font-size-main);
+  line-height: 1;
+}
+
+body {
+  font-family: 'Medium';
+  color: var(--font-color-main);
+  background: var(--bg-main);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+button,
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+a {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--font-color-main);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

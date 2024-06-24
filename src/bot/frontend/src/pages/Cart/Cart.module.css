@@ -1,0 +1,15 @@
+.cart {
+  margin-bottom: 32px;
+}
+
+.cart > li {
+  margin-bottom: 10px;
+}
+
+.cart li:last-child {
+  margin-bottom: 0;
+}
+
+.info {
+  margin-bottom: 28px;
+}

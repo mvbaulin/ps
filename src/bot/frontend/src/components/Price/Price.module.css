@@ -1,0 +1,22 @@
+.price {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.original_price {
+  position: relative;
+  margin-right: 10px;
+  color: var(--font-color-secondary);
+}
+
+.original_price::after {
+  position: absolute;
+  content: '';
+  width: 110%;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  background: var(--font-color-secondary);
+  transform: translate(-50%, -50%);
+}

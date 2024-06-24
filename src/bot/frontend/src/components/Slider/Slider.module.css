@@ -1,0 +1,10 @@
+.slider {
+  padding-left: var(--padding-main);
+  padding-right: var(--padding-main);
+}
+
+.window {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

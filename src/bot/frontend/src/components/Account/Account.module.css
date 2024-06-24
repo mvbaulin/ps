@@ -1,0 +1,8 @@
+.account {
+  font-size: inherit;
+}
+
+.wrapper {
+  display: grid;
+  gap: 10px
+}

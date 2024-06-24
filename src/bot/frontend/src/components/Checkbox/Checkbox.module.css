@@ -1,0 +1,68 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.input {
+  display: none;
+}
+
+.label {
+  position: relative;
+  padding-left: 34px;
+  font-size: 12px;
+  font-family: 'Light';
+  color: var(--font-color-opacity);
+}
+
+.label::before {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: 13px;
+  background-image: url('/icons/ok.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: var(--transition-input);
+}
+
+.label::after {
+  position: absolute;
+  content: '';
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: var(--transition-input);
+  border: var(--border-input);
+  border-radius: 8px;
+}
+
+.checked .label::after {
+  border: var(--border-input-success);
+  background: var(--bg-accent-main);
+}
+
+.checked .label::before {
+  display: block;
+  position: absolute;
+  content: '';
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: 13px;
+  background-image: url('/icons/ok.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  transition: var(--transition-input);
+}

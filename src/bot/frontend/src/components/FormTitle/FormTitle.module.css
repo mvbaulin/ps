@@ -1,0 +1,6 @@
+.title {
+  font-family: 'Medium';
+  font-size: 18px;
+  color: inherit;
+  margin-bottom: var(--padding-main);
+}

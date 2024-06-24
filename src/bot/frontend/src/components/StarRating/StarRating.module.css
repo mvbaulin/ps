@@ -1,0 +1,28 @@
+.stars {
+  display: flex;
+  margin-left: auto;
+  margin-bottom: 10px;
+  width: 100px;
+  height: 20px;
+}
+
+.full {
+  width: 20px;
+  height: 20px;
+  background-image: url('/icons/star_full.svg');
+  background-size: 100%;
+}
+
+.half {
+  width: 20px;
+  height: 20px;
+  background-image: url('/icons/star_half.svg');
+  background-size: 100%;
+}
+
+.empty {
+  width: 20px;
+  height: 20px;
+  background-image: url('/icons/star_empty.svg');
+  background-size: 100%;
+}

@@ -1,0 +1,86 @@
+.item {
+  font-size: inherit;
+}
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.inner {
+  background-color: var(--bg-secondary);
+  padding: var(--padding-main);
+  display: grid;
+  width: 100%;
+  grid-template-columns: 50% 50%;
+  border-radius: var(--radius-card);
+}
+
+.cover {
+  margin-right: 10px;
+}
+
+.cover section {
+  border-radius: 10px;
+}
+
+.cover img {
+  border-radius: 10px;
+}
+
+.info {
+  font-size: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-family: 'Light';
+  font-size: 10px;
+}
+
+.platforms {
+  align-self: flex-end;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.platform {
+  width: 23px;
+  height: 6px;
+  margin-right: 5px;
+}
+
+.platform:last-child {
+  margin-right: 0;
+}
+
+.remove {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  min-height: 48px;
+  max-height: 48px;
+  background: var(--bg-secondary);
+  border-radius: calc(var(--radius-card) / 2);
+}
+
+.remove::before {
+  position: absolute;
+  content: '';
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('/icons/trash.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}

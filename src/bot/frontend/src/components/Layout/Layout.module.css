@@ -1,0 +1,17 @@
+.layout {
+  font-size: inherit;
+}
+
+.inner {
+  padding: var(--padding-main);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-card);
+}
+
+.inner section {
+  margin-bottom: calc(var(--padding-main) * 2);
+}
+
+.inner section:last-child {
+  margin-bottom: 0;
+}

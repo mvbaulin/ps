@@ -1,0 +1,80 @@
+.wrapper {
+  font-size: inherit;
+}
+
+.title {
+  font-size: 24px;
+  font-family: "Light";
+  line-height: 1.2em;
+  margin-bottom: var(--padding-main);
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.prices {
+  margin-bottom: var(--padding-main);
+}
+
+.price {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.price:last-child {
+  margin-bottom: 0;
+}
+
+.main_price {
+  font-size: 28px;
+}
+
+.rating {
+  display: block;
+  margin-left: auto;
+  text-align: end;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.stars {
+  margin-bottom: 10px;
+}
+
+.users {
+  display: block;
+  margin-left: auto;
+  text-align: end;
+  font-size: 10px;
+  color: var(--font-color-secondary);
+}
+
+.table {
+  width: 100%;
+  font-size: 13px;
+}
+
+.row{
+  display: flex;
+  margin-bottom: 21px;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.cell {
+  width: 50%;
+}
+
+.cell:first-child {
+  text-align: left;
+  color: var(--font-color-opacity);
+}
+
+.cell:last-child {
+  text-align: right;
+}

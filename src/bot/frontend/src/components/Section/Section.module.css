@@ -1,0 +1,9 @@
+.section {
+  padding-top: var(--padding-main);
+  padding-bottom: var(--padding-main);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}

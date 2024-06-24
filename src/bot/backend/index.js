@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 
 const token = '7011775641:AAFILk0PdjuQu_hvxnB2JKriJK59GbyL724';
-const webAppUrl = 'https://capable-lily-b51c6e.netlify.app';
+const webAppUrl = 'https://pstgbot.netlify.app';
 
 const bot = new TelegramBot(token, {polling: true});
 const app = express();
@@ -24,7 +24,7 @@ bot.on('message', async (msg) => {
     //   }
     // })
 
-    await bot.sendMessage(chatId, 'Текст', {
+    await bot.sendMessage(chatId, 'F.A.Q.', {
       reply_markup: {
         inline_keyboard: [
           [{text: 'Перейти в магазин', web_app: {url: webAppUrl}}]
@@ -76,7 +76,7 @@ app.post('/web-data', async (req, res) => {
   }
 })
 
-const PORT = 8080;
-app.listen(port, () => {
-  console.log(`Server started on port ${PORT}`);
-})
+// const PORT = 8080;
+// app.listen(port, () => {
+//   console.log(`Server started on port ${PORT}`);
+// })

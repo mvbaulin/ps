@@ -1,0 +1,86 @@
+.card {
+  background: lightgrey;
+  margin-bottom: 10px;
+  border-radius: var(--radius-card);
+  /* padding: var(--padding-main); */
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
+.wrapper_single {
+  width: 100%;
+  padding: var(--padding-main);
+}
+
+.wrapper_single:first-child {
+  padding-right: 5px;
+}
+
+.wrapper_single:last-child {
+  padding-left: 5px;
+}
+
+.wrapper_double {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.wrapper_single img {
+  margin: 0 auto;
+}
+
+.ps {
+  background: #9A9EA3;
+  background-image: url('/bg/ps.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  padding: var(--padding-main);
+}
+
+.ps img {
+  width: 180px;
+  height: 37.73px;
+}
+
+.ubisoft {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg-ubisoft-main);
+}
+
+.ubisoft img {
+  width: 107px;
+  height: 20px;
+}
+
+.gta {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg-gta-main);
+  background-image: url('/bg/gta.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.gta img {
+  width: 79px;
+  height: 56px;
+}
+
+.ea {
+  background: var(--bg-ea-main);
+  padding-top: var(--padding-main);
+}
+
+.ea img {
+  width: 117px;
+  height: 40px;
+  margin-left: var(--padding-main);
+}

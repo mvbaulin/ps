@@ -1,0 +1,46 @@
+.button {
+  height: 64px;
+  background: #FFFFFF;
+  padding: 17px 2px;
+  color: #000000;
+  border-radius: var(--radius-card);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.inner {
+  margin: 0 auto;
+}
+
+.ps-deluxe {
+  background: var(--bg-ps-deluxe);
+  color: var(--font-color-ps-deluxe);
+}
+
+.ps-extra {
+  background: var(--bg-ps-extra);
+  color: var(--font-color-ps-extra);
+}
+
+.ps-essential {
+  background: var(--bg-ps-essential);
+  color: var(--font-color-ps-essential);
+}
+
+.ubisoft {
+  background: var(--bg-ubisoft-secondary);
+  color: var(--font-color-ubisoft);
+}
+
+.gta {
+  background: var(--bg-gta-secondary);
+  color: var(--font-color-gta);
+}
+
+.ea {
+  background: var(--bg-ea-secondary);
+  color: var(--font-color-ea);
+}

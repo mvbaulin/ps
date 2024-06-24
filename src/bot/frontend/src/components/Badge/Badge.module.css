@@ -1,0 +1,42 @@
+.badge {
+  display: inline-block;
+  padding: 3px 6px;
+  margin-left: 10px;
+  font-size: 10px;
+  background: var(--bg-accent-secondary);
+  border-radius: 7px;
+  color: var(--font-color-accent);
+  line-height: 1;
+  min-width: 35px;
+  text-align: center;
+}
+
+.ps_deluxe {
+  background: var(--bg-ps-deluxe);
+  color: var(--font-color-ps-deluxe);
+}
+
+.ps_extra {
+  background: var(--bg-ps-extra);
+  color: var(--font-color-ps-extra);
+}
+
+.ps_essential {
+  background: var(--bg-ps-essential);
+  color: var(--font-color-ps-essential);
+}
+
+.ubisoft {
+  background: var(--bg-ubisoft-secondary);
+  color: var(--font-color-ubisoft);
+}
+
+.gta {
+  background: var(--bg-gta-secondary);
+  color: var(--font-color-gta);
+}
+
+.ea {
+  background: var(--bg-ea-secondary);
+  color: var(--font-color-ea);
+}
