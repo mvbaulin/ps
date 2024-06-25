@@ -52,16 +52,96 @@ app.get('/api/title/:id', async (req, res) => {
   }
 });
 
-app.get('/api/additional/:id', async (req, res) => {
+app.get('/api/addons/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const [rows] = await pool.query('CALL get_title_by_id(?)', [id]);
+    const [rows] = await pool.query('CALL get_addons(?)', [id]);
 
     if (!rows.length) {
       return res.status(404).json({ error: 'Title not found' });
     }
 
-    res.status(200).json(rows[0]);
+    res.status(200).json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
+app.get('/api/avatars/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [rows] = await pool.query('CALL get_avatars(?)', [id]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Title not found' });
+    }
+
+    res.status(200).json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
+app.get('/api/bundles/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [rows] = await pool.query('CALL get_bundles(?)', [id]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Title not found' });
+    }
+
+    res.status(200).json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
+app.get('/api/game_packs/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [rows] = await pool.query('CALL get_game_packs(?)', [id]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Title not found' });
+    }
+
+    res.status(200).json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
+app.get('/api/game_subscriptions/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [rows] = await pool.query('CALL get_game_subscriptions(?)', [id]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Title not found' });
+    }
+
+    res.status(200).json(rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
+app.get('/api/games/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [rows] = await pool.query('CALL get_games(?)', [id]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Title not found' });
+    }
+
+    res.status(200).json(rows);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });

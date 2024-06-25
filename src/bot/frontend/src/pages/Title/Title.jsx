@@ -55,7 +55,8 @@ const Title = () => {
       />
 
       <Selection
-
+        title="Другие издания"
+        items={[]}
       />
     </>
   );
