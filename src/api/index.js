@@ -5,7 +5,6 @@ import cors from 'cors';
 const API_HOST = 'localhost'
 const API_PORT = 5001;
 
-const cors = cors();
 const app = express();
 app.use(cors());
 app.use(express.json());
