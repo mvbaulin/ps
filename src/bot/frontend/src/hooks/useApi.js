@@ -1,6 +1,6 @@
 export function useApi() {
   const getData = async (query) => {
-    let url = `https://95.163.222.11:5001/api/${query}`
+    let url = `https://testtrtr.ru:5001/api/${query}`
 
     try {
       const response = await fetch(url);
