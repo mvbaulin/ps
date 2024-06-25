@@ -1,6 +1,8 @@
 import express from 'express'
 import mysql from 'mysql2/promise';
 import cors from 'cors';
+import https from 'https';
+import fs from 'fs';
 
 const API_HOST = 'localhost'
 const API_PORT = 5001;
@@ -162,7 +164,21 @@ app.get('/api/selection/has_ea_access_offer', async (req, res) => {
   }
 });
 
-app.listen(API_PORT, () => {
-  console.log(
-    "Server started on", `http://${API_HOST}:${API_PORT}`);
-})
+// app.listen(API_PORT, () => {
+//   console.log(
+//     "Server started on", `http://${API_HOST}:${API_PORT}`);
+// })
+
+const httpsOptions = {
+  key: fs.readFileSync('/etc/ssl/testtrtr_ru_private.key'),
+  cert: fs.readFileSync('/etc/ssl/testtrtr_ru.crt')
+};
+
+https.createServer(httpsOptions, app).listen(API_PORT, () => {
+  console.log("Server started on", `https://${API_HOST}:${API_PORT}`);
+});
+
+// testopajopa_ru.crt
+// testopajopa_ru_private.key
+// testtrtr_ru.crt
+// testtrtr_ru_private.key
