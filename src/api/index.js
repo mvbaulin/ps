@@ -91,7 +91,7 @@ app.get('/api/selection/pupalar_new', async (req, res) => {
       return res.status(404).json({ error: 'Titles not found' });
     }
 
-    res.status(200).json(rows[0]);
+    res.status(200).json(rows);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });
@@ -107,7 +107,7 @@ app.get('/api/selection/has_ps_plus_offer', async (req, res) => {
       return res.status(404).json({ error: 'Titles not found' });
     }
 
-    res.status(200).json(rows[0]);
+    res.status(200).json(rows);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });
@@ -123,7 +123,7 @@ app.get('/api/selection/has_gta_plus_offer', async (req, res) => {
       return res.status(404).json({ error: 'Titles not found' });
     }
 
-    res.status(200).json(rows[0]);
+    res.status(200).json(rows);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });
@@ -139,7 +139,7 @@ app.get('/api/selection/has_ubisoft_plus_offer', async (req, res) => {
       return res.status(404).json({ error: 'Titles not found' });
     }
 
-    res.status(200).json(rows[0]);
+    res.status(200).json(rows);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });
@@ -155,7 +155,7 @@ app.get('/api/selection/has_ea_access_offer', async (req, res) => {
       return res.status(404).json({ error: 'Titles not found' });
     }
 
-    res.status(200).json(rows[0]);
+    res.status(200).json(rows);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });

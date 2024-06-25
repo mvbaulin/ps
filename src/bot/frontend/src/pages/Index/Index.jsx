@@ -21,10 +21,10 @@ const Index = () => {
   return (
     <>
       <Header />
-      <Selection
+      {/* <Selection
         title="Горячие новинки"
         items={hots}
-      />
+      /> */}
       <Subscriptions />
     </>
   );
