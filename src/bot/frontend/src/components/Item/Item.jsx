@@ -3,11 +3,9 @@ import classes from './Item.module.css';
 import Price from '../Price/Price';
 
 const Item = (props) => {
-  console.log(props);
-  
   return (
     <li className={classes.item}>
-      <Link to={`title/${props.id}`} className={classes.link}>
+      <Link to={`/title/${props.id}`} className={classes.link}>
         <img src={props.cover} className={classes.img}/>
 
         <div className={classes.inner}>

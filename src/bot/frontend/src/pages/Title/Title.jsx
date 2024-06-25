@@ -2,39 +2,47 @@ import Header from '../../components/Header/Header';
 import TitleCover from '../../components/TitleCover/TitleCover';
 import GeneralInfo from '../../sections/GeneralInfo/GeneralInfo';
 import Selection from '../../components/Selection/Selection';
-import {useEffect, useState} from 'react';
+import {useEffect,  useState} from 'react';
 import {useHistory} from '../../hooks/useHistory';
 import {useTelegram} from '../../hooks/useTelegram';
 import {useParams} from 'react-router-dom';
 import {useApi} from '../../hooks/useApi';
 
 const Title = () => {
-  const history = useHistory();
-  const {onShowMainButton} = useTelegram();
-
-  useEffect(() => {
-    history.onBack();
-    onShowMainButton();
-    window.scrollTo(0, 0);
-  }, [])
-
+  const {onBack} = useHistory();
   const {getData} = useApi();
   const {id} = useParams();
   const [title, setTitle] = useState({});
+  const [addons, setAddons] = useState([]);
+  const [avatars, setAvatars] = useState([]);
+  const [bundles, setBundles] = useState([]);
+  const [gameSubscriptions, setGameSubscriptions] = useState([]);
+  const [games, setGames] = useState([]);
 
   useEffect(() => {
+    onBack();
+    window.scrollTo(0, 0);
     let isMounted = true;
 
-    const fetchTitle = async () => {
-      const data = await getData(`title/${id}`);
+    const fetchData = async () => {
+      const titleData = await getData(`title/${id}`);
+      const addonsData = await getData(`addons/${id}`);
+      const avatarsData = await getData(`avatars/${id}`);
+      const bundlesData = await getData(`bundles/${id}`);
+      const gameSubscriptionsData = await getData(`game_subscriptions/${id}`);
+      const gamesData = await getData(`games/${id}`);
 
       if (isMounted) {
-        setTitle(data[0]);
-        console.log(data);
+        setTitle(titleData[0]);
+        setAddons(addonsData);
+        setAvatars(avatarsData);
+        setBundles(bundlesData);
+        setGameSubscriptions(gameSubscriptionsData);
+        setGames(gamesData);
       }
     };
 
-    fetchTitle();
+    fetchData();
 
     return () => {
       isMounted = false;
@@ -54,10 +62,48 @@ const Title = () => {
         {...title}
       />
 
-      <Selection
-        title="Другие издания"
-        items={[]}
-      />
+      {games.length ?
+        <Selection
+          title="Другие издания"
+          items={games}
+        />
+        : null
+      }
+
+      {
+        bundles.length ?
+        <Selection
+        title="Бандлы"
+        items={bundles}
+        />
+        : null
+      }
+
+      {addons.length ?
+        <Selection
+          title="Дополнения"
+          items={addons}
+        />
+        : null
+      }
+
+      {
+        gameSubscriptions.length ?
+        <Selection
+        title="Игровые подписки"
+        items={gameSubscriptions}
+        />
+        : null
+      }
+
+      {
+        avatars.length ?
+        <Selection
+          title="Аватары"
+          items={avatars}
+        />
+        : null
+      }
     </>
   );
 };

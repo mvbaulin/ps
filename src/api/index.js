@@ -61,7 +61,7 @@ app.get('/api/addons/:id', async (req, res) => {
       return res.status(404).json({ error: 'Title not found' });
     }
 
-    res.status(200).json(rows);
+    res.status(200).json(rows[0]);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });
@@ -77,7 +77,7 @@ app.get('/api/avatars/:id', async (req, res) => {
       return res.status(404).json({ error: 'Title not found' });
     }
 
-    res.status(200).json(rows);
+    res.status(200).json(rows[0]);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });
@@ -93,7 +93,7 @@ app.get('/api/bundles/:id', async (req, res) => {
       return res.status(404).json({ error: 'Title not found' });
     }
 
-    res.status(200).json(rows);
+    res.status(200).json(rows[0]);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });
@@ -109,7 +109,7 @@ app.get('/api/game_packs/:id', async (req, res) => {
       return res.status(404).json({ error: 'Title not found' });
     }
 
-    res.status(200).json(rows);
+    res.status(200).json(rows[0]);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });
@@ -125,7 +125,7 @@ app.get('/api/game_subscriptions/:id', async (req, res) => {
       return res.status(404).json({ error: 'Title not found' });
     }
 
-    res.status(200).json(rows);
+    res.status(200).json(rows[0]);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });
@@ -141,7 +141,7 @@ app.get('/api/games/:id', async (req, res) => {
       return res.status(404).json({ error: 'Title not found' });
     }
 
-    res.status(200).json(rows);
+    res.status(200).json(rows[0]);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Database query failed' });
