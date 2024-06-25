@@ -10,9 +10,9 @@ app.use(express.json());
 const pool = mysql.createPool({
   host: API_HOST,
   user: 'admin',
-  password: 'admin',
-  database: 'ps_test',
-  port: '8889'
+  password: '12345slK',
+  database: 'ps_store',
+  port: '3306'
 });
 
 app.get('/api/concept/:id', async (req, res) => {
@@ -67,6 +67,87 @@ app.get('/api/search/:input', async (req, res) => {
   try {
     const { input } = req.params;
     const [rows] = await pool.query('CALL get_titles_by_search(?)', [input]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Titles not found' });
+    }
+
+    res.status(200).json(rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
+// Selections
+app.get('/api/selection/pupalar_new', async (req, res) => {
+  try {
+    const { input } = req.params;
+    const [rows] = await pool.query('SELECT * FROM v_popular_new', [input]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Titles not found' });
+    }
+
+    res.status(200).json(rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
+app.get('/api/selection/has_ps_plus_offer', async (req, res) => {
+  try {
+    const { input } = req.params;
+    const [rows] = await pool.query('SELECT * FROM has_ps_plus_offer', [input]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Titles not found' });
+    }
+
+    res.status(200).json(rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
+app.get('/api/selection/has_gta_plus_offer', async (req, res) => {
+  try {
+    const { input } = req.params;
+    const [rows] = await pool.query('SELECT * FROM has_gta_plus_offer', [input]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Titles not found' });
+    }
+
+    res.status(200).json(rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
+app.get('/api/selection/has_ubisoft_plus_offer', async (req, res) => {
+  try {
+    const { input } = req.params;
+    const [rows] = await pool.query('SELECT * FROM has_ubisoft_plus_offer', [input]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Titles not found' });
+    }
+
+    res.status(200).json(rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
+app.get('/api/selection/has_ea_access_offer', async (req, res) => {
+  try {
+    const { input } = req.params;
+    const [rows] = await pool.query('SELECT * FROM has_ea_access_offer', [input]);
 
     if (!rows.length) {
       return res.status(404).json({ error: 'Titles not found' });

@@ -195,6 +195,50 @@ CREATE VIEW v_info AS
     ORDER BY i.date DESC
     LIMIT 1;
 
+DROP VIEW IF EXISTS v_popular_new;
+CREATE VIEW v_popular_new AS
+    SELECT *
+    FROM titles t
+    WHERE t.on_sale = TRUE
+    AND t.product_type = 'Game'
+    ORDER BY t.rating DESC, t.release_date DESC
+    LIMIT 10;
+
+DROP VIEW IF EXISTS v_has_ps_plus_offer;
+CREATE VIEW v_has_ps_plus_offer AS
+    SELECT *
+    FROM titles t
+    WHERE t.on_sale = TRUE
+    AND t.has_ps_plus
+    ORDER BY t.rating DESC, t.release_date DESC
+    LIMIT 10;
+
+DROP VIEW IF EXISTS v_has_gta_plus_offer;
+CREATE VIEW v_has_gta_plus_offer AS
+    SELECT *
+    FROM titles t
+    WHERE t.on_sale = TRUE
+    AND t.has_gta_plus
+    ORDER BY t.rating DESC, t.release_date DESC
+    LIMIT 10;
+
+DROP VIEW IF EXISTS v_has_ubisoft_plus_offer;
+CREATE VIEW v_has_ubisoft_plus_offer AS
+    SELECT *
+    FROM titles t
+    WHERE t.on_sale = TRUE
+    AND t.has_ubisoft_plus
+    ORDER BY t.rating DESC, t.release_date DESC
+    LIMIT 10;
+
+DROP VIEW IF EXISTS v_has_ea_access_offer;
+CREATE VIEW v_has_ea_access_offer AS
+    SELECT *
+    FROM titles t
+    WHERE t.on_sale = TRUE
+    AND t.has_ea_access
+    ORDER BY t.rating DESC, t.release_date DESC
+    LIMIT 10;
 
 -- Procedures
 DROP PROCEDURE IF EXISTS get_titles;
