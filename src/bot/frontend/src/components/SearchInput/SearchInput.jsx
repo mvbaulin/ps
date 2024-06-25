@@ -1,4 +1,5 @@
 import TitleCover from '../TitleCover/TitleCover';
+import Selection from '../Selection/Selection';
 import {useState, useEffect} from 'react';
 import classes from './SearchInput.module.css';
 import {useApi} from '../../hooks/useApi';
@@ -8,6 +9,13 @@ const SearchInput = ({limit = 5}) => {
   const [input, setInput] = useState('');
   const [search, setSearch] = useState([]);
   const {getData} = useApi();
+
+  const [addons, setAddons] = useState([]);
+  const [avatars, setAvatars] = useState([]);
+  const [bundles, setBundles] = useState([]);
+  const [gameSubscriptions, setGameSubscriptions] = useState([]);
+  const [games, setGames] = useState([]);
+  const [currency, setCurrency] = useState([]);
 
   const handleInput = (e) => {
     setInput(e.target.value);
@@ -21,6 +29,12 @@ const SearchInput = ({limit = 5}) => {
         const data = await getData(`search/${input}`);
         if (isMounted) {
           setSearch(data);
+          setAddons(data.filter(item => item.product_type === 'Add-on'))
+          setGameSubscriptions(data.filter(item => item.product_type === 'Subscription'))
+          setGames(data.filter(item => item.product_type === 'Game'))
+          setCurrency(data.filter(item => item.product_type === 'Virtual Currency'))
+          setBundles(data.filter(item => item.product_type === 'Bundle'))
+          setAvatars(data.filter(item => item.product_type === 'Avatar'))
         }
 
         console.log(data);
@@ -32,6 +46,12 @@ const SearchInput = ({limit = 5}) => {
       };
     } else {
       setSearch([]);
+      setAddons([]);
+      setGameSubscriptions([]);
+      setGames([]);
+      setCurrency([]);
+      setBundles([]);
+      setAvatars([]);
     }
   }, [input]);
 
@@ -51,7 +71,7 @@ const SearchInput = ({limit = 5}) => {
       {
         search.length ?
         <ul className={classes.suggest}>
-          {search.slice(0, limit).map((item, index) => {
+          {search.slice(0, limit).map((item) => {
             return (
               <li
                 key={item.id}
@@ -76,6 +96,59 @@ const SearchInput = ({limit = 5}) => {
         :
         null
       }
+
+      {games.length ?
+        <Selection
+          title="Игры"
+          items={games}
+        />
+        : null
+      }
+
+      {
+        bundles.length ?
+        <Selection
+        title="Бандлы"
+        items={bundles}
+        />
+        : null
+      }
+
+      {addons.length ?
+        <Selection
+          title="Дополнения"
+          items={addons}
+        />
+        : null
+      }
+
+      {
+        gameSubscriptions.length ?
+        <Selection
+        title="Игровые подписки"
+        items={gameSubscriptions}
+        />
+        : null
+      }
+
+      {
+        currency.length ?
+        <Selection
+          title="Игровая валюта"
+          items={currency}
+          />
+          : null
+      }
+
+      {
+        avatars.length ?
+        <Selection
+          title="Аватары"
+          items={avatars}
+        />
+        : null
+      }
+
     </div>
   );
 };
