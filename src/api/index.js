@@ -5,7 +5,7 @@ import https from 'https';
 import fs from 'fs';
 
 // const API_HOST = 'localhost'
-const API_HOST = 'https://testtrtr.ru'
+const API_HOST = 'testtrtr.ru'
 const API_PORT = 5001;
 
 const app = express();
