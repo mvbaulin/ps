@@ -4,7 +4,8 @@ import cors from 'cors';
 import https from 'https';
 import fs from 'fs';
 
-const API_HOST = 'localhost'
+// const API_HOST = 'localhost'
+const API_HOST = 'https://testtrtr.ru'
 const API_PORT = 5001;
 
 const app = express();
@@ -173,6 +174,14 @@ const httpsOptions = {
   key: fs.readFileSync('/etc/ssl/testtrtr_ru_private.key'),
   cert: fs.readFileSync('/etc/ssl/testtrtr_ru.crt')
 };
+
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] !== 'https') {
+    res.redirect(`https://${req.headers.host}${req.url}`);
+  } else {
+    next();
+  }
+});
 
 https.createServer(httpsOptions, app).listen(API_PORT, () => {
   console.log("Server started on", `https://${API_HOST}:${API_PORT}`);
