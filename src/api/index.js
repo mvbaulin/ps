@@ -99,7 +99,7 @@ app.get('/api/selection/pupalar_new', async (req, res) => {
 app.get('/api/selection/has_ps_plus_offer', async (req, res) => {
   try {
     const { input } = req.params;
-    const [rows] = await pool.query('SELECT * FROM has_ps_plus_offer', [input]);
+    const [rows] = await pool.query('SELECT * FROM v_has_ps_plus_offer', [input]);
 
     if (!rows.length) {
       return res.status(404).json({ error: 'Titles not found' });
@@ -115,7 +115,7 @@ app.get('/api/selection/has_ps_plus_offer', async (req, res) => {
 app.get('/api/selection/has_gta_plus_offer', async (req, res) => {
   try {
     const { input } = req.params;
-    const [rows] = await pool.query('SELECT * FROM has_gta_plus_offer', [input]);
+    const [rows] = await pool.query('SELECT * FROM v_has_gta_plus_offer', [input]);
 
     if (!rows.length) {
       return res.status(404).json({ error: 'Titles not found' });
@@ -131,7 +131,7 @@ app.get('/api/selection/has_gta_plus_offer', async (req, res) => {
 app.get('/api/selection/has_ubisoft_plus_offer', async (req, res) => {
   try {
     const { input } = req.params;
-    const [rows] = await pool.query('SELECT * FROM has_ubisoft_plus_offer', [input]);
+    const [rows] = await pool.query('SELECT * FROM v_has_ubisoft_plus_offer', [input]);
 
     if (!rows.length) {
       return res.status(404).json({ error: 'Titles not found' });
@@ -147,7 +147,7 @@ app.get('/api/selection/has_ubisoft_plus_offer', async (req, res) => {
 app.get('/api/selection/has_ea_access_offer', async (req, res) => {
   try {
     const { input } = req.params;
-    const [rows] = await pool.query('SELECT * FROM has_ea_access_offer', [input]);
+    const [rows] = await pool.query('SELECT * FROM v_has_ea_access_offer', [input]);
 
     if (!rows.length) {
       return res.status(404).json({ error: 'Titles not found' });
