@@ -26,7 +26,7 @@ const GeneralInfo = (props) => {
           <div className={classes.grid}>
             <ul className={classes.prices}>
               {props.has_offer_none === 1 &&
-                <li className={`${classes.price} ${classes.main_price}`}>
+                <li className={classes.price}>
                   <Price
                     price={props.offer_none_original_price}
                     discount={props.offer_none_discount_price}
@@ -94,7 +94,9 @@ const GeneralInfo = (props) => {
               </div>
 
               <span className={classes.users}>
-                Оценки: {props.users}
+                {
+                  props.users ? ` Оценки: ${props.users}` : 'Оценки: 0'
+                }
               </span>
             </div>
           </div>
@@ -104,6 +106,17 @@ const GeneralInfo = (props) => {
       <div className={classes.info_wrapper}>
         <Layout>
           <div className={classes.table}>
+            <div className={classes.row}>
+              <div className={classes.cell}>
+                Дата парсинга:
+              </div>
+              <div className={classes.cell}>
+                {
+                  getFormatedDate(props.update_date)
+                }
+              </div>
+            </div>
+
             <div className={classes.row}>
               <div className={classes.cell}>
                 Платформы:

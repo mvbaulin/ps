@@ -36,8 +36,6 @@ const SearchInput = ({limit = 5}) => {
           setBundles(data.filter(item => item.product_type === 'Bundle'))
           setAvatars(data.filter(item => item.product_type === 'Avatar'))
         }
-
-        console.log(data);
       };
       fetchData();
 

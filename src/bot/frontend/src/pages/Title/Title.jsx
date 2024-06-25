@@ -10,6 +10,7 @@ import {useApi} from '../../hooks/useApi';
 
 const Title = () => {
   const {onBack} = useHistory();
+  const {onShowMainButton} = useTelegram();
   const {getData} = useApi();
   const {id} = useParams();
   const [title, setTitle] = useState({});
@@ -17,10 +18,13 @@ const Title = () => {
   const [avatars, setAvatars] = useState([]);
   const [bundles, setBundles] = useState([]);
   const [gameSubscriptions, setGameSubscriptions] = useState([]);
+  const [gameCurrency, setGameCurrency] = useState([]);
   const [games, setGames] = useState([]);
 
   useEffect(() => {
     onBack();
+    onShowMainButton();
+
     window.scrollTo(0, 0);
     let isMounted = true;
 
@@ -30,6 +34,7 @@ const Title = () => {
       const avatarsData = await getData(`avatars/${id}`);
       const bundlesData = await getData(`bundles/${id}`);
       const gameSubscriptionsData = await getData(`game_subscriptions/${id}`);
+      const currencyData = await getData(`virtual_currency/${id}`);
       const gamesData = await getData(`games/${id}`);
 
       if (isMounted) {
@@ -38,6 +43,7 @@ const Title = () => {
         setAvatars(avatarsData);
         setBundles(bundlesData);
         setGameSubscriptions(gameSubscriptionsData);
+        setGameCurrency(currencyData);
         setGames(gamesData);
       }
     };
@@ -48,6 +54,8 @@ const Title = () => {
       isMounted = false;
     };
   }, [id]);
+
+  console.log(title);
 
   return (
     <>
@@ -83,6 +91,14 @@ const Title = () => {
         <Selection
           title="Дополнения"
           items={addons}
+        />
+        : null
+      }
+
+      {gameCurrency.length ?
+        <Selection
+          title="Игровая валюта"
+          items={gameCurrency}
         />
         : null
       }

@@ -148,6 +148,22 @@ app.get('/api/games/:id', async (req, res) => {
   }
 });
 
+app.get('/api/virtual_currency/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const [rows] = await pool.query('CALL get_virtual_currency(?)', [id]);
+
+    if (!rows.length) {
+      return res.status(404).json({ error: 'Title not found' });
+    }
+
+    res.status(200).json(rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Database query failed' });
+  }
+});
+
 app.get('/api/search/:input', async (req, res) => {
   try {
     const { input } = req.params;
