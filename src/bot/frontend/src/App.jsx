@@ -17,6 +17,7 @@ function App() {
   const {tg} = useTelegram();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     tg.ready();
     tg.expand();
   }, [])

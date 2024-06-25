@@ -22,6 +22,7 @@ const Cart = () => {
   useEffect(() => {
     history.onBack();
     onShowMainButton();
+    window.scrollTo(0, 0);
   }, [])
 
   const cart = [

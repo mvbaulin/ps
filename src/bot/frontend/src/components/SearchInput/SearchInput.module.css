@@ -1,6 +1,5 @@
 .search {
   position: relative;
-  /* padding-top: var(--padding-main); */
 }
 
 
@@ -22,7 +21,7 @@
 .input {
   width: 100%;
   background: var(--bg-secondary);
-  padding: 8px 16px;
+  padding: 28px 16px;
   padding-left: calc(var(--padding-main) + var(--padding-main) + 24px);
   font-size: 14px;
   height: 40px;
@@ -43,20 +42,30 @@
   cursor: pointer;
 }
 
+.item a {
+  display: block;
+  width: 100%;
+}
+
 .item:hover {
   background: var(--bg-secondary);
 }
 
-.inner {
-  width: 30px;
-  max-width: 30px;
-  min-width: 30px;
+.content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.image_wrapper {
+  max-width: 40px;
+  min-width: 40px;
   margin-right: 10px;
 }
 
-.inner section,
-.inner img {
-  border-radius: 5px;
+.content section,
+.content img {
+  border-radius: 0px;
 }
 
 .title {

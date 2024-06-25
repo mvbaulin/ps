@@ -52,6 +52,10 @@
   color: var(--font-color-secondary);
 }
 
+.info_wrapper {
+  margin-top: 10px;
+}
+
 .table {
   width: 100%;
   font-size: 13px;
@@ -67,8 +71,15 @@
 }
 
 .cell {
-  width: 50%;
   line-height: 1.2;
+}
+
+.cell:first-child {
+  width: 30%;
+}
+
+.cell:last-child {
+  width: 70%;
 }
 
 .cell:first-child {

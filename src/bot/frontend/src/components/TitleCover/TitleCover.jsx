@@ -1,10 +1,12 @@
 import classes from './TitleCover.module.css';
 
 const TitleCover = ({cover, platforms = ''}) => {
+  let platformsArr = platforms ? platforms.split(',') : [];
+
   const pl = {
-    ps4: platforms.includes('PS4'),
-    ps5: platforms.includes('PS5'),
-  }
+    ps4: platformsArr.includes('PS4'),
+    ps5: platformsArr.includes('PS5'),
+  };
 
   return (
     <section className={classes.cover}>

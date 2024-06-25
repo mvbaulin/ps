@@ -7,6 +7,7 @@ const User = () => {
 
   useEffect(() => {
     history.onBack();
+    window.scrollTo(0, 0);
   }, [])
 
   return (

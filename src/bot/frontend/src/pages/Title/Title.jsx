@@ -1,6 +1,7 @@
 import Header from '../../components/Header/Header';
 import TitleCover from '../../components/TitleCover/TitleCover';
 import GeneralInfo from '../../sections/GeneralInfo/GeneralInfo';
+import Selection from '../../components/Selection/Selection';
 import {useEffect, useState} from 'react';
 import {useHistory} from '../../hooks/useHistory';
 import {useTelegram} from '../../hooks/useTelegram';
@@ -14,6 +15,7 @@ const Title = () => {
   useEffect(() => {
     history.onBack();
     onShowMainButton();
+    window.scrollTo(0, 0);
   }, [])
 
   const {getData} = useApi();
@@ -23,7 +25,7 @@ const Title = () => {
   useEffect(() => {
     let isMounted = true;
 
-    const fetchData = async () => {
+    const fetchTitle = async () => {
       const data = await getData(`title/${id}`);
 
       if (isMounted) {
@@ -32,7 +34,7 @@ const Title = () => {
       }
     };
 
-    fetchData();
+    fetchTitle();
 
     return () => {
       isMounted = false;
@@ -50,6 +52,10 @@ const Title = () => {
 
       <GeneralInfo
         {...title}
+      />
+
+      <Selection
+
       />
     </>
   );

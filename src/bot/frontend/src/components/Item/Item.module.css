@@ -14,11 +14,12 @@
 }
 
 .inner {
-  padding: 10px 0px;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .name {
-  margin-top: 10px;
+  margin-top: 5px;
   font-family: 'Light';
   font-size: 13px;
 }

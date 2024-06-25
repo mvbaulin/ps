@@ -1,20 +1,39 @@
 import TitleCover from '../TitleCover/TitleCover';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import classes from './SearchInput.module.css';
+import {useApi} from '../../hooks/useApi';
+import {Link} from 'react-router-dom';
 
-const SearchInput = () => {
-  const [search, setSearch] = useState('');
+const SearchInput = ({limit = 5}) => {
+  const [input, setInput] = useState('');
+  const [search, setSearch] = useState([]);
+  const {getData} = useApi();
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
+  const handleInput = (e) => {
+    setInput(e.target.value);
   };
 
-  const items = [
-    {id: 1, title: 'first', price: 11123, discount: 50213, cover: 'https://get.wallhere.com/photo/2560x1600-px-flowers-stones-zen-1743055.jpg', url: '/title', platform_ps4: true, platform_ps5: true},
-    {id: 2, title: 'kjfalkjflakfjalkj kajsflkj aljfkj kajs lkajfklaj askjfklasjfkajs kasjfl fjkajfaljf jfkajflkasj kfjaslf kjklfjalfj', price: 222, discount: 200, cover: 'https://img.goodfon.ru/original/1728x972/b/c9/pole-nebo-gorizont-peyzazh.jpg', url: '/title', platform_ps4: true,  platform_ps5: true},
-    {id: 3, title: 'third', price: 333, discount: 200, cover: 'https://www.zastavki.com/pictures/originals/2014/World___USA_Wonderful_Yosemite_National_Park__California__USA_060738_.jpg', url: '/title', platform_ps4: true,  platform_ps5: false},
-    {id: 4, title: 'forth', price: 444, discount: 200, cover: 'https://wallbox.ru/wallpapers/main/201502/6034bcdddd14620.jpg', url: '/title'},
-  ];
+  useEffect(() => {
+    if (input.length >= 3) {
+      let isMounted = true;
+
+      const fetchData = async () => {
+        const data = await getData(`search/${input}`);
+        if (isMounted) {
+          setSearch(data);
+        }
+
+        console.log(data);
+      };
+      fetchData();
+
+      return () => {
+        isMounted = false;
+      };
+    } else {
+      setSearch([]);
+    }
+  }, [input]);
 
   return (
     <div className={classes.search}>
@@ -22,29 +41,41 @@ const SearchInput = () => {
         <input
           className={classes.input}
           type="text"
-          value={search}
-          onChange={handleSearch}
+          value={input}
+          onChange={handleInput}
           placeholder="Поиск"
           autoFocus
         />
       </div>
 
-      <ul className={classes.suggest}>
-        {
-          items.map((item) => {
+      {
+        search.length ?
+        <ul className={classes.suggest}>
+          {search.slice(0, limit).map((item, index) => {
             return (
-              <li key={item.id} className={classes.item}>
-                <div className={classes.inner}>
-                  {/* <TitleCover
-                    coverUrl={item.cover}
-                  /> */}
-                </div>
-                <p className={classes.title}>{item.title}</p>
+              <li
+                key={item.id}
+                className={classes.item}
+              >
+                <Link to={`/title/${item.id}`}>
+                  <div className={classes.content}>
+                    <div className={classes.image_wrapper}>
+                      <TitleCover
+                        cover={item.cover}
+                      />
+                    </div>
+                    <p className={classes.title}>
+                      {item.title}
+                    </p>
+                  </div>
+                </Link>
               </li>
             )
-          })
-        }
-      </ul>
+          })}
+        </ul>
+        :
+        null
+      }
     </div>
   );
 };

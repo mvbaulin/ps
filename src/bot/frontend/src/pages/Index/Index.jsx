@@ -10,7 +10,7 @@ const Index = () => {
 
   useEffect(() => {
     let isMounted = true;
-  
+    
     const fetchData = async () => {
       const data = await getData('selection/pupalar_new');
       if (isMounted) {
