@@ -5,7 +5,7 @@ import {useTelegram} from './hooks/useTelegram';
 import 'normalize.css';
 import './fonts.css';
 import './variables.css';
-import './App.css';
+import './ThemeDark.css';
 
 import Index from './pages/Index/Index'
 import User from './pages/User/User'
