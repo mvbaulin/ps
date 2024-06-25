@@ -1,6 +1,9 @@
 import classes from './TitleCover.module.css';
+import {useState} from 'react';
 
 const TitleCover = ({cover, platforms = ''}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   let platformsArr = platforms ? platforms.split(',') : [];
 
   const pl = {
@@ -8,15 +11,18 @@ const TitleCover = ({cover, platforms = ''}) => {
     ps5: platformsArr.includes('PS5'),
   };
 
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
   return (
     <section className={classes.cover}>
+      <img className={classes.blur} src={cover} />
       <img
-        className={classes.blur}
+        className={`${classes.img} ${imageLoaded ? classes.fade_in : ''}`}
         src={cover}
-      />
-      <img
-        className={classes.img}
-        src={cover}
+        onLoad={handleImageLoad}
+        alt="Cover"
       />
 
       {(pl.ps4 || pl.ps5) &&
