@@ -9,22 +9,30 @@ const Index = () => {
   const [hots, setHots] = useState([]);
 
   useEffect(() => {
+    let isMounted = true;
+  
     const fetchData = async () => {
       const data = await getData('selection/pupalar_new');
-      setHots(data);
-
-      console.log(data);
+      if (isMounted) {
+        setHots(data);
+        console.log(data);
+      }
     };
     fetchData();
+  
+    return () => {
+      isMounted = false;
+    };
   }, []);
+  
 
   return (
     <>
       <Header />
-      {/* <Selection
+      <Selection
         title="Горячие новинки"
         items={hots}
-      /> */}
+      />
       <Subscriptions />
     </>
   );

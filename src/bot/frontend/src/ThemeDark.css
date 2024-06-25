@@ -30,7 +30,8 @@ h6,
 p,
 ul,
 button,
-input {
+input,
+img {
   margin: 0;
   padding: 0;
   border: none;

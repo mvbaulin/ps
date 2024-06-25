@@ -10,6 +10,7 @@
   object-position: center center;
   border-radius: var(--radius-card);
   aspect-ratio: 1/1;
+  border: none;
 }
 
 .inner {

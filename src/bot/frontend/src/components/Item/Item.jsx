@@ -3,28 +3,22 @@ import classes from './Item.module.css';
 import Price from '../Price/Price';
 
 const Item = (props) => {
-  const {
-    title,
-    url,
-    price,
-    discount,
-    img
-  } = props;
+  console.log(props);
   
   return (
     <li className={classes.item}>
-      <Link to={url} className={classes.link}>
-        <img src={img} className={classes.img}/>
+      <Link to={props.url} className={classes.link}>
+        <img src={props.cover} className={classes.img}/>
 
         <div className={classes.inner}>
           <Price
-            price={price}
-            discount={discount}
+            price={props.offer_none_original_price}
+            discount={props.offer_none_discount_price}
             showDiscount={false}
           />
 
           <p className={classes.name}>
-            {title}
+            {props.title}
           </p>
         </div>
       </Link>

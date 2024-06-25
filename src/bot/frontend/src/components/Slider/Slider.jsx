@@ -10,11 +10,7 @@ const Slider = ({items}) => {
             return (
               <Item
                 key={item.id}
-                img={item.img}
-                title={item.title}
-                price={item.price}
-                discount={item.discount}
-                url={item.url}
+                {...item}
               />
             )
           })
