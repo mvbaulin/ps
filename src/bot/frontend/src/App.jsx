@@ -25,9 +25,9 @@ function App() {
     <Routes>
       <Route index element={<Index />} />
       <Route path={'search'} element={<Search />} />
-      <Route path={'title'} element={<Title />} />
       <Route path={'user'} element={<User />} />
       <Route path={'cart'} element={<Cart />} />
+      <Route path={'title/:id'} element={<Title />} />
     </Routes>
   );
 }

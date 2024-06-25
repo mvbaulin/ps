@@ -35,9 +35,9 @@ const SearchInput = () => {
             return (
               <li key={item.id} className={classes.item}>
                 <div className={classes.inner}>
-                  <TitleCover
+                  {/* <TitleCover
                     coverUrl={item.cover}
-                  />
+                  /> */}
                 </div>
                 <p className={classes.title}>{item.title}</p>
               </li>

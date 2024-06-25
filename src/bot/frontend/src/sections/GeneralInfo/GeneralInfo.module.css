@@ -68,6 +68,7 @@
 
 .cell {
   width: 50%;
+  line-height: 1.2;
 }
 
 .cell:first-child {

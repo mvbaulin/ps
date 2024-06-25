@@ -7,7 +7,7 @@ const Item = (props) => {
   
   return (
     <li className={classes.item}>
-      <Link to={props.url} className={classes.link}>
+      <Link to={`title/${props.id}`} className={classes.link}>
         <img src={props.cover} className={classes.img}/>
 
         <div className={classes.inner}>

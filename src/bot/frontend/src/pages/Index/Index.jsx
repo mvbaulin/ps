@@ -15,7 +15,6 @@ const Index = () => {
       const data = await getData('selection/pupalar_new');
       if (isMounted) {
         setHots(data);
-        console.log(data);
       }
     };
     fetchData();

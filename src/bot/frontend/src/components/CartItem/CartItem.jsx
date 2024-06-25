@@ -10,9 +10,9 @@ const CartItem = (props) => {
         <div className={classes.wrapper}>
           <div className={classes.inner}>
             <div className={classes.cover}>
-              <TitleCover
+              {/* <TitleCover
                 coverUrl={props.cover}
-              />
+              /> */}
             </div>
 
             <div className={classes.info}>

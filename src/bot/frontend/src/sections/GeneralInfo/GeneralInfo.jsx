@@ -6,12 +6,21 @@ import StarRating from '../../components/StarRating/StarRating';
 import Layout from '../../components/Layout/Layout';
 
 const GeneralInfo = (props) => {
+  const getFormatedDate = (date) => {
+    if (date) {
+      const formatedDate = new Date(date);
+      return `${formatedDate.getDate()}.${(formatedDate.getMonth() + 1).toString().padStart(2, '0')}.${formatedDate.getFullYear()}`;
+    }
+
+    return '';
+  }
+
   return (
     <Section>
       <Container>
         <div className={classes.wrapper}>
           <h1 className={classes.title}>
-            Lorem ipsum dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.
+            {props.title}
           </h1>
 
           <div className={classes.grid}>
@@ -63,15 +72,15 @@ const GeneralInfo = (props) => {
 
             <div className={classes.ratings}>
               <span className={classes.rating}>
-                3.71
+                {props.rating}
               </span>
 
               <div className={classes.stars}>
-                <StarRating rating={3.71}/>
+                <StarRating rating={props.rating}/>
               </div>
 
               <span className={classes.users}>
-                Оценки: 237881
+                Оценки: {props.users}
               </span>
             </div>
           </div>
@@ -85,7 +94,7 @@ const GeneralInfo = (props) => {
               Жанр:
             </div>
             <div className={classes.cell}>
-              Action
+              {props.genres}
             </div>
           </div>
 
@@ -94,7 +103,7 @@ const GeneralInfo = (props) => {
               Голос:
             </div>
             <div className={classes.cell}>
-              Russian, English
+              {props.voice}
             </div>
           </div>
 
@@ -103,7 +112,7 @@ const GeneralInfo = (props) => {
               Текст:
             </div>
             <div className={classes.cell}>
-              Russian, English
+              {props.screen_languages}
             </div>
           </div>
 
@@ -112,7 +121,7 @@ const GeneralInfo = (props) => {
               Дата релиза:
             </div>
             <div className={classes.cell}>
-              26.11.2019
+              {getFormatedDate(props.release_date)}
             </div>
           </div>
         </div>
