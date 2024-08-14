@@ -57,6 +57,13 @@ store = {
     'output_file': f'../catalogs/{Region.TR.value}_browse.json'
 }
 
+button_node_filter = "button[data-qa='ems-sdk-grid-sort-filter-btn-mobile']"
+button_node_sort = "button[data-qa='ems-sdk-collapsible-menu--sort']"
+old_to_new_node = "(//label[contains(@class, 'psw-text-list-radio')])[5]"
+button_next_node = (
+    "button[data-qa='ems-sdk-grid#ems-sdk-top-paginator-root#next']"
+)
+
 
 def get_pages(url: str):
     try:
@@ -69,22 +76,19 @@ def get_pages(url: str):
         wait = WebDriverWait(driver, 10)
 
         button_mobile = wait.until(EC.visibility_of_element_located(
-            (By.CSS_SELECTOR,
-             "button[data-qa='ems-sdk-grid-sort-filter-btn-mobile']")))
+            (By.CSS_SELECTOR, button_node_filter)))
         button_mobile.click()
 
         time.sleep(10)
 
         button_sort = wait.until(EC.visibility_of_element_located(
-            (By.CSS_SELECTOR,
-             "button[data-qa='ems-sdk-collapsible-menu--sort']")))
+            (By.CSS_SELECTOR, button_node_sort)))
         button_sort.click()
 
         time.sleep(10)
 
         button_choise = wait.until(EC.visibility_of_element_located(
-            (By.XPATH,
-             "//label[@for='input-87']")))
+            (By.XPATH, old_to_new_node)))
         button_choise.click()
 
         cur_page = args.f
@@ -96,9 +100,7 @@ def get_pages(url: str):
                 "window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(5)
             button_next = wait.until(EC.visibility_of_element_located(
-                (By.CSS_SELECTOR,
-                 "button[data-qa='ems-sdk-grid"
-                 "#ems-sdk-top-paginator-root#next']")))
+                (By.CSS_SELECTOR, button_next_node)))
 
             with open(f"pages/page_{cur_page}.html",
                       "w", encoding="utf-8") as file:
