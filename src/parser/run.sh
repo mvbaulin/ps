@@ -23,7 +23,12 @@ process_url() {
 }
 
 declare -i i=1
-urls=($(jq -r '.[].title_url' "$JSON_FILE" | sed -n "${START_INDEX},${END_INDEX}p"))
+
+urls=()
+while IFS= read -r line; do
+    urls+=("$line")
+done < <(jq -r '.[].title_url' "$JSON_FILE" | sed -n "${START_INDEX},${END_INDEX}p")
+
 for url in "${urls[@]}"; do
     process_url "$url"
     curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=[INFO] $i/$END_INDEX done" $URL > /dev/null

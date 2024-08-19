@@ -1,10 +1,6 @@
 #!/bin/bash
 
-echo 'Title parser has been connected to VPN'
-shortcuts run "Connect PS_VPN"
-
+# shellcheck disable=SC1091
 source venv/bin/activate
+# shellcheck disable=SC2086
 python3 ./title.py $1 $2
-
-# echo 'Disconnect VPN'
-# shortcuts run "Disconnect VPN"

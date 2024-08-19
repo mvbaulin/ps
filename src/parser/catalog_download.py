@@ -1,15 +1,17 @@
 import argparse
-import requests
+import requests  # type: ignore
 import datetime
 from pathlib import Path
 import logging
 from enum import Enum
 import sys
 import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver  # type: ignore
+from selenium.webdriver.common.by import By  # type: ignore
+from selenium.webdriver.support.ui import WebDriverWait  # type: ignore
+from selenium.webdriver.support import (  # type: ignore
+    expected_conditions as EC
+)
 from notificator import send_notification
 
 
@@ -132,6 +134,9 @@ def main(store: object):
     except InvalidRange:
         logging.error(f"Invalid arguments (from: {args.f}, to: {args.t}) "
                       f"for getting pages")
+    except Exception as e:
+        logging.error(f'Catalog downloader error {e}')
+        send_notification('[ERROR] Catalog downloader error')
 
 
 main(store)

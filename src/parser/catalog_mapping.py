@@ -1,11 +1,11 @@
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup  # type: ignore
 import json
 from datetime import datetime
 import re
 import logging
 import sys
 import os
-import mysql.connector
+import mysql.connector  # type: ignore
 from db import DB_test as DB
 
 

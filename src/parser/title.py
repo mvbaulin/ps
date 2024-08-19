@@ -1,6 +1,6 @@
 import argparse
-from bs4 import BeautifulSoup
-import requests
+from bs4 import BeautifulSoup  # type: ignore
+import requests  # type: ignore
 import json
 from datetime import datetime
 import logging
@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 import time
 import re
-import mysql.connector
+import mysql.connector  # type: ignore
 from db import DB_test as DB
 from notificator import send_notification
 
@@ -46,9 +46,13 @@ def get_title(concept: object):
         title_response = requests.get(concept['title_url'])
         title_soup = BeautifulSoup(title_response.text, 'lxml')
 
+        hero_node = title_soup.find('img', attrs={'data-qa':
+                                    'gameBackgroundImage#heroImage#preview'})
+
         title_add_data = {
             'type': 'title',
-            'cover_url': concept['title_cover']
+            'cover_url': concept['title_cover'],
+            'background_url': get_background(hero_node)
         }
         title = get_data_from_page(
             concept, concept["title_url"], title_add_data)
@@ -59,14 +63,11 @@ def get_title(concept: object):
         dlc_node = title_soup.find('ul', attrs={'data-qa': 'add-ons'})
         if dlc_node:
             for i in dlc_node.find_all('li'):
-                dlc_url = i.find('a')['href']
                 dlc_cover = i.find('img', class_='psw-l-fit-cover')
-                cover = dlc_cover['src']
-                cleaned_cover_url = re.sub(r'\?.*$', '', cover)
                 item = {
                     'type': 'dlc',
-                    'url': dlc_url,
-                    'cover_url': cleaned_cover_url
+                    'url': i.find('a')['href'],
+                    'cover_url': clean_image_url(dlc_cover['src'])
                 }
                 dlc_list.append(item)
 
@@ -82,6 +83,7 @@ def get_title(concept: object):
             for ed in editions_node.find_all('article'):
                 tmd = get_telemetry_meta_data(ed)
                 product_id = tmd.get('productId', None)
+                bg_node = 'img[data-qa^="gameBackgroundImage#heroImage#image"]'
 
                 if product_id:
                     content = ''
@@ -100,6 +102,7 @@ def get_title(concept: object):
                             get_cover(ed.select(
                                     'img[data-qa^="mfeUpsell#productEdition"]'
                                     )),
+                        'background_url': get_background(ed.select(bg_node)),
                         'content': content
                     }
                     edition_list.append(item)
@@ -131,24 +134,34 @@ def get_data_from_page(concept: object, url: str, add_data: object):
         soup = BeautifulSoup(page_response.text, 'lxml')
 
         general_info = get_general_info(soup)
+        background = get_background(
+            soup.find('img', attrs={'data-qa':
+                                    'gameBackgroundImage#heroImage#preview'}))
         telemetry_meta_data = get_telemetry_meta_data(soup.find(
                 'div', class_='pdp-cta'))
         rating = get_rating(soup.find(
             'div', class_='pdp-star-rating'))
+        description = get_description(soup.find(
+            'p', attrs={'data-qa': 'mfe-game-overview#description'}))
         game_info = get_game_info(soup.find(
             'div', attrs={'data-qa': 'gameInfo'}))
 
         sale_details = get_sale_datails(telemetry_meta_data)
+        legal = get_legal(soup.find('div',
+                                    attrs={'data-qa': 'mfe-legal-text#text'}))
 
         res = {
             'url': f"https://store.playstation.com/en-tr/product/"
             f"{telemetry_meta_data.get('productId', None)}",
             'cover_url': add_data['cover_url'],
+            'background_url': background,
             'general_info': general_info,
             'rating': rating,
+            'description': description,
             'game_info': game_info,
             'content': add_data.get('content', None),
-            'sale_details': sale_details
+            'sale_details': sale_details,
+            'legal': legal,
         }
 
         logging.info(f"Page {url} done")
@@ -181,7 +194,7 @@ def get_general_info(general_node: str):
             logging.error('Error getting general info', exc_info=True)
             send_notification('[ERROR] Error getting general info')
     else:
-        logging.warning('No general info node found')
+        logging.warning('General info node not found')
     return res
 
 
@@ -200,7 +213,7 @@ def get_telemetry_meta_data(item_node: str):
             logging.error('Error getting meta data', exc_info=True)
             send_notification('[ERROR] Error getting meta data')
     else:
-        logging.warning("No telemetry data node found")
+        logging.warning("Telemetry data node not found")
     return res
 
 
@@ -214,6 +227,20 @@ def get_cover(cover_node: str, type: int = 1):
     except Exception:
         logging.error('Error getting cover', exc_info=True)
         send_notification('[ERROR] Error getting cover')
+    return res
+
+
+def get_background(background_node: str):
+    logging.info("Trying to get cover")
+    res = None
+    try:
+        if (background_node):
+            res = clean_image_url(background_node.get('src'))
+
+        logging.info('Background done')
+    except Exception:
+        logging.error('Error getting background', exc_info=True)
+        send_notification('[ERROR] Error getting background')
     return res
 
 
@@ -245,7 +272,23 @@ def get_rating(rating_node: str):
             logging.error('Error getting rating', exc_info=True)
             send_notification('[ERROR] Error getting rating')
     else:
-        logging.info('No rating node found')
+        logging.info('Rating node not found')
+    return res
+
+
+def get_description(description_node: str):
+    logging.info("Trying to get description")
+    res = None
+    if description_node:
+        try:
+            res = description_node.text
+
+            logging.info("Description done")
+        except Exception:
+            logging.error('Error getting description', exc_info=True)
+            send_notification('[ERROR] Error getting description')
+    else:
+        logging.warning('Description node not found')
     return res
 
 
@@ -290,7 +333,7 @@ def get_game_info(game_info_node: str):
             logging.error('Error getting game info', exc_info=True)
             send_notification('[ERROR] Error getting game info')
     else:
-        logging.warning('No game info node found')
+        logging.warning('Game info node not found')
     return res
 
 
@@ -360,6 +403,22 @@ def get_sale_datails(tmd: object):
     return res
 
 
+def get_legal(legal_node: str):
+    logging.info("Trying to get legal info")
+    res = None
+    if legal_node:
+        try:
+            res = legal_node.text
+
+            logging.info("Legal done")
+        except Exception:
+            logging.error('Error getting legal', exc_info=True)
+            send_notification('[ERROR] Error getting legal')
+    else:
+        logging.warning('Legal node not found')
+    return res
+
+
 def convert_money(input: int):
     res = ''
     money_value = float(input) / 100
@@ -372,6 +431,10 @@ def convert_date(input: str):
         return None
     date_obj = datetime.strptime(input, '%d/%m/%Y')
     return date_obj.strftime('%Y-%m-%d %H:%M:%S')
+
+
+def clean_image_url(url: str):
+    return re.sub(r'\?.*$', '', url)
 
 
 def mapping(data: object):
@@ -404,8 +467,11 @@ def mapping(data: object):
 
                     'url': i.get('url', None),
                     'cover': i.get('cover_url', None),
+                    'background': i.get('background_url', None),
 
                     'rating': i.get('rating', {}).get('global', None),
+                    'description': i.get('description', None),
+                    'legal': i.get('legal', None),
                     'users': i.get('rating', {}).get('users_count', None),
 
                     'platforms': i.get(
@@ -506,7 +572,10 @@ def put_data(data: object):
                         concept_id = %s,
                         url = %s,
                         cover = %s,
+                        background = %s,
                         rating = %s,
+                        description = %s,
+                        legal = %s,
                         users = %s,
                         platforms = %s,
                         release_date = %s,
@@ -540,7 +609,10 @@ def put_data(data: object):
                         data['concept_id'],
                         data['url'],
                         data['cover'],
+                        data['background'],
                         data['rating'],
+                        data['description'],
+                        data['legal'],
                         data['users'],
                         data['platforms'],
                         data['release_date'],
@@ -579,7 +651,10 @@ def put_data(data: object):
                         concept_id,
                         url,
                         cover,
+                        background,
                         rating,
+                        description,
+                        legal,
                         users,
                         platforms,
                         release_date,
@@ -607,7 +682,7 @@ def put_data(data: object):
                         gta_plus_discount_price)
                     VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
                     %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
-                    %s, %s, %s, %s, %s)
+                    %s, %s, %s, %s, %s, %s, %s, %s)
                     """,
                     (
                         data['id'],
@@ -615,7 +690,10 @@ def put_data(data: object):
                         data['concept_id'],
                         data['url'],
                         data['cover'],
+                        data['background'],
                         data['rating'],
+                        data['description'],
+                        data['legal'],
                         data['users'],
                         data['platforms'],
                         data['release_date'],
