@@ -11,3 +11,4 @@ package-lock.json
 .idea
 output
 /src/parser/pages
+/src/parser/concepts.json
