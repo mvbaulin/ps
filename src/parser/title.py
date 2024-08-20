@@ -32,7 +32,7 @@ logging.basicConfig(
     handlers=handlers
 )
 
-timeout = 5
+timeout = 3
 
 
 class NoMatchesFound(Exception):
@@ -76,7 +76,7 @@ def get_title(concept: object):
             dlc.append(item)
 
         logging.info("Trying to get editions")
-        edition_list = []
+        editions_list = []
         editions = []
         editions_node = title_soup.find('div', attrs={'data-qa': 'mfeUpsell'})
         if editions_node:
@@ -105,9 +105,9 @@ def get_title(concept: object):
                         'background_url': get_background(ed.select(bg_node)),
                         'content': content
                     }
-                    edition_list.append(item)
+                    editions_list.append(item)
 
-        for e in edition_list:
+        for e in editions_list:
             item = get_data_from_page(concept, e['url'], e)
             editions.append(item)
 
@@ -752,7 +752,9 @@ def parser(url: str):
                 try:
                     logging.info(f"Waiting timeout {timeout} seconds")
                     time.sleep(timeout)
+
                     res = get_title(found_concept)
+
                     Path("output").mkdir(parents=True, exist_ok=True)
                     with open('output/title.json', 'w') as f:
                         json.dump(res, f, indent=2)
