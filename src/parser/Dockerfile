@@ -13,6 +13,8 @@ RUN apt-get update \
   iproute2 \
   wireguard \
   python3.9 \
+  pip \
+  # resolvconf \
   && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*

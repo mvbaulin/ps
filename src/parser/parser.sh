@@ -27,7 +27,7 @@ process_url() {
     sleep 1
 }
 
-wg_tunnels=("../../misc/VPN_1.conf" "../../misc/VPN_2.conf")
+wg_tunnels=("./vpn/VPN_1.conf" "./vpn/VPN_2.conf")
 
 declare -i i=1
 
