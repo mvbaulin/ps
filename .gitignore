@@ -4,7 +4,6 @@ src/bot/venv
 src/bot/node_modules
 src/bot/package-lock.json
 src/parser/output/title.json
-logs/
 .DS_Store
 node_modules
 package-lock.json
@@ -12,3 +11,4 @@ package-lock.json
 output
 /src/parser/pages
 /src/parser/concepts.json
+/src/parser/logs

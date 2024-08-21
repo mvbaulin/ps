@@ -15,7 +15,7 @@ from selenium.webdriver.support import (  # type: ignore
 from notificator import send_notification
 
 
-Path("../../logs/").mkdir(parents=True, exist_ok=True)
+Path("./logs/").mkdir(parents=True, exist_ok=True)
 Path("pages").mkdir(parents=True, exist_ok=True)
 
 
@@ -27,7 +27,7 @@ args = arg_parser.parse_args()
 
 stdout_handler = logging.StreamHandler(stream=sys.stdout)
 file_handler = logging.FileHandler(
-    filename=f"../../logs/service_{datetime.date.today().isoformat()}.log"
+    filename=f"./logs/service_{datetime.date.today().isoformat()}.log"
 )
 
 handlers = [file_handler, stdout_handler]

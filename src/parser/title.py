@@ -21,7 +21,7 @@ args = arg_parser.parse_args()
 current_date = datetime.now().date()
 stdout_handler = logging.StreamHandler(stream=sys.stdout)
 file_handler = logging.FileHandler(
-   filename=f"../../logs/service_{current_date.isoformat()}.log"
+   filename=f"./logs/service_{current_date.isoformat()}.log"
 )
 
 handlers = [file_handler, stdout_handler]
@@ -32,7 +32,7 @@ logging.basicConfig(
     handlers=handlers
 )
 
-timeout = 3
+timeout = 5
 
 
 class NoMatchesFound(Exception):

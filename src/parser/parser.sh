@@ -8,7 +8,7 @@ readonly USER_ID="191584056"
 readonly URL="https://api.telegram.org/bot$API_TOKEN/sendMessage"
 
 current_date=$(date '+%Y-%m-%d')
-LOG_FILE="../../logs/service_${current_date}.log"
+LOG_FILE="./logs/service_${current_date}.log"
 
 if [ $# -ne 2 ]; then
     echo "Use: $0 <from> <to>"
