@@ -16,7 +16,7 @@ if [ $# -ne 2 ]; then
 fi
 
 log_message() {
-local log_time
+    local log_time
     log_time=$(date '+%Y-%m-%d %H:%M:%S')$(printf ",%03d" "$(echo $(( $(date +%N) / 1000000 )) | sed 's/^0*//')")
     echo "[$log_time] [INFO] $1" >> "$LOG_FILE"
 }
@@ -27,7 +27,7 @@ process_url() {
     sleep 1
 }
 
-wg_tunnels=("./vpn/VPN_1.conf" "./vpn/VPN_2.conf")
+wg_tunnels=("./vpn/VPN_1.conf")
 
 declare -i i=1
 
@@ -37,30 +37,37 @@ while IFS= read -r line; do
 done < <(jq -r '.[].title_url' "concepts.json" | sed -n "${START_INDEX},${END_INDEX}p")
 
 for url in "${urls[@]}"; do
-    tunnel_index=$(( (i - 1) % ${#wg_tunnels[@]} ))
-    tunnel_config="${wg_tunnels[$tunnel_index]}"
-
-    log_message "VPN connection: Connecting to VPN using tunnel: $tunnel_config"
-
-    if wg-quick up "$tunnel_config"; then
-        log_message "VPN connection: Successfully connected to VPN using tunnel: $tunnel_config"
+    if (( i % (${#wg_tunnels[@]} + 1) == 0 )); then
+        log_message "VPN connection: Processing URL without VPN connection"
+        process_url "$url"
+        curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=[INFO] $i/$END_INDEX done via no VPN" $URL > /dev/null
     else
-        log_message "VPN connection: Failed to connect to VPN using tunnel: $tunnel_config"
-        exit 1
+        tunnel_index=$(( (i - 1) % ${#wg_tunnels[@]} ))
+        tunnel_config="${wg_tunnels[$tunnel_index]}"
+
+        log_message "VPN connection: Connecting to VPN using tunnel: $tunnel_config"
+
+        if wg-quick up "$tunnel_config"; then
+            log_message "VPN connection: Successfully connected to VPN using tunnel: $tunnel_config"
+        else
+            log_message "VPN connection: Failed to connect to VPN using tunnel: $tunnel_config"
+            exit 1
+        fi
+
+        process_url "$url"
+
+        log_message "VPN connection: Disconnecting VPN using tunnel: $tunnel_config"
+
+        if wg-quick down "$tunnel_config"; then
+            log_message "VPN connection: Successfully disconnected from VPN using tunnel: $tunnel_config"
+        else
+            log_message "VPN connection: Failed to disconnect from VPN using tunnel: $tunnel_config"
+            exit 1
+        fi
+
+        curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=[INFO] $i/$END_INDEX done via $tunnel_config" $URL> /dev/null
     fi
 
-    process_url "$url"
-
-    log_message "VPN connection: Disconnecting VPN using tunnel: $tunnel_config"
-
-    if wg-quick down "$tunnel_config"; then
-        log_message "VPN connection: Successfully disconnected from VPN using tunnel: $tunnel_config"
-    else
-        log_message "VPN connection: Failed to disconnect from VPN using tunnel: $tunnel_config"
-        exit 1
-    fi
-
-    curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=[INFO] $i/$END_INDEX done. VPN: $tunnel_config" $URL > /dev/null
     ((i++))
 done
 

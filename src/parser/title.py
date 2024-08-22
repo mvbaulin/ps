@@ -32,7 +32,7 @@ logging.basicConfig(
     handlers=handlers
 )
 
-timeout = 3
+timeout = 5
 
 
 class NoMatchesFound(Exception):
