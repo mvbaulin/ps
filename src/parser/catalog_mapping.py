@@ -24,10 +24,10 @@ logging.basicConfig(
 )
 
 
-pages_folder = "./pages/"
-files_and_folders = os.listdir(pages_folder)
+PAGE_FOLDER = "./pages/"
+files_and_folders = os.listdir(PAGE_FOLDER)
 files = [file for file in files_and_folders
-         if os.path.isfile(os.path.join(pages_folder, file))]
+         if os.path.isfile(os.path.join(PAGE_FOLDER, file))]
 pages = len(files)
 
 

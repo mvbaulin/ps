@@ -32,7 +32,7 @@ logging.basicConfig(
     handlers=handlers
 )
 
-timeout = 5
+TIMEOUT = 5
 
 
 class NoMatchesFound(Exception):
@@ -54,8 +54,7 @@ def get_title(concept: object):
             'cover_url': concept['title_cover'],
             'background_url': get_background(hero_node)
         }
-        title = get_data_from_page(
-            concept, concept["title_url"], title_add_data)
+        title = get_data_from_page(concept["title_url"], title_add_data)
 
         logging.info("Trying to get dlc")
         dlc_list = []
@@ -72,7 +71,7 @@ def get_title(concept: object):
                 dlc_list.append(item)
 
         for d in dlc_list:
-            item = get_data_from_page(concept, d['url'], d)
+            item = get_data_from_page(d['url'], d)
             dlc.append(item)
 
         logging.info("Trying to get editions")
@@ -108,7 +107,7 @@ def get_title(concept: object):
                     editions_list.append(item)
 
         for e in editions_list:
-            item = get_data_from_page(concept, e['url'], e)
+            item = get_data_from_page(e['url'], e)
             editions.append(item)
 
         res = {
@@ -124,10 +123,10 @@ def get_title(concept: object):
         send_notification("[ERROR] Error title parsing")
 
 
-def get_data_from_page(concept: object, url: str, add_data: object):
+def get_data_from_page(url: str, add_data: object):
     logging.info(f"Request to {url}")
-    logging.info(f"Waiting timeout {timeout} seconds")
-    time.sleep(timeout)
+    logging.info(f"Waiting timeout {TIMEOUT} seconds")
+    time.sleep(TIMEOUT)
     res = {}
     try:
         page_response = requests.get(url)
@@ -750,8 +749,8 @@ def parser(url: str):
                     raise NoMatchesFound
 
                 try:
-                    logging.info(f"Waiting timeout {timeout} seconds")
-                    time.sleep(timeout)
+                    logging.info(f"Waiting timeout {TIMEOUT} seconds")
+                    time.sleep(TIMEOUT)
 
                     res = get_title(found_concept)
 
