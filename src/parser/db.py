@@ -1,6 +1,6 @@
 class DB_test:
     host = "localhost"
-    user = "admin"
-    password = "admin"
-    database = "ps_test"
-    port = "8889"
+    user = "postgres"
+    password = "postgres"
+    database = "ps_store"
+    port = "5432"

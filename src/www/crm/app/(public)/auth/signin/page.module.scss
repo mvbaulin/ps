@@ -1,0 +1,10 @@
+@import '../../../../constants/variables.scss';
+
+.page {
+  background: $bg-color-tertiary;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,19 @@
+@import '../../../constants/variables.scss';
+
+.layout {
+  background: $bg-color-primary;
+  padding: 52px 50px;
+  border-radius: 20px;
+  text-align: center;
+  min-width: 450px;
+  max-width: 450px;
+  gap: 20px;
+
+  &--default {
+    background: $bg-color-primary;
+  }
+
+  &--contrast {
+    background: $bg-color-contrast;
+  }
+}

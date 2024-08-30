@@ -8,5 +8,5 @@ pip install beautifulsoup4
 pip3 install urllib3==1.26.15
 pip install selenium
 pip install lxml
-pip install mysql-connector-python
+pip install psycopg2-binary
 pip freeze > requirements.txt

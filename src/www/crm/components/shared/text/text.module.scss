@@ -1,0 +1,14 @@
+@import '../../../constants/variables.scss';
+
+.text {
+  font-size: 16px;
+  font-weight: 300;
+
+  &--default {
+    color: $text-color-primary;
+  }
+
+  &--contrast {
+    color: $text-color-contrast;
+  }
+}

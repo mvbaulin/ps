@@ -1,0 +1,15 @@
+.wrapper {
+  padding-top: 50px;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: start;
+  align-items: start;
+  gap: 20px;
+
+}
+
+.inner {
+  display: grid;
+  gap: 20px;
+}

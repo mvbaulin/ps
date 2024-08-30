@@ -1,0 +1,33 @@
+@import '../../../constants/variables.scss';
+
+$border-size: 2px;
+
+.button {
+  display: inlineblock;
+  padding: $gap * 2 $gap * 4;
+  border: $border-size solid transparent;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  background: none;
+  border-radius: 10px;
+  color: $contol-text-color;
+
+  &--wide {
+    width: 100%;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--primary {
+    background: $control-color-primary;
+  }
+
+  &--secondary {
+    background: $control-color-secondary;
+  }
+}
