@@ -36,6 +36,9 @@ while IFS= read -r line; do
     urls+=("$line")
 done < <(jq -r '.[].title_url' "concepts.json" | sed -n "${START_INDEX},${END_INDEX}p")
 
+log_message "Title parser: Start"
+curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=[INFO] Parser start" $URL > /dev/null
+
 for url in "${urls[@]}"; do
     if (( i % (${#wg_tunnels[@]} + 1) == 0 )); then
         log_message "VPN connection: Processing URL without VPN connection"
@@ -71,5 +74,5 @@ for url in "${urls[@]}"; do
     ((i++))
 done
 
-log_message "Title parser: Sale details done"
+log_message "Title parser: Done"
 curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=[INFO] Parser done" $URL > /dev/null
