@@ -6,12 +6,12 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 DROP TABLE IF EXISTS crm_users;
 CREATE TABLE crm_users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    login TEXT NOT NULL,
+    login TEXT NOT NULL UNIQUE,
     name TEXT NOT NULL,
     password TEXT NOT NULL,
     role TEXT DEFAULT 'manager' NOT NULL,
     rate FLOAT DEFAULT 0.3 NOT NULL,
-    max_orders INTEGER DEFAULT 2 NOT NULL ,
+    max_orders INTEGER DEFAULT 2 NOT NULL,
     password_date TIMESTAMPTZ DEFAULT NOW(),
     created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL,
     updated_at TIMESTAMPTZ,
