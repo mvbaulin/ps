@@ -1,0 +1,72 @@
+@import '../../../constants/variables.scss';
+
+.button {
+  position: relative;
+  padding: 0;
+  width: $activity-bar-width;
+  height: 66px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  transition: 0.3s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &--orders {
+    &::before {
+      background: url('/icons/icon-orders.svg') no-repeat;
+    }
+  }
+
+  &--statistics {
+    &::before {
+      background: url('/icons/icon-statistics.svg') no-repeat;
+    }
+  }
+
+  &--admin {
+    &::before {
+      background: url('/icons/icon-admin.svg') no-repeat;
+    }
+  }
+
+  &--profile {
+    &::before {
+      background: url('/icons/icon-profile.svg') no-repeat;
+    }
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  &--active {
+    &::after {
+      position: absolute;
+      content: '';
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: -8px;
+      transform: translateY(-50%);
+      background: #FF6B00;
+      border-radius: 50%;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import '../../../constants/variables.scss';
+
+.title {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+
+  &--small {
+    font-size: 28px;
+  }
+
+  &--large {
+    font-size: 36px;
+  }
+
+  &--default {
+    color: $text-color-secondary;
+  }
+
+  &--contrast {
+    color: $text-color-contrast;
+  }
+
+}

@@ -4,7 +4,7 @@ START_INDEX=$1
 END_INDEX=$2
 
 readonly API_TOKEN="7004508488:AAEcfQoIzlEK7BSLB1WlqPhnk7U-hzqdEyE"
-readonly USER_ID="191584056"
+readonly USER_IDS=("191584056" "477554373")
 readonly URL="https://api.telegram.org/bot$API_TOKEN/sendMessage"
 
 current_date=$(date '+%Y-%m-%d')
@@ -19,6 +19,13 @@ log_message() {
     local log_time
     log_time=$(date '+%Y-%m-%d %H:%M:%S')$(printf ",%03d" "$(echo $(( $(date +%N) / 1000000 )) | sed 's/^0*//')")
     echo "[$log_time] [INFO] $1" >> "$LOG_FILE"
+}
+
+send_message() {
+    local text="$1"
+    for USER_ID in "${USER_IDS[@]}"; do
+        curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=$text" $URL > /dev/null
+    done
 }
 
 process_url() {
@@ -37,13 +44,13 @@ while IFS= read -r line; do
 done < <(jq -r '.[].title_url' "concepts.json" | sed -n "${START_INDEX},${END_INDEX}p")
 
 log_message "Title parser: Start"
-curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=[INFO] Parser start" $URL > /dev/null
+send_message "[INFO] Parser start"
 
 for url in "${urls[@]}"; do
     if (( i % (${#wg_tunnels[@]} + 1) == 0 )); then
         log_message "VPN connection: Processing URL without VPN connection"
         process_url "$url"
-        curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=[INFO] $i/$END_INDEX done via no VPN" $URL > /dev/null
+        send_message "[INFO] $i/$END_INDEX done via no VPN"
     else
         tunnel_index=$(( (i - 1) % ${#wg_tunnels[@]} ))
         tunnel_config="${wg_tunnels[$tunnel_index]}"
@@ -68,11 +75,11 @@ for url in "${urls[@]}"; do
             exit 1
         fi
 
-        curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=[INFO] $i/$END_INDEX done via $tunnel_config" $URL> /dev/null
+        send_message "[INFO] $i/$END_INDEX done via $tunnel_config"
     fi
 
     ((i++))
 done
 
 log_message "Title parser: Done"
-curl -s -d "chat_id=$USER_ID&disable_web_page_preview=1&text=[INFO] Parser done" $URL > /dev/null
+send_message "[INFO] Parser done"

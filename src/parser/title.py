@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 import time
 import re
-import mysql.connector  # type: ignore
+import psycopg2   # type: ignore
 from db import DB_test as DB
 from notificator import send_notification
 
@@ -550,14 +550,14 @@ def mapping(data: object):
 
 def put_data(data: object):
     try:
-        with mysql.connector.connect(
+        with psycopg2.connect(
             host=DB.host,
             user=DB.user,
-            passwd=DB.password,
-            database=DB.database,
+            password=DB.password,
+            dbname=DB.database,
             port=DB.port
-        ) as db:
-            cur = db.cursor()
+        ) as conn:
+            cur = conn.cursor()
             cur.execute("SELECT id FROM titles WHERE id = %s", (data['id'],))
             existing_record = cur.fetchone()
 
@@ -720,13 +720,16 @@ def put_data(data: object):
                         data['gta_plus_discount_price'],
                     )
                 )
-            db.commit()
+            conn.commit()
     except KeyboardInterrupt:
         logging.error('Cancelled by user', exc_info=True)
         send_notification('[ERROR] Cancelled by user')
     except Exception as e:
         logging.error(f"Error executing SQL query: {e}", exc_info=True)
         send_notification(f"[ERROR] Error executing SQL query: {e}")
+    finally:
+        if 'conn' in locals():
+            conn.close()
 
 
 def parser(url: str):

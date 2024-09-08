@@ -5,14 +5,13 @@ import re
 import logging
 import sys
 import os
-import mysql.connector  # type: ignore
+import psycopg2  # type: ignore
 from db import DB_test as DB
-
 
 current_date = datetime.now().date()
 stdout_handler = logging.StreamHandler(stream=sys.stdout)
 file_handler = logging.FileHandler(
-   filename=f"./logs/service_{current_date.isoformat()}.log"
+    filename=f"./logs/service_{current_date.isoformat()}.log"
 )
 
 handlers = [file_handler, stdout_handler]
@@ -22,7 +21,6 @@ logging.basicConfig(
     level=logging.INFO,
     handlers=handlers
 )
-
 
 PAGE_FOLDER = "./pages/"
 files_and_folders = os.listdir(PAGE_FOLDER)
@@ -120,15 +118,15 @@ def main(output: str, last_page: int):
 try:
     main("concepts.json", pages)
 
-    db = mysql.connector.connect(
+    conn = psycopg2.connect(
         host=DB.host,
         user=DB.user,
-        passwd=DB.password,
-        database=DB.database,
+        password=DB.password,
+        dbname=DB.database,
         port=DB.port
     )
 
-    cur = db.cursor()
+    cur = conn.cursor()
 
     with open('./concepts.json', 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -190,11 +188,11 @@ try:
                     )
             except Exception as e:
                 logging.error(f"Error executing SQL query: {e}", exc_info=True)
-    db.commit()
+    conn.commit()
 except Exception as e:
     logging.error(f"{e}", exc_info=True)
 except KeyboardInterrupt as e:
     logging.error(f"Cancelled by user {e}", exc_info=True)
 finally:
-    if 'db' in locals():
-        db.close()
+    if 'conn' in locals():
+        conn.close()

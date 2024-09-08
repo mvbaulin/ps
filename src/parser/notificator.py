@@ -2,7 +2,7 @@ import subprocess
 
 
 TOKEN = '7004508488:AAEcfQoIzlEK7BSLB1WlqPhnk7U-hzqdEyE'
-USER_IDS = ['191584056', '108734085']
+USER_IDS = ['191584056', '108734085', '477554373']
 
 
 def send_notification(message):

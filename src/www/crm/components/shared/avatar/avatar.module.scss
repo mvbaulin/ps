@@ -1,0 +1,12 @@
+@import '../../../constants/variables.scss';
+
+.wrapper {
+  width: 60px;
+  height: 60px;
+  background: $color-skeleton;
+  border-radius: 50%;
+}
+
+.image {
+  border-radius: 50%;
+}

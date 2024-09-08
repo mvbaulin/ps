@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model concepts {
+  id           Int       @id @default(autoincrement())
+  title_name   String
+  concept_name String
+  title_url    String
+  cover_url    String
+  created_at   DateTime  @default(now()) @db.Timestamptz(6)
+  updated_at   DateTime? @db.Timestamptz(6)
+  titles       titles[]
+}
+
+model titles {
+  id                          String    @id @db.VarChar(255)
+  title                       String
+  concept_id                  Int
+  url                         String
+  cover                       String?
+  background                  String?
+  rating                      Decimal?  @db.Decimal(10, 2)
+  description                 String?
+  legal                       String?
+  users                       Int?
+  platforms                   String?
+  release_date                DateTime? @db.Timestamptz(6)
+  publisher                   String?
+  genres                      String?
+  voice                       String?
+  screen_languages            String?
+  content                     String?
+  short_id                    String?
+  product_type                String?
+  has_offer_none              Boolean?
+  has_ps_plus                 Boolean?
+  has_ea_access               Boolean?
+  has_ubisoft_plus            Boolean?
+  has_gta_plus                Boolean?
+  offer_none_original_price   Decimal?  @db.Decimal(10, 2)
+  offer_none_discount_price   Decimal?  @db.Decimal(10, 2)
+  ps_plus_original_price      Decimal?  @db.Decimal(10, 2)
+  ps_plus_discount_price      Decimal?  @db.Decimal(10, 2)
+  ubisoft_plus_original_price Decimal?  @db.Decimal(10, 2)
+  ubisoft_plus_discount_price Decimal?  @db.Decimal(10, 2)
+  ea_access_original_price    Decimal?  @db.Decimal(10, 2)
+  ea_access_discount_price    Decimal?  @db.Decimal(10, 2)
+  gta_plus_original_price     Decimal?  @db.Decimal(10, 2)
+  gta_plus_discount_price     Decimal?  @db.Decimal(10, 2)
+  on_sale                     Boolean?  @default(true)
+  updated_at                  DateTime? @db.Timestamptz(6)
+  created_at                  DateTime  @default(now()) @db.Timestamptz(6)
+  concepts                    concepts  @relation(fields: [concept_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_titles_concept_id")
+}
+
+model crm_sessions {
+  session_token String    @id @db.VarChar(255)
+  user_id       String    @db.Uuid
+  expires       DateTime  @db.Timestamptz(6)
+  created_at    DateTime  @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime  @default(now()) @db.Timestamptz(6)
+  crm_users     crm_users @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model crm_users {
+  id            String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  login         String
+  name          String
+  password      String
+  role          String         @default("manager")
+  rate          Float          @default(0.3)
+  max_orders    Int            @default(2)
+  password_date DateTime?      @default(now()) @db.Timestamptz(6)
+  created_at    DateTime       @default(now()) @db.Timestamptz(6)
+  updated_at    DateTime?      @db.Timestamptz(6)
+  is_active     Boolean        @default(true)
+  crm_sessions  crm_sessions[]
+}

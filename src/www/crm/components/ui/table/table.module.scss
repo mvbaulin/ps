@@ -1,0 +1,54 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.header {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 0px 50px;
+  background-color: #E7EDFB;
+  border-radius: 10px;
+
+  .cell {
+    flex: 1;
+    padding: 25px 0px;
+    color: #4B7DEF;
+  }
+}
+
+.body {
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0px 50px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &--success {
+    background-color: #00FF1810;
+  }
+
+  &--danger {
+    background-color: #FF000010;
+  }
+
+  &--warning {
+    background-color: #EEBA0210;
+  }
+}
+
+.cell {
+  flex: 1;
+  padding: 32px 0px;
+  color: #000000;
+  text-align: center;
+}

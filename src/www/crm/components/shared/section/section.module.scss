@@ -1,0 +1,16 @@
+@import '../../../constants/variables.scss';
+
+.section {
+  width: 100vw;
+  padding-top: 48px;
+  padding-left: calc($activity-bar-width + 50px);
+  background: $bg-color-primary;
+  min-height: 100vh;
+}
+
+.inner {
+  padding: 52px;
+  background: $bg-color-secondary;
+  border-radius: 10px 0 0 0;
+  height: calc(100vh - 52px);
+}

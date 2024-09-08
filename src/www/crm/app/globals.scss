@@ -1,0 +1,70 @@
+@import '../constants/variables.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+a {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+html {
+  font-size: $font-size-mobile;
+  line-height: 1.4;
+
+  @media (min-width: $width-tablet) {
+    font-size: $font-size-tablet;
+  }
+
+  @media (min-width: $width-desktop) {
+    font-size: $font-size-desktop;
+  }
+}
+
+body {
+  background-color: $bg-color-primary;
+  color: $text-color-primary;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
