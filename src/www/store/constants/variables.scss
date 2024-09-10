@@ -9,37 +9,59 @@ $width-desktop-large: 1440px;
 $width-fullscreen: 1920px;
 $width-widescreen: 2560px;
 
-$font-size-mobile: 16px;
-$font-size-tablet: 16px;
-$font-size-desktop: 16px;
-
 $gap: 8px;
 
-$activity-bar-width: 90px;
+$gap-mobile: $gap * 2;
+$gap-tablet: $gap * 2;
+$gap-desktop: $gap * 3;
+
+$container-padding-mobile: $gap * 3;
+$container-padding-mobile-large: $gap * 4;
+$container-padding-tablet: $gap * 6;
+$container-padding-tablet-large: $gap * 6;
+$container-padding-desktop: $gap * 6;
+$container-padding-desktop-large: $gap * 6;
+$container-padding-fullscreen: $gap * 6;
+$container-padding-widescreen: $gap * 6;
+
+$container-max-width-mobile: 100%;
+$container-max-width-mobile-large: 100%;
+$container-max-width-tablet: 100%;
+$container-max-width-tablet-large: 100%;
+$container-max-width-desktop: 100%px;
+$container-max-width-desktop-large: 1680px;
+$container-max-width-fullscreen: 1680px;
+$container-max-width-widescreen: 1680px;
+
+$input-padding: $gap $gap * 2;
+
+
+// Fonts
+
+$font-size-mobile: 14px;
+$font-size-tablet: 14px;
+$font-size-desktop: 14px;
 
 
 // Colors
 
-$text-color-primary: #000000;
-$text-color-secondary: rgba(45, 65, 101, 1);
-$text-color-contrast: #FFFFFF;
+$bg-color-primary: #2F2F2F;
+$bg-color-secondary: #282828;
 
-$bg-color-primary: #FFFFFF;
-$bg-color-secondary: rgba(248, 249, 252, 1);
-$bg-color-tertiary: linear-gradient(267.34deg, #78AEFF 0%, #5E91ED 100%);
-$bg-color-contrast: linear-gradient(211.86deg, #FF8B8B 19.16%, #E96F6F 80.84%);
+$text-color-primary: #FFFFFF;
+$text-color-secondary: #000000;
 
-$color-header: #E7EDFB;
-$color-activity-bar: tomato;
+$accent-color-primary: #FFE842;
+$accent-color-secondary: #0072FF;
+$accent-color-transparent: rgba(255, 232, 66, 0.5);
 
-$control-color-primary: linear-gradient(211.86deg, #78AEFF 19.16%, #5E91ED 80.84%);
-$control-color-secondary: linear-gradient(211.86deg, #FF7878 19.16%, #ED5E5E 80.84%);
-$control-border-color: #526584;
-$contol-text-color: #FFFFFF;
-$activity-bar-bg-color: linear-gradient(180deg, #456396 0%, #2C3E5E 100%);
+$info-color: #2F80ED;
+$success-color: #27AE60;
+$warning-color: #E2B93B;
+$error-color: #EB5757;
+$skeleton-color: #4F4F4F;
 
-$color-success: #00FF1810;
-$color-warning: #EEBA0210;
-$color-error: #FF000010;
 
-$color-skeleton: green;
+// Misc
+
+$border-radius: 8px;
