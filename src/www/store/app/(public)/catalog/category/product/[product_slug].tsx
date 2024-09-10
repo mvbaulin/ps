@@ -2,7 +2,7 @@ export default function Page() {
 
   return (
     <main>
-      INDEX
+      PRODUCT
     </main>
   );
 }

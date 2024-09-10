@@ -1,0 +1,45 @@
+// Sizes
+
+$width-mobile: 320px;
+$width-mobile-large: 360px;
+$width-tablet: 768px;
+$width-tablet-large: 1024;
+$width-desktop: 1280px;
+$width-desktop-large: 1440px;
+$width-fullscreen: 1920px;
+$width-widescreen: 2560px;
+
+$font-size-mobile: 16px;
+$font-size-tablet: 16px;
+$font-size-desktop: 16px;
+
+$gap: 8px;
+
+$activity-bar-width: 90px;
+
+
+// Colors
+
+$text-color-primary: #000000;
+$text-color-secondary: rgba(45, 65, 101, 1);
+$text-color-contrast: #FFFFFF;
+
+$bg-color-primary: #FFFFFF;
+$bg-color-secondary: rgba(248, 249, 252, 1);
+$bg-color-tertiary: linear-gradient(267.34deg, #78AEFF 0%, #5E91ED 100%);
+$bg-color-contrast: linear-gradient(211.86deg, #FF8B8B 19.16%, #E96F6F 80.84%);
+
+$color-header: #E7EDFB;
+$color-activity-bar: tomato;
+
+$control-color-primary: linear-gradient(211.86deg, #78AEFF 19.16%, #5E91ED 80.84%);
+$control-color-secondary: linear-gradient(211.86deg, #FF7878 19.16%, #ED5E5E 80.84%);
+$control-border-color: #526584;
+$contol-text-color: #FFFFFF;
+$activity-bar-bg-color: linear-gradient(180deg, #456396 0%, #2C3E5E 100%);
+
+$color-success: #00FF1810;
+$color-warning: #EEBA0210;
+$color-error: #FF000010;
+
+$color-skeleton: green;
