@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto_Condensed } from "next/font/google";
-import { Header } from '@/components/shared';
+import { Header, Providers } from '@/components/shared';
 
 import "normalize.css";
 import "./globals.scss";
@@ -24,8 +24,10 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={font.className}>
-        <Header />
-        {children}
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );
