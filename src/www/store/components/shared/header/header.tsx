@@ -1,31 +1,53 @@
-'use client';
-
 import React from 'react';
 import classNames from 'classnames';
 import styles from './header.module.scss';
-import { Button } from '@/components/ui/button/button';
-import { useSession, signIn } from 'next-auth/react';
-import { ProfileButton } from '../profile-button/profile-button';
+import { IconButton, Input, Button } from '@/components/ui';
+import { Logo, ProfileButton, Search } from '@/components/shared';
 
 export const Header: React.FC = () => {
-  const { data } = useSession();
-
-  console.log(data, 999);
-
   return (
-    <header className={classNames(styles.header)}>
-      <div className={classNames(styles.inner)}>
-        <button
-          onClick={() => signIn('yandex', {
-            callbackUrl: '/cart',
-            redirect: true
-          })}
-        >
-            Войти
-        </button>
+    <>
+      <header className={classNames(styles.header, styles.header__mobile)}>
+        <nav className={styles.nav}>
+          <Logo height={24} width={24} />
 
-        <ProfileButton />
-      </div>
-    </header>
+          <Search />
+
+          <IconButton type="menu">Меню</IconButton>
+        </nav>
+      </header>
+
+      <header className={classNames(styles.header, styles.header__tablet)}>
+        <nav className={styles.nav}>
+          <Logo width={32} height={32} />
+
+          <Search />
+
+          <IconButton type="menu">Меню</IconButton>
+        </nav>
+      </header>
+
+      <header className={classNames(styles.header, styles.header__desktop)}>
+        <nav className={styles.nav}>
+          <Logo width={36} height={36} />
+
+          <Button
+            type="link"
+            color="secondary"
+            href="/catalog"
+          >
+              Каталог
+          </Button>
+
+          <Search />
+
+          <div>
+            <ProfileButton/>
+            <IconButton type="favorites">Избранное</IconButton>
+            <IconButton type="cart">Корзина</IconButton>
+          </div>
+        </nav>
+      </header>
+    </>
   );
 };

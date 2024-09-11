@@ -1,0 +1,143 @@
+:root {
+  --color-dark-primary-50: rgba(46, 196, 182, 0.1);
+  --color-dark-primary-100: rgba(46, 196, 182, 0.2);
+  --color-dark-primary-200: rgba(46, 196, 182, 0.3);
+  --color-dark-primary-300: rgba(46, 196, 182, 0.4);
+  --color-dark-primary-400: rgba(46, 196, 182, 0.5);
+  --color-dark-primary-500: rgba(46, 196, 182, 1);
+  --color-dark-primary-600: rgba(42, 177, 160, 1);
+  --color-dark-primary-700: rgba(36, 147, 139, 1);
+  --color-dark-primary-800: rgba(31, 122, 116, 1);
+  --color-dark-primary-900: rgba(21, 81, 81, 1);
+
+  --color-dark-on-primary-50: rgba(0, 121, 107, 1);
+  --color-dark-on-primary-100: rgba(0, 77, 64, 1);
+  --color-dark-on-primary-200: rgba(0, 77, 64, 1);
+  --color-dark-on-primary-300: rgba(0, 77, 64, 1);
+  --color-dark-on-primary-400: rgba(0, 77, 64, 1);
+  --color-dark-on-primary-500: rgba(255, 255, 255, 1);
+  --color-dark-on-primary-600: rgba(255, 255, 255, 1);
+  --color-dark-on-primary-700: rgba(255, 255, 255, 1);
+  --color-dark-on-primary-800: rgba(255, 255, 255, 1);
+  --color-dark-on-primary-900: rgba(255, 255, 255, 1);
+
+  --color-dark-secondary-50: rgba(32, 164, 243, 0.1);
+  --color-dark-secondary-100: rgba(32, 164, 243, 0.2);
+  --color-dark-secondary-200: rgba(32, 164, 243, 0.3);
+  --color-dark-secondary-300: rgba(32, 164, 243, 0.4);
+  --color-dark-secondary-400: rgba(32, 164, 243, 0.5);
+  --color-dark-secondary-500: rgba(32, 164, 243, 1);
+  --color-dark-secondary-600: rgba(26, 139, 204, 1);
+  --color-dark-secondary-700: rgba(20, 119, 179, 1);
+  --color-dark-secondary-800: rgba(14, 99, 153, 1);
+  --color-dark-secondary-900: rgba(8, 75, 115, 1);
+
+  --color-dark-on-secondary-50: rgba(0, 76, 140, 1);
+  --color-dark-on-secondary-100: rgba(0, 76, 140, 1);
+  --color-dark-on-secondary-200: rgba(0, 76, 140, 1);
+  --color-dark-on-secondary-300: rgba(0, 76, 140, 1);
+  --color-dark-on-secondary-400: rgba(0, 76, 140, 1);
+  --color-dark-on-secondary-500: rgba(255, 255, 255, 1);
+  --color-dark-on-secondary-600: rgba(255, 255, 255, 1);
+  --color-dark-on-secondary-700: rgba(255, 255, 255, 1);
+  --color-dark-on-secondary-800: rgba(255, 255, 255, 1);
+  --color-dark-on-secondary-900: rgba(255, 255, 255, 1);
+
+  --color-dark-tertiary-50: rgba(255, 159, 28, 0.1);
+  --color-dark-tertiary-100: rgba(255, 159, 28, 0.2);
+  --color-dark-tertiary-200: rgba(255, 159, 28, 0.3);
+  --color-dark-tertiary-300: rgba(255, 159, 28, 0.4);
+  --color-dark-tertiary-400: rgba(255, 159, 28, 0.5);
+  --color-dark-tertiary-500: rgba(255, 159, 28, 1);
+  --color-dark-tertiary-600: rgba(230, 139, 26, 1);
+  --color-dark-tertiary-700: rgba(204, 122, 21, 1);
+  --color-dark-tertiary-800: rgba(179, 107, 15, 1);
+  --color-dark-tertiary-900: rgba(140, 76, 7, 1);
+
+  --color-dark-on-tertiary-50: rgba(90, 60, 0, 1);
+  --color-dark-on-tertiary-100: rgba(90, 60, 0, 1);
+  --color-dark-on-tertiary-200: rgba(90, 60, 0, 1);
+  --color-dark-on-tertiary-300: rgba(90, 60, 0, 1);
+  --color-dark-on-tertiary-400: rgba(90, 60, 0, 1);
+  --color-dark-on-tertiary-500: rgba(255, 255, 255, 1);
+  --color-dark-on-tertiary-600: rgba(255, 255, 255, 1);
+  --color-dark-on-tertiary-700: rgba(255, 255, 255, 1);
+  --color-dark-on-tertiary-800: rgba(255, 255, 255, 1);
+  --color-dark-on-tertiary-900: rgba(255, 255, 255, 1);
+
+  --color-dark-background-50: rgba(1, 22, 39, 0.1);
+  --color-dark-background-100: rgba(1, 22, 39, 0.2);
+  --color-dark-background-200: rgba(1, 22, 39, 0.3);
+  --color-dark-background-300: rgba(1, 22, 39, 0.4);
+  --color-dark-background-400: rgba(1, 22, 39, 0.5);
+  --color-dark-background-500: rgba(1, 22, 39, 1);
+  --color-dark-background-600: rgba(0, 17, 31, 1);
+  --color-dark-background-700: rgba(0, 12, 23, 1);
+  --color-dark-background-800: rgba(0, 8, 15, 1);
+  --color-dark-background-900: rgba(0, 4, 8, 1);
+
+  --color-dark-on-background-50: rgba(255, 255, 255, 1);
+  --color-dark-on-background-100: rgba(255, 255, 255, 1);
+  --color-dark-on-background-200: rgba(255, 255, 255, 1);
+  --color-dark-on-background-300: rgba(255, 255, 255, 1);
+  --color-dark-on-background-400: rgba(255, 255, 255, 1);
+  --color-dark-on-background-500: rgba(255, 255, 255, 1);
+  --color-dark-on-background-600: rgba(255, 255, 255, 1);
+  --color-dark-on-background-700: rgba(255, 255, 255, 1);
+  --color-dark-on-background-800: rgba(255, 255, 255, 1);
+  --color-dark-on-background-900: rgba(255, 255, 255, 1);
+
+  --color-dark-surface-50: rgba(1, 22, 39, 0.05);
+  --color-dark-surface-100: rgba(1, 22, 39, 0.1);
+  --color-dark-surface-200: rgba(1, 22, 39, 0.2);
+  --color-dark-surface-300: rgba(1, 22, 39, 0.3);
+  --color-dark-surface-400: rgba(1, 22, 39, 0.4);
+  --color-dark-surface-500: rgba(1, 22, 39, 1);
+  --color-dark-surface-600: rgba(0, 17, 31, 1);
+  --color-dark-surface-700: rgba(0, 12, 23, 1);
+  --color-dark-surface-800: rgba(0, 8, 15, 1);
+  --color-dark-surface-900: rgba(0, 4, 8, 1);
+
+  --color-dark-on-surface-50: rgba(255, 255, 255, 1);
+  --color-dark-on-surface-100: rgba(255, 255, 255, 1);
+  --color-dark-on-surface-200: rgba(255, 255, 255, 1);
+  --color-dark-on-surface-300: rgba(255, 255, 255, 1);
+  --color-dark-on-surface-400: rgba(255, 255, 255, 1);
+  --color-dark-on-surface-500: rgba(255, 255, 255, 1);
+  --color-dark-on-surface-600: rgba(255, 255, 255, 1);
+  --color-dark-on-surface-700: rgba(255, 255, 255, 1);
+  --color-dark-on-surface-800: rgba(255, 255, 255, 1);
+  --color-dark-on-surface-900: rgba(255, 255, 255, 1);
+
+  --color-dark-error: rgba(255, 77, 79, 1);
+  --color-dark-on-error: rgba(255, 255, 255, 1);
+
+  --color-dark-success: rgba(82, 196, 26, 1);
+  --color-dark-on-success: rgba(255, 255, 255, 1);
+
+  --color-dark-warning: rgba(250, 173, 20, 1);
+  --color-dark-on-warning: rgba(0, 0, 0, 1);
+
+  --color-dark-grey-100: rgba(246, 247, 248, 1);
+  --color-dark-grey-200: rgba(225, 229, 232, 1);
+  --color-dark-grey-300: rgba(199, 204, 208, 1);
+  --color-dark-grey-400: rgba(155, 161, 167, 1);
+  --color-dark-grey-500: rgba(126, 134, 142, 1);
+  --color-dark-grey-600: rgba(94, 102, 112, 1);
+  --color-dark-grey-700: rgba(61, 70, 81, 1);
+  --color-dark-grey-800: rgba(42, 48, 55, 1);
+  --color-dark-grey-900: rgba(22, 28, 34, 1);
+
+  --color-dark-on-grey-100: rgba(0, 0, 0, 1);
+  --color-dark-on-grey-200: rgba(0, 0, 0, 1);
+  --color-dark-on-grey-300: rgba(0, 0, 0, 1);
+  --color-dark-on-grey-400: rgba(0, 0, 0, 1);
+  --color-dark-on-grey-500: rgba(255, 255, 255, 1);
+  --color-dark-on-grey-600: rgba(255, 255, 255, 1);
+  --color-dark-on-grey-700: rgba(255, 255, 255, 1);
+  --color-dark-on-grey-800: rgba(255, 255, 255, 1);
+  --color-dark-on-grey-900: rgba(255, 255, 255, 1);
+
+  --color-dark-skeleton-bg: rgba(13, 27, 42, 1);
+  --color-dark-skeleton-highlight: rgba(28, 61, 90, 1);
+}

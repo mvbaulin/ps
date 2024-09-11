@@ -1,5 +1,6 @@
-// Sizes
+@import './theme-dark.scss';
 
+// Width
 $width-mobile: 320px;
 $width-mobile-large: 360px;
 $width-tablet: 768px;
@@ -9,12 +10,13 @@ $width-desktop-large: 1440px;
 $width-fullscreen: 1920px;
 $width-widescreen: 2560px;
 
+// Gap
 $gap: 8px;
-
 $gap-mobile: $gap * 2;
 $gap-tablet: $gap * 2;
 $gap-desktop: $gap * 3;
 
+// Container
 $container-padding-mobile: $gap * 3;
 $container-padding-mobile-large: $gap * 4;
 $container-padding-tablet: $gap * 6;
@@ -33,50 +35,14 @@ $container-max-width-desktop-large: 1680px;
 $container-max-width-fullscreen: 1680px;
 $container-max-width-widescreen: 1680px;
 
-$input-padding: $gap $gap * 2;
-
-
-// Fonts
-
+// Font size
 $font-size-mobile: 14px;
 $font-size-tablet: 14px;
 $font-size-desktop: 14px;
 
-
-// Colors
-
-$bg-color-primary: #2F2F2F;
-$bg-color-secondary: #282828;
-
-$text-color-primary: #FFFFFF;
-$text-color-secondary: #000000;
-
-$accent-color-primary: #FFE842;
-$accent-color-secondary: #0072FF;
-$accent-color-transparent: rgba(255, 232, 66, 0.5);
-
-$info-color: #2F80ED;
-$success-color: #27AE60;
-$warning-color: #E2B93B;
-$error-color: #EB5757;
-$skeleton-color: #4F4F4F;
-
-
-// Misc
-
-$border-radius: 8px;
-
-
-// Progressbar
-
-// #nprogress .bar {
-//   @apply  bg-primary !important;
-// }
-
-// #nprogress .peg {
-//   @apply shadow-md shadow-primary !important;
-// }
-
-// #nprogress .spinner-icon {
-//   @apply border-t-primary border-l-primary !important;
-// }
+// Controls
+$control-border-size: 2px;
+$control-padding: calc($gap * 2 - $control-border-size * 3) $gap * 3 - $control-border-size;
+$control-transition: all 0.3s ease;
+$control-focus: $control-border-size * 2 solid $color-warning;
+$contol-active: $control-border-size solid $color-warning;

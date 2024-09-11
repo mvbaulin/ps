@@ -1,29 +1,57 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './button.module.scss';
+import Link from 'next/link';
 
 interface Props {
-  children: string;
+  children: React.ReactNode;
+  type?: 'button' | 'submit' | 'link';
+  href?: string;
+  color?: 'primary' | 'secondary' | 'tetriary';
+  bordered?: boolean;
+  uppercase?: boolean;
+  disabled?: boolean;
   wide?: boolean;
-  type?: 'button' | 'submit';
   onClick?: () => void;
 }
 
 export const Button: React.FC<Props> = ({
   children,
-  wide = false,
   type = 'button',
-  onClick
+  href = '',
+  color = 'primary',
+  bordered = false,
+  uppercase = true,
+  disabled = false,
+  wide = false,
+  onClick,
 }) => {
-  const buttonClass = classNames(
+  const classes = classNames(
     styles.button,
-    {[styles['button--wide']]: wide}
+    styles[`button--${color}`],
+    bordered && styles['button--bordered'],
+    uppercase && styles['button--uppercase'],
+    disabled && styles['button--disabled'],
+    wide && styles['button--wide']
   );
+
+  if (type === 'link') {
+    return (
+      <Link
+        className={classes}
+        href={href}
+        onClick={disabled ? (e) => e.preventDefault() : undefined}
+      >
+        {children}
+      </Link>
+    );
+  }
 
   return (
     <button
-      className={buttonClass}
+      className={classes}
       type={type}
+      disabled={disabled}
       onClick={onClick}
     >
       {children}

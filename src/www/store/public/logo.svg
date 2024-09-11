@@ -1,0 +1,15 @@
+<svg width="32.000000" height="32.000000" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip13_1387">
+			<rect id="Twitter" width="32.000000" height="32.000000" fill="white" fill-opacity="0"/>
+		</clipPath>
+	</defs>
+	<rect id="Logo" width="32.000000" height="32.000000" fill="#FFFFFF" fill-opacity="0"/>
+	<g clip-path="url(#clip13_1387)">
+		<path id="path" d="M3.33 23.84C4.61 24.55 13.92 29.91 20.54 25.78C27.16 21.64 26.8 14.52 26.8 11.25C27.39 10 28.66 9.36 28.66 5.96C27.42 7.11 26.18 7.5 24.95 7.13C23.75 5.29 22.09 4.48 19.98 4.69C16.82 5.01 15.66 8.12 16 12.13C11.12 14.6 7.3 10.34 5.32 7.13C4.67 9.66 4.03 12.7 5.32 16.06C6.19 18.3 8.26 20.2 11.55 21.74C8.22 23.55 5.48 24.25 3.33 23.84Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
+		<path id="path" d="M20.54 25.78C27.16 21.64 26.8 14.52 26.8 11.25C27.39 10 28.66 9.36 28.66 5.96C27.42 7.11 26.18 7.5 24.95 7.13C23.75 5.29 22.09 4.48 19.98 4.69C16.82 5.01 15.66 8.12 16 12.13C11.12 14.6 7.3 10.34 5.32 7.13C4.67 9.66 4.03 12.7 5.32 16.06C6.19 18.3 8.26 20.2 11.55 21.74C8.22 23.55 5.48 24.25 3.33 23.84C4.61 24.55 13.92 29.91 20.54 25.78Z" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round"/>
+	</g>
+</svg>

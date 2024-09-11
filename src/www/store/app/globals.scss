@@ -2,6 +2,14 @@
 
 * {
   box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    outline: none;
+  }
 }
 
 html,
@@ -54,8 +62,8 @@ html {
 }
 
 body {
-  background-color: $bg-color-primary;
-  color: $text-color-primary;
+  background: $color-background-500;
+  color: $color-on-background-500;
 }
 
 .visually-hidden {
@@ -67,4 +75,16 @@ body {
   overflow: hidden;
   border: 0;
   clip: rect(0 0 0 0);
+}
+
+#nprogress .bar {
+  @apply bg-primary !important;
+}
+
+#nprogress .peg {
+  @apply shadow-md shadow-primary !important;
+}
+
+#nprogress .spinner-icon {
+  @apply border-t-primary border-l-primary !important;
 }
