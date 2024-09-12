@@ -1,5 +1,6 @@
 export { Container } from '@/components/shared/container/container';
 export { Header } from '@/components/shared/header/header';
+export { Icon } from '@/components/shared/icon/icon';
 export { Logo } from '@/components/shared/logo/logo';
 export { ProfileButton } from '@/components/shared/profile-button/profile-button';
 export { Providers } from '@/components/shared/providers/providers';

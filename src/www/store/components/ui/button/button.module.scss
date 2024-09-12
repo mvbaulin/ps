@@ -41,14 +41,14 @@
   }
 
   &--tetriary {
-    background: $color-tertiary-500;
-    border: $control-border-size solid $color-tertiary-500;
-    color: $color-on-tertiary-500;
+    background: $color-tetriary-500;
+    border: $control-border-size solid $color-tetriary-500;
+    color: $color-on-tetriary-500;
 
     &:hover {
-      background: $color-tertiary-600;
-      border: $control-border-size solid $color-tertiary-600;
-      color: $color-on-tertiary-600;
+      background: $color-tetriary-600;
+      border: $control-border-size solid $color-tetriary-600;
+      color: $color-on-tetriary-600;
     }
   }
 

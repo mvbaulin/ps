@@ -1,18 +1,10 @@
-<svg width="24.000000" height="24.000000" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<desc>
-			Created with Pixso.
-	</desc>
-	<defs>
-		<clipPath id="clip13_1352">
-			<rect id="Menu button" width="24.000000" height="24.000000" fill="white" fill-opacity="0"/>
-		</clipPath>
-	</defs>
-	<g clip-path="url(#clip13_1352)">
-		<path id="path" d="M3.99 6.7L3.97 6.72C3.55 6.72 3.22 6.39 3.22 5.97C3.22 5.55 3.55 5.22 3.97 5.22L3.99 5.24L3.99 6.7ZM19.95 5.24L19.97 5.22C20.39 5.22 20.72 5.55 20.72 5.97C20.72 6.39 20.39 6.72 19.97 6.72L19.95 6.7L19.95 5.24Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
-		<path id="path" d="M3.97 5.97L19.97 5.97" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round"/>
-		<path id="path" d="M3.99 12.7L3.97 12.72C3.55 12.72 3.22 12.39 3.22 11.97C3.22 11.55 3.55 11.22 3.97 11.22L3.99 11.24L3.99 12.7ZM19.95 11.24L19.97 11.22C20.39 11.22 20.72 11.55 20.72 11.97C20.72 12.39 20.39 12.72 19.97 12.72L19.95 12.7L19.95 11.24Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
-		<path id="path" d="M3.97 11.97L19.97 11.97" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round"/>
-		<path id="path" d="M3.99 18.7L3.97 18.72C3.55 18.72 3.22 18.39 3.22 17.97C3.22 17.55 3.55 17.22 3.97 17.22L3.99 17.24L3.99 18.7ZM19.95 17.24L19.97 17.22C20.39 17.22 20.72 17.55 20.72 17.97C20.72 18.39 20.39 18.72 19.97 18.72L19.95 18.7L19.95 17.24Z" fill="#000000" fill-opacity="0" fill-rule="nonzero"/>
-		<path id="path" d="M3.97 17.97L19.97 17.97" stroke="#FFFFFF" stroke-opacity="1.000000" stroke-width="1.500000" stroke-linejoin="round" stroke-linecap="round"/>
-	</g>
+<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo
+Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 4H21" stroke-width="1.5" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path d="M3 12H21" stroke-width="1.5" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path d="M3 20H21" stroke-width="1.5" stroke-linecap="round"
+    stroke-linejoin="round" />
 </svg>

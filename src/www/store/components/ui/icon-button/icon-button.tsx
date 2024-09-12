@@ -1,26 +1,50 @@
 import React from 'react';
 import classNames from 'classnames';
-import classes from './icon-button.module.scss';
+import styles from './icon-button.module.scss';
 import Link from 'next/link';
+import Icon from '@/components/shared/icon/icon';
 
 interface Props {
   children: string;
-  type: 'cart' | 'favorites' | 'menu';
+  type: 'cart' | 'favorites' | 'menu' | 'close';
+  href?: string;
+  size: number;
+  onClick?: () => void;
+  ariaLabel?: string;
 }
 
 export const IconButton: React.FC<Props> = ({
   type,
   children,
+  href,
+  size,
+  onClick,
+  ariaLabel
 }) => {
-  return (
-    <div
-      className={classNames(classes.button, classes[`button--${type}`])}
+  const content = (
+    <>
+      <span className="visually-hidden">{children}</span>
+      <Icon name={type} size={size} />
+    </>
+  );
+
+  return href ? (
+    <Link
+      href={href}
+      className={styles.button}
     >
-      <Link href="/cart">
-        <span className="visually-hidden">
-          {children}
-        </span>
-      </Link>
-    </div>
+      <a aria-label={ariaLabel ||children}>
+        {content}
+      </a>
+    </Link>
+  ) : (
+    <button
+      type="button"
+      className={styles.button}
+      onClick={onClick}
+      aria-label={ariaLabel || children}
+    >
+      {content}
+    </button>
   );
 };

@@ -13,7 +13,11 @@ export const Header: React.FC = () => {
 
           <Search />
 
-          <IconButton type="menu">Меню</IconButton>
+          <IconButton
+            type="menu"
+            size={24}
+          >Меню
+          </IconButton>
         </nav>
       </header>
 
@@ -23,7 +27,11 @@ export const Header: React.FC = () => {
 
           <Search />
 
-          <IconButton type="menu">Меню</IconButton>
+          <IconButton
+            type="menu"
+            size={32}
+          >Меню
+          </IconButton>
         </nav>
       </header>
 
@@ -43,8 +51,19 @@ export const Header: React.FC = () => {
 
           <div>
             <ProfileButton/>
-            <IconButton type="favorites">Избранное</IconButton>
-            <IconButton type="cart">Корзина</IconButton>
+
+
+            <IconButton
+              type="favorites"
+              size={36}
+            >Избранное
+            </IconButton>
+
+            <IconButton
+              type="cart"
+              size={36}
+            >Корзина
+            </IconButton>
           </div>
         </nav>
       </header>

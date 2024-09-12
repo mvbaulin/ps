@@ -43,27 +43,27 @@
   --color-dark-on-secondary-800: rgba(255, 255, 255, 1);
   --color-dark-on-secondary-900: rgba(255, 255, 255, 1);
 
-  --color-dark-tertiary-50: rgba(255, 159, 28, 0.1);
-  --color-dark-tertiary-100: rgba(255, 159, 28, 0.2);
-  --color-dark-tertiary-200: rgba(255, 159, 28, 0.3);
-  --color-dark-tertiary-300: rgba(255, 159, 28, 0.4);
-  --color-dark-tertiary-400: rgba(255, 159, 28, 0.5);
-  --color-dark-tertiary-500: rgba(255, 159, 28, 1);
-  --color-dark-tertiary-600: rgba(230, 139, 26, 1);
-  --color-dark-tertiary-700: rgba(204, 122, 21, 1);
-  --color-dark-tertiary-800: rgba(179, 107, 15, 1);
-  --color-dark-tertiary-900: rgba(140, 76, 7, 1);
+  --color-dark-tetriary-50: rgba(255, 159, 28, 0.1);
+  --color-dark-tetriary-100: rgba(255, 159, 28, 0.2);
+  --color-dark-tetriary-200: rgba(255, 159, 28, 0.3);
+  --color-dark-tetriary-300: rgba(255, 159, 28, 0.4);
+  --color-dark-tetriary-400: rgba(255, 159, 28, 0.5);
+  --color-dark-tetriary-500: rgba(255, 159, 28, 1);
+  --color-dark-tetriary-600: rgba(230, 139, 26, 1);
+  --color-dark-tetriary-700: rgba(204, 122, 21, 1);
+  --color-dark-tetriary-800: rgba(179, 107, 15, 1);
+  --color-dark-tetriary-900: rgba(140, 76, 7, 1);
 
-  --color-dark-on-tertiary-50: rgba(90, 60, 0, 1);
-  --color-dark-on-tertiary-100: rgba(90, 60, 0, 1);
-  --color-dark-on-tertiary-200: rgba(90, 60, 0, 1);
-  --color-dark-on-tertiary-300: rgba(90, 60, 0, 1);
-  --color-dark-on-tertiary-400: rgba(90, 60, 0, 1);
-  --color-dark-on-tertiary-500: rgba(255, 255, 255, 1);
-  --color-dark-on-tertiary-600: rgba(255, 255, 255, 1);
-  --color-dark-on-tertiary-700: rgba(255, 255, 255, 1);
-  --color-dark-on-tertiary-800: rgba(255, 255, 255, 1);
-  --color-dark-on-tertiary-900: rgba(255, 255, 255, 1);
+  --color-dark-on-tetriary-50: rgba(90, 60, 0, 1);
+  --color-dark-on-tetriary-100: rgba(90, 60, 0, 1);
+  --color-dark-on-tetriary-200: rgba(90, 60, 0, 1);
+  --color-dark-on-tetriary-300: rgba(90, 60, 0, 1);
+  --color-dark-on-tetriary-400: rgba(90, 60, 0, 1);
+  --color-dark-on-tetriary-500: rgba(255, 255, 255, 1);
+  --color-dark-on-tetriary-600: rgba(255, 255, 255, 1);
+  --color-dark-on-tetriary-700: rgba(255, 255, 255, 1);
+  --color-dark-on-tetriary-800: rgba(255, 255, 255, 1);
+  --color-dark-on-tetriary-900: rgba(255, 255, 255, 1);
 
   --color-dark-background-50: rgba(1, 22, 39, 0.1);
   --color-dark-background-100: rgba(1, 22, 39, 0.2);
