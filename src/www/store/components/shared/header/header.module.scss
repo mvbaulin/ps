@@ -123,3 +123,9 @@
     }
   }
 }
+
+.mobile_only {
+  @media (min-width: $width-desktop) {
+    display: none;
+  }
+}
