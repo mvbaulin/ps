@@ -6,7 +6,7 @@ import Icon from '@/components/ui/icon/icon';
 
 interface Props {
   children: string;
-  type: 'cart' | 'favorites' | 'menu' | 'close';
+  type: 'cart' | 'favorites' | 'menu' | 'close' | 'scroll-up';
   href?: string;
   size: number;
   onClick?: () => void;

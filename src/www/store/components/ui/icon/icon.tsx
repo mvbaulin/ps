@@ -4,6 +4,7 @@ import CartIcon from '@/public/icons/icon-cart.svg';
 import CloseIcon from '@/public/icons/icon-close.svg';
 import FavoritesIcon from '@/public/icons/icon-favorites.svg';
 import MenuIcon from '@/public/icons/icon-menu.svg';
+import ScrollUpIcon from '@/public/icons/icon-scroll-up.svg';
 import classNames from 'classnames';
 import styles from './icon.module.scss';
 
@@ -51,6 +52,8 @@ export const Icon: React.FC<Props> = ({
         return <FavoritesIcon {...attrs} />;
       case 'menu':
         return <MenuIcon {...attrs} />;
+      case 'scroll-up':
+        return <ScrollUpIcon {...attrs} />;
       default:
         return null;
     }

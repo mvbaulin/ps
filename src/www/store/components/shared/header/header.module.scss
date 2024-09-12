@@ -1,12 +1,18 @@
 @import '../../../constants/variables.scss';
 
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 100;
   display: none;
   padding: $gap $container-padding-mobile;
-  background: $color-surface-200;
+  background: $color-surface-400;
+  transition: transform 0.3s ease;
+
+  &--hidden {
+    transform: translateY(-100%);
+  }
 
   &__mobile {
     display: block;
@@ -20,16 +26,16 @@
       justify-items: end;
       align-items: center;
 
-      > *:nth-child(1) {
+      >*:nth-child(1) {
         grid-area: logo;
         justify-self: start;
       }
 
-      > *:nth-child(2) {
+      >*:nth-child(2) {
         grid-area: search;
       }
 
-      > *:nth-child(3) {
+      >*:nth-child(3) {
         grid-area: menu;
       }
     }
@@ -111,7 +117,7 @@
 
           display: flex;
 
-          > * {
+          >* {
             margin-left: $gap * 3;
 
             &:first-child {
@@ -134,4 +140,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.scrollUpButton {
+  position: fixed;
+  left: -200px;
+  bottom: 20px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.scrollUpButton--visible {
+  left: $container-padding-mobile;
+
+  @media (min-width: $width-tablet) {
+    left: $container-padding-tablet;
+  }
+
+  @media (min-width: $width-desktop) {
+    left: $container-padding-desktop;
+  }
 }

@@ -37,15 +37,15 @@
   }
 
   &--default {
-    background: $color-grey-300;
-    border: $control-border-size solid $color-grey-300;
-    color: $color-grey-500;
+    background: $color-gray-300;
+    border: $control-border-size solid $color-gray-300;
+    color: $color-gray-500;
 
   }
 
   &--darker {
-    background: $color-grey-500;
-    border: $control-border-size solid $color-grey-500;
-    color: $color-grey-900;
+    background: $color-gray-500;
+    border: $control-border-size solid $color-gray-500;
+    color: $color-gray-900;
   }
 }

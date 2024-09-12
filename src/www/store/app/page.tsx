@@ -1,10 +1,11 @@
-import { Icon } from '@/components/shared';
+import { SectionPromo } from '@/components/shared';
 
 export default function Page() {
 
   return (
     <main>
-      INDEX
+      <SectionPromo>
+      </SectionPromo>
     </main>
   );
 }
