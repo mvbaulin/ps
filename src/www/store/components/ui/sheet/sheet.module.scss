@@ -1,0 +1,36 @@
+@import '../../../constants/variables.scss';
+
+.sheet {
+  position: fixed;
+  top: 0;
+  right: -80%;
+  width: 60%;
+  height: 100%;
+  background-color: $color-surface-600;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease-in-out;
+  z-index: $z-index-sheet;
+
+  &--open {
+    right: 0;
+  }
+
+  @media (min-width: $width-tablet) {
+    width: 30%;
+  }
+}
+
+.close_wrapper {
+  position: absolute;
+  top: $gap;
+  right: $container-padding-mobile;
+
+  @media (min-width: $width-tablet) {
+    right: $container-padding-tablet;
+  }
+}
+
+.content {
+  height: 100%;
+  overflow-y: auto;
+}

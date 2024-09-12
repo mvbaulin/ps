@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './icon-button.module.scss';
 import Link from 'next/link';
-import Icon from '@/components/shared/icon/icon';
+import Icon from '@/components/ui/icon/icon';
 
 interface Props {
   children: string;

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Input } from '@/components/ui';
 
@@ -7,6 +9,7 @@ export const Search: React.FC = () => {
       type="search"
       placeholder="Поиск..."
       value=""
+      onChange={e => e}
     />
   );
 };
