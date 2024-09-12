@@ -53,7 +53,13 @@ export const MenuMobile: React.FC<Props> = ({
         isOpen={isOpen}
         onClose={() => clickHandler(false)}
       >
-        sfkajsfl
+        <nav className={classNames(styles.nav)}>
+          <ul className={classNames(styles.list)}>
+            <li className={classNames(styles.item)}>
+              Элемент
+            </li>
+          </ul>
+        </nav>
       </Sheet>
     </div>
   );

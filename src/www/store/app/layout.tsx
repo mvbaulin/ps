@@ -13,6 +13,12 @@ export const metadata: Metadata = {
   robots: {
     index: false,
     follow: false,
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false
   }
 };
 

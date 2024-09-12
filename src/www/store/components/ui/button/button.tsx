@@ -42,7 +42,9 @@ export const Button: React.FC<Props> = ({
         href={href}
         onClick={disabled ? (e) => e.preventDefault() : undefined}
       >
-        {children}
+        <span>
+          {children}
+        </span>
       </Link>
     );
   }

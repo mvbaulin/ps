@@ -36,21 +36,25 @@ $container-max-width-fullscreen: 1680px;
 $container-max-width-widescreen: 1680px;
 
 // Font size
-$font-size-mobile: 14px;
-$font-size-tablet: 14px;
-$font-size-desktop: 14px;
-
-// Controls
-$control-border-size: 2px;
-$control-padding: calc($gap * 2 - $control-border-size * 3) $gap * 3 - $control-border-size;
-$control-transition: all 0.3s ease;
-$control-focus: $control-border-size * 2 solid $color-warning;
-$contol-active: $control-border-size solid $color-warning;
+$font-size-mobile: 16px;
+$font-size-tablet: 16px;
+$font-size-desktop: 16px;
 
 // Icons
 $icon-size-mobile: 32px;
 $icon-size-tablet: 36px;
 $icon-size-desktop: 36px;
+
+// Controls
+$control-border-size: 2px;
+$control-padding: 0 $gap * 3;
+$control-transition: all 0.3s ease;
+$control-focus: $control-border-size * 2 solid $color-warning;
+$contol-active: $control-border-size solid $color-warning;
+
+$control-max-height-mobile: $icon-size-mobile;
+$control-max-height-tablet: $icon-size-tablet;
+$control-max-height-desktop: $icon-size-desktop + $gap;
 
 // Z-index
 $z-index-overlay: 80;

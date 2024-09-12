@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
 
           <Search />
 
-          <div>
+          <div className={styles.inner}>
             <ProfileButton/>
 
             <IconButton
