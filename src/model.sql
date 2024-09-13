@@ -51,6 +51,7 @@ CREATE TABLE concepts (
 
 -- Titles
 DROP TABLE IF EXISTS titles;
+
 CREATE TABLE titles (
     id VARCHAR(255) PRIMARY KEY NOT NULL,
     title TEXT NOT NULL,
@@ -58,7 +59,7 @@ CREATE TABLE titles (
     url TEXT NOT NULL,
     cover TEXT,
     background TEXT,
-    rating NUMERIC(10, 2),
+    rating FLOAT,
     description TEXT,
     legal TEXT,
     users INTEGER,
@@ -76,16 +77,16 @@ CREATE TABLE titles (
     has_ea_access BOOLEAN,
     has_ubisoft_plus BOOLEAN,
     has_gta_plus BOOLEAN,
-    offer_none_original_price NUMERIC(10, 2),
-    offer_none_discount_price NUMERIC(10, 2),
-    ps_plus_original_price NUMERIC(10, 2),
-    ps_plus_discount_price NUMERIC(10, 2),
-    ubisoft_plus_original_price NUMERIC(10, 2),
-    ubisoft_plus_discount_price NUMERIC(10, 2),
-    ea_access_original_price NUMERIC(10, 2),
-    ea_access_discount_price NUMERIC(10, 2),
-    gta_plus_original_price NUMERIC(10, 2),
-    gta_plus_discount_price NUMERIC(10, 2),
+    offer_none_original_price FLOAT,
+    offer_none_discount_price FLOAT,
+    ps_plus_original_price FLOAT,
+    ps_plus_discount_price FLOAT,
+    ubisoft_plus_original_price FLOAT,
+    ubisoft_plus_discount_price FLOAT,
+    ea_access_original_price FLOAT,
+    ea_access_discount_price FLOAT,
+    gta_plus_original_price FLOAT,
+    gta_plus_discount_price FLOAT,
     on_sale BOOLEAN DEFAULT TRUE,
     updated_at TIMESTAMPTZ DEFAULT NULL,
     created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -94,6 +95,7 @@ CREATE TABLE titles (
     FOREIGN KEY (concept_id)
     REFERENCES concepts(id)
 );
+
 DROP INDEX IF EXISTS idx_titles_title;
 CREATE INDEX idx_titles_title ON titles(title);
 
@@ -149,6 +151,11 @@ SELECT
     title_cover
 FROM sorted_titles
 ORDER BY release_date DESC;
+
+
+DROP VIEW IF EXISTS v_titles;
+CREATE VIEW v_titles AS
+SELECT * FROM titles;
 
 
 DROP VIEW IF EXISTS v_promo;

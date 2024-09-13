@@ -1,11 +1,12 @@
 import { SectionPromo } from '@/components/shared';
+import { prisma } from '@/lib/prisma';
 
-export default function Page() {
+export default async function Page() {
+  const promo = await prisma.v_promo.findMany({});
 
   return (
     <main>
-      <SectionPromo>
-      </SectionPromo>
+      {promo.length > 0 && <SectionPromo titles={promo} />}
     </main>
   );
 }

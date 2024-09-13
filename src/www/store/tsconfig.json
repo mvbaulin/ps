@@ -25,6 +25,9 @@
   "exclude": ["node_modules"],
   "baseUrl": ".",
   "paths": {
+    "@/types/*": [
+      "types/*"
+    ],
     "@/components/*": [
       "components/*"
     ],

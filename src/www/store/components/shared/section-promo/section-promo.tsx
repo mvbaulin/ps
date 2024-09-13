@@ -3,35 +3,36 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './section-promo.module.scss';
-import { Container, Image } from '@/components/shared';
-import { useKeenSlider, KeenSliderInstance } from "keen-slider/react"
-import "keen-slider/keen-slider.min.css"
+import { useKeenSlider, KeenSliderInstance } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 import { Icon } from '@/components/ui';
+import { Image } from '@/components/shared';
+import ITitle from '@/types/title';
 
-const images = [
-  "/promo1.jpeg",
-  "/promo2.jpeg",
-  "/promo3.jpeg",
-]
+interface Props {
+  titles: ITitle[]
+}
 
-export const SectionPromo: React.FC = () => {
+export const SectionPromo: React.FC<Props> = ({
+  titles
+}) => {
   const [opacities, setOpacities] = React.useState<number[]>([]);
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const [sliderInstance, setSliderInstance] = React.useState<KeenSliderInstance | null>(null);
 
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
-    slides: images.length,
+    slides: titles.length,
     loop: true,
     drag: true,
     detailsChanged(s) {
-      const new_opacities = s.track.details.slides.map((slide) => slide.portion)
-      setOpacities(new_opacities)
+      const new_opacities = s.track.details.slides.map((slide) => slide.portion);
+      setOpacities(new_opacities);
       setCurrentSlide(s.track.details.rel);
     },
     created(s) {
       setSliderInstance(s);
     },
-  })
+  });
 
   const buttons = (
     <>
@@ -60,7 +61,7 @@ export const SectionPromo: React.FC = () => {
   const dots = (
     <>
       <div className={classNames(styles.dots)}>
-        {images.map((_, idx) => (
+        {titles.map((_, idx) => (
           <button
             key={idx}
             onClick={() => sliderInstance?.moveToIdx(idx)}
@@ -71,31 +72,29 @@ export const SectionPromo: React.FC = () => {
         ))}
       </div>
     </>
-  )
+  );
 
   return (
     <section className={classNames(styles.promo)}>
       <div ref={sliderRef} className={classNames(styles.list)}>
-        {images.map((src, idx) => (
+        {titles.map((title, idx) => (
           <div
-            key={idx}
+            key={title.id}
             className={classNames(styles.item)}
             style={{ opacity: opacities[idx] }}
           >
             <Image
               className={classNames(styles.image)}
-              src={src}
-              alt="Promo"
+              src={title.background || ''}
+              alt={title.title || title.id}
             />
           </div>
         ))}
       </div>
 
-
       {buttons}
 
       {dots}
-
     </section>
-  )
+  );
 };
