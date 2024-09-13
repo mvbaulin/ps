@@ -94,6 +94,8 @@ CREATE TABLE titles (
     FOREIGN KEY (concept_id)
     REFERENCES concepts(id)
 );
+DROP INDEX IF EXISTS idx_titles_title;
+CREATE INDEX idx_titles_title ON titles(title);
 
 
 -- Triggers
@@ -117,8 +119,8 @@ EXECUTE FUNCTION update_updated_date();
 
 
 -- Views
-DROP VIEW IF EXISTS concepts_with_discounts;
-CREATE VIEW concepts_with_discounts AS
+DROP VIEW IF EXISTS v_concepts_with_discounts;
+CREATE VIEW v_concepts_with_discounts AS
 WITH sorted_titles AS (
     SELECT DISTINCT
         c.id AS concept_id,
@@ -147,3 +149,15 @@ SELECT
     title_cover
 FROM sorted_titles
 ORDER BY release_date DESC;
+
+
+DROP VIEW IF EXISTS v_promo;
+CREATE VIEW v_promo AS
+SELECT * FROM titles t
+WHERE t.id IN (
+    'EP1004-PPSA01721_00-GTAOANDSPUPGRADE',
+    'EP0001-PPSA22100_00-GAME000000000000',
+    'EP9000-CUSA03173_00-BLOODBORNE0000EU',
+    'EP9000-PPSA08338_00-MARVELSPIDERMAN2'
+)
+ORDER BY users;

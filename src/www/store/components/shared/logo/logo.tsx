@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
+import { Image } from '@/components/shared';
 import styles from './logo.module.scss';
 import classNames from 'classnames';
 

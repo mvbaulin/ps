@@ -1,3 +1,9 @@
+@import '../../../constants/variables.scss';
+
+.promo {
+  position: relative;
+}
+
 .list {
   height: 100vh;
   position: relative;
@@ -17,4 +23,75 @@
   height: 100%;
   object-fit: cover;
   position: absolute;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 20%;
+  cursor: pointer;
+  border: none;
+  z-index: 100;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+
+  &:active,
+  &:focus {
+    background: transparent;
+  }
+
+  &--left {
+    left: 0;
+  }
+
+  &--right {
+    right: 0;
+  }
+}
+
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: $container-padding-mobile;
+  left: $container-padding-mobile;
+
+  @media (min-width: $width-tablet) {
+    bottom: $container-padding-tablet;
+    left: $container-padding-tablet;
+  }
+
+  @media (min-width: $width-desktop) {
+    bottom: $container-padding-desktop;
+    left: $container-padding-desktop;
+  }
+}
+
+.dot {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 5px;
+  border: none;
+  cursor: pointer;
+  margin-right: $gap;
+  background: $color-on-background-500;
+
+  &:first-child {
+    border-radius: 5px 0 0 5px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+    border-radius: 0 5px 5px 0;
+  }
+
+  &--active {
+    background: $color-tetriary-500;
+  }
 }

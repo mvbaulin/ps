@@ -4,14 +4,29 @@ import classNames from 'classnames';
 import styles from './image.module.scss';
 
 interface Props extends NextImageProps {
-  className?: string
+  className?: string;
+  width?: number;
+  height?: number;
 }
 
-export const Image: React.FC<Props> = ({ className, ...rest }) => {
+export const Image: React.FC<Props> = ({
+  className,
+  width = 1920,
+  height = 1080,
+  src,
+  ...rest
+}) => {
+  const isSvg = typeof src === 'string' && (src.endsWith('.svg') || src.endsWith('.png'));
+
   return (
     <NextImage
       {...rest}
-      className={classNames(styles.image, className)}
+      src={src}
+      className={classNames(styles.image, className, {
+        [styles['image--no-background']]: isSvg
+      })}
+      width={width}
+      height={height}
     />
   );
 };
