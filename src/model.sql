@@ -74,7 +74,7 @@ CREATE TABLE titles (
     product_type TEXT,
     has_offer_none BOOLEAN,
     has_ps_plus BOOLEAN,
-    has_ea_access BOOLEAN,
+    has_ea_play BOOLEAN,
     has_ubisoft_plus BOOLEAN,
     has_gta_plus BOOLEAN,
     offer_none_original_price FLOAT,
@@ -83,8 +83,8 @@ CREATE TABLE titles (
     ps_plus_discount_price FLOAT,
     ubisoft_plus_original_price FLOAT,
     ubisoft_plus_discount_price FLOAT,
-    ea_access_original_price FLOAT,
-    ea_access_discount_price FLOAT,
+    ea_play_original_price FLOAT,
+    ea_play_discount_price FLOAT,
     gta_plus_original_price FLOAT,
     gta_plus_discount_price FLOAT,
     on_sale BOOLEAN DEFAULT TRUE,
@@ -139,7 +139,7 @@ WITH sorted_titles AS (
             offer_none_discount_price != offer_none_original_price OR
             ps_plus_discount_price != ps_plus_original_price OR
             gta_plus_discount_price != gta_plus_original_price OR
-            ea_access_discount_price != ea_access_original_price OR
+            ea_play_discount_price != ea_play_original_price OR
             ubisoft_plus_discount_price != ubisoft_plus_original_price
         )
 )
@@ -165,6 +165,7 @@ WHERE t.id IN (
     'EP1004-PPSA01721_00-GTAOANDSPUPGRADE',
     'EP0001-PPSA22100_00-GAME000000000000',
     'EP9000-CUSA03173_00-BLOODBORNE0000EU',
-    'EP9000-PPSA08338_00-MARVELSPIDERMAN2'
+    'EP9000-PPSA08338_00-MARVELSPIDERMAN2',
+    'EP8534-PPSA21781_00-0845649175857950'
 )
 ORDER BY users;

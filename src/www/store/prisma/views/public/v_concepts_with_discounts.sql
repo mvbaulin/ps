@@ -25,7 +25,7 @@ WITH sorted_titles AS (
           t.gta_plus_discount_price <> t.gta_plus_original_price
         )
         OR (
-          t.ea_access_discount_price <> t.ea_access_original_price
+          t.ea_play_discount_price <> t.ea_play_original_price
         )
         OR (
           t.ubisoft_plus_discount_price <> t.ubisoft_plus_original_price

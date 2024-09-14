@@ -81,15 +81,15 @@
   cursor: pointer;
   margin-right: $gap;
   background: $color-on-background-500;
-  box-shadow: 0 0 0 1px $color-on-gray-400;
+  box-shadow: 0 0 0 0.1px $color-on-gray-400;
 
   &:first-child {
-    border-radius: 5px 0 0 5px;
+    border-radius: 25px 0 0 25px;
   }
 
   &:last-child {
     margin-right: 0;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 25px 25px 0;
   }
 
   &--active {

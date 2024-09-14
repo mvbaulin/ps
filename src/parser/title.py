@@ -344,14 +344,14 @@ def get_sale_datails(tmd: object):
             price_details = tmd['productDetail'][0]['productPriceDetail']
 
             offer_none = {}
-            ea_access = {}
+            ea_play = {}
             ps_plus = {}
             ubisoft_plus = {}
             gta_plus = {}
 
             has_offer_none = False
             has_ps_plus = False
-            has_ea_access = False
+            has_ea_play = False
             has_ubisoft_plus = False
             has_gta_plus = False
 
@@ -367,9 +367,9 @@ def get_sale_datails(tmd: object):
                 if item['offerBranding'] == "PS_PLUS":
                     ps_plus = item
                     has_ps_plus = True
-                if item['offerBranding'] == "EA_ACCESS":
-                    ea_access = item
-                    has_ea_access = True
+                if item['offerBranding'] == "ea_play":
+                    ea_play = item
+                    has_ea_play = True
                 if item['offerBranding'] == "UBISOFT_PLUS":
                     ubisoft_plus = item
                     has_ubisoft_plus = True
@@ -384,14 +384,14 @@ def get_sale_datails(tmd: object):
                     'product_type': tmd['skuDetail'][0]['skuName'],
                     'has_offer_none': has_offer_none,
                     'has_ps_plus': has_ps_plus,
-                    'has_ea_access': has_ea_access,
+                    'has_ea_play': has_ea_play,
                     'has_ubisoft_plus': has_ubisoft_plus,
                     'has_gta_plus': has_gta_plus
                 },
                 'offer_none': offer_none,
                 'ps_plus': ps_plus,
                 'ubisoft_plus': ubisoft_plus,
-                'ea_access': ea_access,
+                'ea_play': ea_play,
                 'gta_plus': gta_plus
             }
 
@@ -494,8 +494,8 @@ def mapping(data: object):
                         'common_data', {}).get('has_offer_none', None),
                     'has_ps_plus': i.get('sale_details', {}).get(
                         'common_data', {}).get('has_ps_plus', None),
-                    'has_ea_access': i.get('sale_details', {}).get(
-                        'common_data', {}).get('has_ea_access', None),
+                    'has_ea_play': i.get('sale_details', {}).get(
+                        'common_data', {}).get('has_ea_play', None),
                     'has_ubisoft_plus': i.get('sale_details', {}).get(
                         'common_data', {}).get('has_ubisoft_plus', None),
                     'has_gta_plus': i.get('sale_details', {}).get(
@@ -522,11 +522,11 @@ def mapping(data: object):
                         i.get('sale_details', {}).get('ubisoft_plus', {})
                         .get('discount_price', None),
 
-                    'ea_access_original_price':
-                        i.get('sale_details', {}).get('ea_access', {})
+                    'ea_play_original_price':
+                        i.get('sale_details', {}).get('ea_play', {})
                         .get('original_price', None),
-                    'ea_access_discount_price':
-                        i.get('sale_details', {}).get('ea_access', {})
+                    'ea_play_discount_price':
+                        i.get('sale_details', {}).get('ea_play', {})
                         .get('discount_price', None),
 
                     'gta_plus_original_price':
@@ -587,7 +587,7 @@ def put_data(data: object):
                         product_type = %s,
                         has_offer_none = %s,
                         has_ps_plus = %s,
-                        has_ea_access = %s,
+                        has_ea_play = %s,
                         has_ubisoft_plus = %s,
                         has_gta_plus = %s,
                         offer_none_original_price = %s,
@@ -596,8 +596,8 @@ def put_data(data: object):
                         ps_plus_discount_price = %s,
                         ubisoft_plus_original_price = %s,
                         ubisoft_plus_discount_price = %s,
-                        ea_access_original_price = %s,
-                        ea_access_discount_price = %s,
+                        ea_play_original_price = %s,
+                        ea_play_discount_price = %s,
                         gta_plus_original_price = %s,
                         gta_plus_discount_price = %s
                     WHERE
@@ -624,7 +624,7 @@ def put_data(data: object):
                         data['product_type'],
                         data['has_offer_none'],
                         data['has_ps_plus'],
-                        data['has_ea_access'],
+                        data['has_ea_play'],
                         data['has_ubisoft_plus'],
                         data['has_gta_plus'],
                         data['offer_none_original_price'],
@@ -633,8 +633,8 @@ def put_data(data: object):
                         data['ps_plus_discount_price'],
                         data['ubisoft_plus_original_price'],
                         data['ubisoft_plus_discount_price'],
-                        data['ea_access_original_price'],
-                        data['ea_access_discount_price'],
+                        data['ea_play_original_price'],
+                        data['ea_play_discount_price'],
                         data['gta_plus_original_price'],
                         data['gta_plus_discount_price'],
                         data['id'],
@@ -666,7 +666,7 @@ def put_data(data: object):
                         product_type,
                         has_offer_none,
                         has_ps_plus,
-                        has_ea_access,
+                        has_ea_play,
                         has_ubisoft_plus,
                         has_gta_plus,
                         offer_none_original_price,
@@ -675,8 +675,8 @@ def put_data(data: object):
                         ps_plus_discount_price,
                         ubisoft_plus_original_price,
                         ubisoft_plus_discount_price,
-                        ea_access_original_price,
-                        ea_access_discount_price,
+                        ea_play_original_price,
+                        ea_play_discount_price,
                         gta_plus_original_price,
                         gta_plus_discount_price)
                     VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
@@ -705,7 +705,7 @@ def put_data(data: object):
                         data['product_type'],
                         data['has_offer_none'],
                         data['has_ps_plus'],
-                        data['has_ea_access'],
+                        data['has_ea_play'],
                         data['has_ubisoft_plus'],
                         data['has_gta_plus'],
                         data['offer_none_original_price'],
@@ -714,8 +714,8 @@ def put_data(data: object):
                         data['ps_plus_discount_price'],
                         data['ubisoft_plus_original_price'],
                         data['ubisoft_plus_discount_price'],
-                        data['ea_access_original_price'],
-                        data['ea_access_discount_price'],
+                        data['ea_play_original_price'],
+                        data['ea_play_discount_price'],
                         data['gta_plus_original_price'],
                         data['gta_plus_discount_price'],
                     )

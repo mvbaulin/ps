@@ -41,7 +41,7 @@ model titles {
   product_type                String?
   has_offer_none              Boolean?
   has_ps_plus                 Boolean?
-  has_ea_access               Boolean?
+  has_ea_play                 Boolean?
   has_ubisoft_plus            Boolean?
   has_gta_plus                Boolean?
   offer_none_original_price   Float?
@@ -50,8 +50,8 @@ model titles {
   ps_plus_discount_price      Float?
   ubisoft_plus_original_price Float?
   ubisoft_plus_discount_price Float?
-  ea_access_original_price    Float?
-  ea_access_discount_price    Float?
+  ea_play_original_price      Float?
+  ea_play_discount_price      Float?
   gta_plus_original_price     Float?
   gta_plus_discount_price     Float?
   on_sale                     Boolean?  @default(true)
@@ -116,7 +116,7 @@ view v_titles {
   product_type                String?
   has_offer_none              Boolean?
   has_ps_plus                 Boolean?
-  has_ea_access               Boolean?
+  has_ea_play                 Boolean?
   has_ubisoft_plus            Boolean?
   has_gta_plus                Boolean?
   offer_none_original_price   Float?
@@ -125,8 +125,8 @@ view v_titles {
   ps_plus_discount_price      Float?
   ubisoft_plus_original_price Float?
   ubisoft_plus_discount_price Float?
-  ea_access_original_price    Float?
-  ea_access_discount_price    Float?
+  ea_play_original_price      Float?
+  ea_play_discount_price      Float?
   gta_plus_original_price     Float?
   gta_plus_discount_price     Float?
   on_sale                     Boolean?
@@ -156,7 +156,7 @@ view v_promo {
   product_type                String?
   has_offer_none              Boolean?
   has_ps_plus                 Boolean?
-  has_ea_access               Boolean?
+  has_ea_play                 Boolean?
   has_ubisoft_plus            Boolean?
   has_gta_plus                Boolean?
   offer_none_original_price   Float?
@@ -165,8 +165,8 @@ view v_promo {
   ps_plus_discount_price      Float?
   ubisoft_plus_original_price Float?
   ubisoft_plus_discount_price Float?
-  ea_access_original_price    Float?
-  ea_access_discount_price    Float?
+  ea_play_original_price      Float?
+  ea_play_discount_price      Float?
   gta_plus_original_price     Float?
   gta_plus_discount_price     Float?
   on_sale                     Boolean?

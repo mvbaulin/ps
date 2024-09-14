@@ -1,0 +1,45 @@
+@import '../../../constants/variables.scss';
+
+$margin: $gap * 2;
+
+.card {
+  max-width: 300px;
+  border-radius: 15px;
+  background-color: $color-background-600;
+  border: 1px solid $color-surface-400;
+  overflow: hidden;
+}
+
+.container {
+  padding: $container-padding-mobile;
+}
+
+.title {
+  margin-bottom: $margin / 2;
+}
+
+.developer {
+  margin-bottom: $margin;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $margin;
+  min-height: 16px;
+}
+
+.badge {
+  max-height: 16px;
+  margin-right: $gap;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.price {
+  margin-bottom: $margin;
+  display: flex;
+  justify-content: flex-end;
+}

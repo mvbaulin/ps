@@ -71,11 +71,11 @@ const GeneralInfo = (props) => {
                 </li>
               }
 
-              {props.has_ea_access === 1 &&
+              {props.has_ea_play === 1 &&
                 <li className={classes.price}>
                   <Price
-                    price={props.ea_access_original_price}
-                    discount={props.ea_access_discount_price}
+                    price={props.ea_play_original_price}
+                    discount={props.ea_play_discount_price}
                     showDiscount={true}
                     showBadge={false}
                     badge="EA+"
@@ -173,7 +173,7 @@ const GeneralInfo = (props) => {
         </Layout>
       </div>
     </Section>
-  ); 
+  );
 };
 
 export default GeneralInfo;

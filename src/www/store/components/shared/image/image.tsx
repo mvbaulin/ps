@@ -7,6 +7,8 @@ interface Props extends NextImageProps {
   className?: string;
   width?: number;
   height?: number;
+  fetchpriority?: boolean;
+  square?: boolean;
 }
 
 export const Image: React.FC<Props> = ({
@@ -14,6 +16,7 @@ export const Image: React.FC<Props> = ({
   width = 1920,
   height = 1080,
   src,
+  fetchpriority = true,
   ...rest
 }) => {
   const isSvg = typeof src === 'string' && (src.endsWith('.svg') || src.endsWith('.png'));
@@ -27,6 +30,8 @@ export const Image: React.FC<Props> = ({
       })}
       width={width}
       height={height}
+      priority={fetchpriority}
+      loading={fetchpriority ? 'eager' : 'lazy'}
     />
   );
 };

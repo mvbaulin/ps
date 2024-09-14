@@ -87,6 +87,9 @@ export const SectionPromo: React.FC<Props> = ({
               className={classNames(styles.image)}
               src={title.background || ''}
               alt={title.title || title.id}
+              fetchpriority={true}
+              width={3840}
+              height={2160}
             />
           </div>
         ))}

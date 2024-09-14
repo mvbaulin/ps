@@ -22,7 +22,7 @@ export default interface ITitle {
   product_type?: string | null;
   has_offer_none?: boolean | null;
   has_ps_plus?: boolean | null;
-  has_ea_access?: boolean | null;
+  has_ea_play?: boolean | null;
   has_ubisoft_plus?: boolean | null;
   has_gta_plus?: boolean | null;
   offer_none_original_price?: number | null;
@@ -31,8 +31,8 @@ export default interface ITitle {
   ps_plus_discount_price?: number | null;
   ubisoft_plus_original_price?: number | null;
   ubisoft_plus_discount_price?: number | null;
-  ea_access_original_price?: number | null;
-  ea_access_discount_price?: number | null;
+  ea_play_original_price?: number | null;
+  ea_play_discount_price?: number | null;
   gta_plus_original_price?: number | null;
   gta_plus_discount_price?: number | null;
   on_sale?: boolean | null;

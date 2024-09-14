@@ -29,10 +29,10 @@ const Item = (props) => {
               showDiscount={false}
               badge="GTA+"
             />
-          ) : props.ea_access_original_price || props.ea_access_discount_price ? (
+          ) : props.ea_play_original_price || props.ea_play_discount_price ? (
             <Price
-              price={props.ea_access_original_price}
-              discount={props.ea_access_discount_price}
+              price={props.ea_play_original_price}
+              discount={props.ea_play_discount_price}
               showDiscount={false}
               badge="EA+"
             />

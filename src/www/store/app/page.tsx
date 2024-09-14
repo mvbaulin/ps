@@ -1,4 +1,4 @@
-import { SectionPromo } from '@/components/shared';
+import { SectionPromo, Selection } from '@/components/shared';
 import { prisma } from '@/lib/prisma';
 
 export default async function Page() {
@@ -6,7 +6,14 @@ export default async function Page() {
 
   return (
     <main>
-      {promo.length > 0 && <SectionPromo titles={promo} />}
+      {
+        promo.length > 0 &&
+        <section>
+          <SectionPromo titles={promo} />
+        </section>
+      }
+
+      <Selection title="Рекомендуемые" items={promo} />
     </main>
   );
 }

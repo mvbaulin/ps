@@ -10,7 +10,7 @@ import { ICON_SIZES } from '@/constants/icon-sizes';
 export const Header: React.FC = () => {
   const [isHidden, setIsHidden] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null); // Таймер для задержки
+  const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null);
   const [showScrollUpButton, setShowScrollUpButton] = useState(false);
 
   const handleScroll = () => {
@@ -28,7 +28,6 @@ export const Header: React.FC = () => {
         setIsHidden(false);
       }
 
-      // Проверка, прокрутил ли пользователь на один экран
       if (currentScrollY > screenHeight) {
         setShowScrollUpButton(true);
       } else {
@@ -94,9 +93,9 @@ export const Header: React.FC = () => {
         </nav>
       </header>
 
-      <div className={classNames(styles.scrollUpButton, { [styles['scrollUpButton--visible']]: showScrollUpButton })}>
+      {/* <div className={classNames(styles.scrollUpButton, { [styles['scrollUpButton--visible']]: showScrollUpButton })}>
         <ScrollUpButton />
-      </div>
+      </div> */}
     </>
   );
 };

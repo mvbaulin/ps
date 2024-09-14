@@ -1,0 +1,37 @@
+@import '../../../constants/variables.scss';
+
+.price {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.price_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+
+  margin-right: $gap;
+}
+
+.discount_box {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  color: $color-gray-100;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 110%;
+    height: 2px;
+    top: 75%;
+    left: 0;
+    background: $color-tetriary-500;
+    transform: rotate(-10deg) translateY(-50%);
+    transform-origin: left center;
+  }
+}

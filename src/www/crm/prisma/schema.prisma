@@ -40,7 +40,7 @@ model titles {
   product_type                String?
   has_offer_none              Boolean?
   has_ps_plus                 Boolean?
-  has_ea_access               Boolean?
+  has_ea_play                 Boolean?
   has_ubisoft_plus            Boolean?
   has_gta_plus                Boolean?
   offer_none_original_price   Decimal?  @db.Decimal(10, 2)
@@ -49,8 +49,8 @@ model titles {
   ps_plus_discount_price      Decimal?  @db.Decimal(10, 2)
   ubisoft_plus_original_price Decimal?  @db.Decimal(10, 2)
   ubisoft_plus_discount_price Decimal?  @db.Decimal(10, 2)
-  ea_access_original_price    Decimal?  @db.Decimal(10, 2)
-  ea_access_discount_price    Decimal?  @db.Decimal(10, 2)
+  ea_play_original_price      Decimal?  @db.Decimal(10, 2)
+  ea_play_discount_price      Decimal?  @db.Decimal(10, 2)
   gta_plus_original_price     Decimal?  @db.Decimal(10, 2)
   gta_plus_discount_price     Decimal?  @db.Decimal(10, 2)
   on_sale                     Boolean?  @default(true)
