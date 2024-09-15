@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 
 export default async function Page() {
   const promo = await prisma.v_promo.findMany({
-    take: 10,
+    take: 6,
   });
 
   return (
@@ -16,6 +16,8 @@ export default async function Page() {
       }
 
       <Selection title="Рекомендуемые" items={promo} />
+
+      <Selection title="Новинки" items={promo} />
     </main>
   );
 }

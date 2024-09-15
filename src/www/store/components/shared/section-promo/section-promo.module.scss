@@ -108,3 +108,65 @@
     background: $color-tetriary-500;
   }
 }
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $z-index-controls;
+}
+
+.control {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: block;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: transparent;
+
+  width: $container-padding-desktop * 2 + 24px;
+  height: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+
+  transition: $control-transition;
+
+  &:active,
+  &:focus {
+    background: transparent;
+    outline: none;
+    border: none;
+  }
+
+  &:hover {
+    background: $color-surface-200;
+  }
+
+  &--prev {
+    border-radius: 0 25px 25px 0;
+    .icon {
+      left: $container-padding-desktop;
+    }
+  }
+
+  &--next {
+    border-radius: 25px 0 0 25px;
+    .icon {
+      right: $container-padding-desktop;
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

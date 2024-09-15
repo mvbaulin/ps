@@ -19,7 +19,18 @@ $margin: $gap * 2;
   min-height: $title-card-height;
   max-height: $title-card-height;
 
+  outline: 3px solid transparent;
+
   overflow: hidden;
+
+  transition: 0.3s ease;
+  @media (min-width: $width-desktop) {
+    &:hover {
+      outline: 3px solid $color-surface-500;
+      transform: translateY(-$gap * 2) scale(1.02);
+      z-index: 100;
+    }
+  }
 }
 
 .wrapper {
@@ -48,18 +59,18 @@ $margin: $gap * 2;
 
 .inner {
   justify-content: space-between;
+  height: 104.66px;
 }
 
 .title {
   text-wrap: stable;
   margin-bottom: $margin / 2;
   display: -webkit-box;
-  line-height: 1.2;
+  line-height: 1.3;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 40px;
 }
 
 .developer {

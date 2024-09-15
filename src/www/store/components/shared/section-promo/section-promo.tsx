@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import styles from './section-promo.module.scss';
 import { Image } from '@/components/shared';
 import ITitle from '@/types/title';
+import { Icon } from '@/components/ui';
 
 interface Props {
   titles: ITitle[],
@@ -83,6 +84,21 @@ export const SectionPromo: React.FC<Props> = ({
             />
           </div>
         ))}
+      </div>
+
+      <div className={classNames(styles.controls)}>
+        <button
+          onClick={goToPrevSlide}
+          className={classNames(styles.control, styles['control--prev'])}
+        >
+          <Icon className={classNames(styles.icon)} name="left" />
+        </button>
+        <button
+          onClick={goToNextSlide}
+          className={classNames(styles.control, styles['control--next'])}
+        >
+          <Icon className={classNames(styles.icon)} name="right" />
+        </button>
       </div>
 
       <div className={classNames(styles.dots)}>
