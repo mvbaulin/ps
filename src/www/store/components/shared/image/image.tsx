@@ -8,7 +8,6 @@ interface Props extends NextImageProps {
   width?: number;
   height?: number;
   fetchpriority?: boolean;
-  square?: boolean;
 }
 
 export const Image: React.FC<Props> = ({
@@ -19,19 +18,35 @@ export const Image: React.FC<Props> = ({
   fetchpriority = true,
   ...rest
 }) => {
-  const isSvg = typeof src === 'string' && (src.endsWith('.svg') || src.endsWith('.png'));
+  const isSquare = width === height;
 
   return (
-    <NextImage
-      {...rest}
-      src={src}
-      className={classNames(styles.image, className, {
-        [styles['image--no-background']]: isSvg
-      })}
-      width={width}
-      height={height}
-      priority={fetchpriority}
-      loading={fetchpriority ? 'eager' : 'lazy'}
-    />
+    <div className={classNames(styles.wrapper, className)}>
+      <div className={styles.background}>
+        <NextImage
+          src={src}
+          alt=""
+          width={width}
+          height={height}
+          className={classNames(styles.blurred)}
+        />
+      </div>
+
+      <div
+        className={classNames(styles.inner, {
+          [styles['image-wrapper--square']]: isSquare
+        })}
+      >
+        <NextImage
+          {...rest}
+          src={src}
+          width={width}
+          height={height}
+          className={styles.image}
+          priority={fetchpriority}
+          loading={fetchpriority ? 'eager' : 'lazy'}
+        />
+      </div>
+    </div>
   );
 };

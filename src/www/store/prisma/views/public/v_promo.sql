@@ -42,7 +42,7 @@ WHERE
   (
     (id) :: text = ANY (
       (
-        ARRAY ['EP1004-PPSA01721_00-GTAOANDSPUPGRADE'::character varying, 'EP0001-PPSA22100_00-GAME000000000000'::character varying, 'EP9000-CUSA03173_00-BLOODBORNE0000EU'::character varying, 'EP9000-PPSA08338_00-MARVELSPIDERMAN2'::character varying]
+        ARRAY ['EP1004-PPSA01721_00-GTAOANDSPUPGRADE'::character varying, 'EP0001-PPSA22100_00-GAME000000000000'::character varying, 'EP9000-CUSA03173_00-BLOODBORNE0000EU'::character varying, 'EP9000-PPSA08338_00-MARVELSPIDERMAN2'::character varying, 'EP8534-PPSA21781_00-0845649175857950'::character varying]
       ) :: text []
     )
   )

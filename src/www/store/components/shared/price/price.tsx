@@ -14,25 +14,21 @@ export const Price: React.FC<Props> = ({
   className,
   showDiscount = true
 }) => {
-  if (price.discount < price.price) {
-    let tmp = price.price;
-    price.price = price.discount;
-    price.discount = tmp;
-  }
+  const hasDiscount = price.discount < price.price;
 
   return (
-  <div className={classNames(styles.price, className)}>
+    <div className={classNames(styles.price, className)}>
       <p className={classNames(styles.price_box)}>
         <span className={classNames(styles.price)}>{price.price}</span>
         <span className={classNames(styles.currency)}>{`\u00A0${price.currency}`}</span>
       </p>
 
-      {showDiscount &&
+      {showDiscount && hasDiscount && (
         <p className={classNames(styles.discount_box)}>
           <span className={classNames(styles.discount)}>{price.discount}</span>
           <span className={classNames(styles.currency)}>{`\u00A0${price.currency}`}</span>
         </p>
-      }
+      )}
     </div>
   );
 };

@@ -1,9 +1,9 @@
-import NextAuth from "next-auth"
-import Yandex from "next-auth/providers/yandex"
+import NextAuth, { AuthOptions } from "next-auth";
+import YandexProvider from "next-auth/providers/yandex";
 
-export const authOptions = {
+const authOptions: AuthOptions = {
   providers: [
-    Yandex({
+    YandexProvider({
       clientId: process.env.AUTH_YANDEX_ID || '',
       clientSecret: process.env.AUTH_YANDEX_SECRET || '',
     }),

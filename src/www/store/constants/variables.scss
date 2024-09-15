@@ -52,9 +52,13 @@ $control-transition: all 0.3s ease;
 $control-focus: $control-border-size * 2 solid $color-warning;
 $contol-active: $control-border-size solid $color-warning;
 
-$control-max-height-mobile: $icon-size-mobile;
-$control-max-height-tablet: $icon-size-tablet;
+$control-max-height-mobile: $icon-size-desktop + $gap;
+$control-max-height-tablet: $icon-size-desktop + $gap;
 $control-max-height-desktop: $icon-size-desktop + $gap;
+
+// Title-card
+$title-card-width: 300px;
+$title-card-height: 426px;
 
 // Z-index
 $z-index-overlay: 80;

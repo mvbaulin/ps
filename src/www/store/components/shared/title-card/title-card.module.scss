@@ -1,31 +1,80 @@
-@import '../../../constants/variables.scss';
+@import '../../../constants//variables.scss';
 
 $margin: $gap * 2;
 
 .card {
-  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   border-radius: 15px;
   background-color: $color-background-600;
   border: 1px solid $color-surface-400;
+
+  width: $title-card-width;
+  min-width: $title-card-width;
+  max-width: $title-card-width;
+
+  height: $title-card-height;
+  min-height: $title-card-height;
+  max-height: $title-card-height;
+
   overflow: hidden;
 }
 
-.container {
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.top {
   padding: $container-padding-mobile;
+  flex-grow: 1;
+}
+
+.bottom {
+  padding: $container-padding-mobile;
+  padding-top: 0;
+  flex-shrink: 0;
+}
+
+.image_wrapper {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.inner {
+  justify-content: space-between;
 }
 
 .title {
+  text-wrap: stable;
   margin-bottom: $margin / 2;
+  display: -webkit-box;
+  line-height: 1.2;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 40px;
 }
 
 .developer {
   margin-bottom: $margin;
+  text-wrap: stable;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .badges {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: $margin;
   min-height: 16px;
 }
 
@@ -39,7 +88,13 @@ $margin: $gap * 2;
 }
 
 .price {
-  margin-bottom: $margin;
   display: flex;
   justify-content: flex-end;
+  margin-bottom: $container-padding-mobile;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

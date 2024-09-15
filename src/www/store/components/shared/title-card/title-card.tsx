@@ -21,39 +21,49 @@ export const TitleCard: React.FC<Props> = ({
 
   return (
     <article className={classNames(styles.card)}>
-      <Link href={`/store/category/titles/${title.id}`}>
-        <div className={classNames(styles.image_wrapper)}>
-          <Image
-            className={classNames(styles.image)}
-            src={title?.cover || '#'}
-            alt={title?.title || title.id}
-          />
-        </div>
-
-        <div className={classNames(styles.container)}>
-          <h3 className={classNames(styles.title)}>
-            {title.title}
-          </h3>
-
-          <p className={classNames(styles.developer)}>
-            {title.publisher}
-          </p>
-
-          <ul className={classNames(styles.badges)}>
-            {badges && badges.map((b, i) => (
-              <li className={classNames(styles.badge)} key={b}>
-                <TitleBadge type={b} />
-              </li>
-            ))}
-          </ul>
-
-          <div className={classNames(styles.price)}>
-            <Price price={price} />
+      <Link href={`#`} className={classNames(styles.link)}>
+        <div className={classNames(styles.wrapper)}>
+          <div className={classNames(styles.image_wrapper)}>
+            <Image
+              className={classNames(styles.image)}
+              src={title?.cover || '#'}
+              alt={title?.title || title.id}
+            />
           </div>
 
-          <Button wide>
-            В корзину
-          </Button>
+          <div className={classNames(styles.top)}>
+            <div className={classNames(styles.inner)}>
+              <h3 className={classNames(styles.title)}>
+                {title.title}
+              </h3>
+
+              <p className={classNames(styles.developer)}>
+                {title.publisher} f {title.publisher}
+                {title.publisher} f {title.publisher}
+              </p>
+
+              <ul className={classNames(styles.badges)}>
+                {badges && badges.map((b, i) => (
+                  <li className={classNames(styles.badge)} key={b}>
+                    <TitleBadge type={b} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className={classNames(styles.bottom)}>
+            <div className={classNames(styles.price)}>
+              <Price price={price} />
+            </div>
+
+
+            <div className={classNames(styles.button)}>
+              <Button>
+                В корзину
+              </Button>
+            </div>
+          </div>
         </div>
       </Link>
     </article>

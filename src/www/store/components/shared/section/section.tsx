@@ -7,11 +7,13 @@ interface Props {
   children: React.ReactNode;
   title?: string;
   titleAlign?: 'left' | 'center' | 'right';
+  container?: boolean
 }
 
 export const Section: React.FC<Props> = ({
   children,
   title,
+  container = true
 }) => {
   return (
     <section
@@ -26,9 +28,10 @@ export const Section: React.FC<Props> = ({
             </SectionTitle>
           </div>
         }
-
-        {children}
       </Container>
+
+      {container && <Container>{children}</Container> || children}
+
     </section>
   );
 };

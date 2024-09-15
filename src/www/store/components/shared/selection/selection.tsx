@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useRef } from 'react';
 import classNames from 'classnames';
 import styles from './selection.module.scss';
 import { Section, TitleCard } from '@/components/shared';
@@ -13,13 +15,20 @@ export const Selection: React.FC<Props> = ({
   items,
   title
 }) => {
+  const sliderRef = useRef<HTMLDivElement>(null);
+
   return (
-    <section className={classNames(styles.section)}>
-      <Section title={title}>
+    <Section title={title} container={false}>
+      <div
+        ref={sliderRef}
+        className={styles.slider}
+      >
         {items.map((item) => (
-          <TitleCard key={item.id} title={item} />
+          <div key={item.id} className={classNames(styles.item)}>
+            <TitleCard title={item} />
+          </div>
         ))}
-      </Section>
-    </section>
+      </div>
+    </Section>
   );
 };
