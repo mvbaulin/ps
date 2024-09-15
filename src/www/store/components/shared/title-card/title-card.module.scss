@@ -19,15 +19,16 @@ $margin: $gap * 2;
   min-height: $title-card-height;
   max-height: $title-card-height;
 
-  outline: 3px solid transparent;
+  outline: 2px solid transparent;
 
   overflow: hidden;
 
-  transition: 0.3s ease;
+  transition: transform 0.3s ease, outline 0.3s ease;
+
   @media (min-width: $width-desktop) {
     &:hover {
-      outline: 3px solid $color-surface-500;
-      transform: translateY(-$gap * 2) scale(1.02);
+      outline: 2px solid $color-surface-500;
+      transform: scale(1.03);
       z-index: 100;
     }
   }

@@ -40,6 +40,7 @@ export const Selection: React.FC<Props> = ({ items, title }) => {
           title={title}
           container={false}
           className={classNames(styles.selection, styles['selection--tablet'])}
+          titleAlign="center"
         >
           <Carousel rows={2}>
             {items.map((item, index) => (

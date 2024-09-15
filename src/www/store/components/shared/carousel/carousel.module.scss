@@ -25,11 +25,10 @@
 .carousel {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: repeat(auto-fill, 1fr);
-  gap: $gap;
+  grid-template-columns: repeat($title-card-width, $title-card-width);
+  gap: $gap * 2;
   grid-auto-rows: minmax(auto, auto);
-  margin-top: -$gap;
-  margin-bottom: -$gap;
+  margin: 0 auto;
 
   &.rows-1 {
     grid-template-rows: repeat(1, auto);
@@ -53,6 +52,5 @@
   justify-content: center;
   align-items: center;
   scroll-snap-align: center;
-  margin: $gap;
   flex: 1 0 auto;
 }

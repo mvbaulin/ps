@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
 
   margin-right: $gap;
 }
@@ -20,18 +20,19 @@
 .discount_box {
   position: relative;
   display: inline-block;
-  font-size: 14px;
+  font-size: 20px;
   color: $color-gray-100;
 
   &::after {
     position: absolute;
     content: '';
-    width: 110%;
+    width: 120%;
     height: 2px;
-    top: 75%;
-    left: 0;
+    top: 78%;
+    left: -8%;
     background: $color-tetriary-500;
     transform: rotate(-10deg) translateY(-50%);
     transform-origin: left center;
+    border-radius: 5px;
   }
 }

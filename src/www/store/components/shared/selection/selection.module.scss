@@ -37,6 +37,5 @@
   grid-template-columns: repeat(auto-fill, minmax($title-card-width, $title-card-width));
   grid-auto-rows: auto;
   justify-content: center;
-  align-content: center;
   gap: $gap * 2;
 }

@@ -15,7 +15,8 @@ export const Section: React.FC<Props> = ({
   children,
   title,
   container = true,
-  className
+  className,
+  titleAlign = 'left'
 }) => {
   return (
     <section
@@ -24,11 +25,12 @@ export const Section: React.FC<Props> = ({
     >
       <Container>
         {title &&
-          <div className={classNames(styles.header_wrapper)}>
-            <SectionTitle>
-              {title}
-            </SectionTitle>
-          </div>
+          <SectionTitle
+            position={titleAlign}
+            className={classNames(styles.title)}
+          >
+            {title}
+          </SectionTitle>
         }
       </Container>
 
