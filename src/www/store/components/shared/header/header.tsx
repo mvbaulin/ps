@@ -93,9 +93,9 @@ export const Header: React.FC = () => {
         </nav>
       </header>
 
-      {/* <div className={classNames(styles.scrollUpButton, { [styles['scrollUpButton--visible']]: showScrollUpButton })}>
+      <div className={classNames(styles.scrollUpButton, { [styles['scrollUpButton--visible']]: showScrollUpButton })}>
         <ScrollUpButton />
-      </div> */}
+      </div>
     </>
   );
 };
