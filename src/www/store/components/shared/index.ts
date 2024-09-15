@@ -1,3 +1,4 @@
+export { Carousel } from '@/components/shared/carousel/carousel';
 export { Container } from '@/components/shared/container/container';
 export { Header } from '@/components/shared/header/header';
 export { Image } from '@/components/shared/image/image';
