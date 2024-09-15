@@ -5,7 +5,8 @@ import classNames from 'classnames';
 import styles from './section-promo.module.scss';
 import { Image } from '@/components/shared';
 import ITitle from '@/types/title';
-import { Icon } from '@/components/ui';
+import { Button, Icon } from '@/components/ui';
+import { getFormatedData, getPrice } from '@/lib/title';
 
 interface Props {
   titles: ITitle[],
@@ -82,6 +83,18 @@ export const SectionPromo: React.FC<Props> = ({
               height={2160}
               cropped
             />
+
+            <div className={classNames(styles.content)}>
+              <div className={classNames(styles.title)}>
+                {title.title}
+              </div>
+
+              <div className={classNames(styles.button)}>
+                <Button href={`#`}>
+                  {getPrice(title?.offer_none_original_price, title.offer_none_discount_price).price} {getPrice(title?.offer_none_original_price, title.offer_none_discount_price).currency}
+                </Button>
+              </div>
+            </div>
           </div>
         ))}
       </div>
