@@ -2,41 +2,51 @@
 
 .promo {
   position: relative;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .list {
-  height: 100vh;
   position: relative;
-  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .item {
   width: 100%;
   height: 100%;
+  flex-shrink: 0;
   position: absolute;
   top: 0;
+  left: 0;
+  transition: opacity 2s ease-in-out;
+  opacity: 0;
+}
+
+.item--active {
+  opacity: 1;
 }
 
 .image {
-  background-color: transparent;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
 }
 
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  height: 40%;
+  height: 100%;
   width: 10%;
   cursor: pointer;
   border: none;
-  z-index: 100;
   background: transparent;
-  margin: 0;
+  z-index: 100;
   padding: 0;
+  margin: 0;
 
   &:active,
   &:focus {
@@ -51,7 +61,6 @@
     right: 0;
   }
 }
-
 
 .dots {
   display: flex;
@@ -81,7 +90,10 @@
   cursor: pointer;
   margin-right: $gap;
   background: $color-on-background-500;
-  box-shadow: 0 0 0 0.1px $color-on-gray-400;
+  box-shadow: 0 0 0 0.01px $color-on-gray-400;
+  transition: 1s;
+
+  z-index: $z-index-dots;
 
   &:first-child {
     border-radius: 25px 0 0 25px;

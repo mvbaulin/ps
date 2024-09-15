@@ -7,18 +7,20 @@ interface Props {
   children: React.ReactNode;
   title?: string;
   titleAlign?: 'left' | 'center' | 'right';
-  container?: boolean
+  container?: boolean,
+  className?: string
 }
 
 export const Section: React.FC<Props> = ({
   children,
   title,
-  container = true
+  container = true,
+  className
 }) => {
   return (
     <section
       aria-label={title}
-      className={classNames(styles.section)}
+      className={classNames(styles.section, className)}
     >
       <Container>
         {title &&

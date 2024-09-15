@@ -8,6 +8,7 @@ interface Props extends NextImageProps {
   width?: number;
   height?: number;
   fetchpriority?: boolean;
+  cropped?: boolean;
 }
 
 export const Image: React.FC<Props> = ({
@@ -16,6 +17,7 @@ export const Image: React.FC<Props> = ({
   height = 1080,
   src,
   fetchpriority = true,
+  cropped = false,
   ...rest
 }) => {
   const isSquare = width === height;
@@ -42,7 +44,9 @@ export const Image: React.FC<Props> = ({
           src={src}
           width={width}
           height={height}
-          className={styles.image}
+          className={classNames(styles.image, {
+            [styles['image--cropped']]: cropped
+          })}
           priority={fetchpriority}
           loading={fetchpriority ? 'eager' : 'lazy'}
         />

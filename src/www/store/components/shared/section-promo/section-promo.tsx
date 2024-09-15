@@ -1,87 +1,76 @@
-'use client'
+'use client';
 
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './section-promo.module.scss';
-import { useKeenSlider, KeenSliderInstance } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
-import { Icon } from '@/components/ui';
 import { Image } from '@/components/shared';
 import ITitle from '@/types/title';
 
 interface Props {
-  titles: ITitle[]
+  titles: ITitle[],
+  interval?: number
 }
 
 export const SectionPromo: React.FC<Props> = ({
-  titles
+  titles,
+  interval = 20000
 }) => {
-  const [opacities, setOpacities] = React.useState<number[]>([]);
-  const [currentSlide, setCurrentSlide] = React.useState(0);
-  const [sliderInstance, setSliderInstance] = React.useState<KeenSliderInstance | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const startX = useRef<number | null>(null);
+  const slideInterval = useRef<NodeJS.Timeout | null>(null);
 
-  const [sliderRef] = useKeenSlider<HTMLDivElement>({
-    slides: titles.length,
-    loop: true,
-    drag: true,
-    detailsChanged(s) {
-      const new_opacities = s.track.details.slides.map((slide) => slide.portion);
-      setOpacities(new_opacities);
-      setCurrentSlide(s.track.details.rel);
-    },
-    created(s) {
-      setSliderInstance(s);
-    },
-  });
+  const goToNextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % titles.length);
+  };
 
-  const buttons = (
-    <>
-      <button
-        className={classNames(styles.arrow, styles['arrow--left'])}
-        onClick={() => sliderInstance?.prev()}
-      >
-        <Icon
-          className={classNames(styles.icon)}
-          name="left"
-        />
-      </button>
+  const goToPrevSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + titles.length) % titles.length);
+  };
 
-      <button
-        className={classNames(styles.arrow, styles['arrow--right'])}
-        onClick={() => sliderInstance?.next()}
-      >
-        <Icon
-          className={classNames(styles.icon)}
-          name="right"
-        />
-      </button>
-    </>
-  );
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
 
-  const dots = (
-    <>
-      <div className={classNames(styles.dots)}>
-        {titles.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => sliderInstance?.moveToIdx(idx)}
-            className={classNames(styles.dot, {
-              [styles['dot--active']]: idx === currentSlide
-            })}
-          />
-        ))}
-      </div>
-    </>
-  );
+  useEffect(() => {
+    slideInterval.current = setInterval(goToNextSlide, interval);
+
+    return () => {
+      if (slideInterval.current) clearInterval(slideInterval.current);
+    };
+  }, [currentSlide]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    startX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (startX.current === null) return;
+    const endX = e.changedTouches[0].clientX;
+    const diffX = startX.current - endX;
+
+    if (Math.abs(diffX) > 50) {
+      if (diffX > 0) {
+        goToNextSlide();
+      } else {
+        goToPrevSlide();
+      }
+    }
+    startX.current = null;
+  };
 
   return (
-    <section className={classNames(styles.promo)}>
-      <div ref={sliderRef} className={classNames(styles.list)}>
+    <section className={classNames(styles.promo)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      <div className={classNames(styles.list)}>
         {titles.map((title, idx) => (
           <div
             key={title.id}
-            className={classNames(styles.item)}
-            style={{ opacity: opacities[idx] }}
+            className={classNames(styles.item, {
+              [styles['item--active']]: idx === currentSlide
+            })}
+            style={{ opacity: idx === currentSlide ? 1 : 0 }}
           >
             <Image
               className={classNames(styles.image)}
@@ -90,14 +79,23 @@ export const SectionPromo: React.FC<Props> = ({
               fetchpriority={true}
               width={3840}
               height={2160}
+              cropped
             />
           </div>
         ))}
       </div>
 
-      {buttons}
-
-      {dots}
+      <div className={classNames(styles.dots)}>
+        {titles.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => goToSlide(idx)}
+            className={classNames(styles.dot, {
+              [styles['dot--active']]: idx === currentSlide
+            })}
+          />
+        ))}
+      </div>
     </section>
   );
 };

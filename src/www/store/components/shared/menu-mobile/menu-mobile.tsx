@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './menu-mobile.module.scss';
 import { IconButton, Sheet, Overlay } from '@/components/ui';
 import { DEVICE_CODES } from '@/constants/device-width';
-import useDeviceInfo from '@/hooks/use-viewport-width';
+import useDeviceInfo from '@/hooks/use-device';
 import { ICON_SIZES } from '@/constants/icon-sizes';
 
 interface Props {}

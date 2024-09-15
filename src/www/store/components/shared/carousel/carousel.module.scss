@@ -1,37 +1,56 @@
 @import '../../../constants/variables.scss';
 
-.carousel {
+.wrapper {
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  justify-content: flex-start;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  white-space: nowrap;
-
   padding: 0 $container-padding-mobile;
 
   @media (min-width: $width-tablet) {
     padding: 0 $container-padding-tablet;
   }
+
+  @media (min-width: $width-desktop) {
+    padding: 0 $container-padding-desktop;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-.carousel::-webkit-scrollbar {
-  display: none;
+.carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fill, 1fr);
+  gap: $gap;
+  grid-auto-rows: minmax(auto, auto);
+
+  &.rows-1 {
+    grid-template-rows: repeat(1, auto);
+  }
+
+  &.rows-2 {
+    grid-template-rows: repeat(2, auto);
+  }
+
+  &.rows-3 {
+    grid-template-rows: repeat(3, auto);
+  }
+
+  &.rows-4 {
+    grid-template-rows: repeat(4, auto);
+  }
 }
 
 .item {
   display: flex;
-  scroll-snap-align: center;
   justify-content: center;
   align-items: center;
-
-  margin-right: $gap;
-
-  &:last-child {
-    margin-right: 0;
-  }
+  scroll-snap-align: center;
+  margin: $gap;
+  flex: 1 0 auto;
 }

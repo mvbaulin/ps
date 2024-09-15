@@ -1,1 +1,42 @@
 @import '../../../constants/variables.scss';
+
+.selection {
+  &--tablet,
+  &--desktop {
+    display: none;
+  }
+}
+
+@media (min-width: $width-tablet) {
+  .selection {
+    &--mobile {
+      display: none;
+    }
+
+    &--tablet {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: $width-desktop) {
+  .selection {
+    &--tablet,
+    &--mobile {
+      display: none;
+    }
+
+    &--desktop {
+      display: block;
+    }
+  }
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($title-card-width, $title-card-width));
+  grid-auto-rows: auto;
+  justify-content: center;
+  align-content: center;
+  gap: $gap * 2;
+}

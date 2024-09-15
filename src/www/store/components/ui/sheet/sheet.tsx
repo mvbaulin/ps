@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './sheet.module.scss';
 import { IconButton } from '@/components/ui';
 import { ICON_SIZES } from '@/constants/icon-sizes';
-import useDeviceInfo from '@/hooks/use-viewport-width';
+import useDeviceInfo from '@/hooks/use-device';
 import { DEVICE_CODES } from '@/constants/device-width';
 
 interface Props {

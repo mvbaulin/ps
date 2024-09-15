@@ -3,7 +3,14 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    domains: ['image.api.playstation.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'image.api.playstation.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   webpack(config, { isServer }) {
     config.module.rules.push({
