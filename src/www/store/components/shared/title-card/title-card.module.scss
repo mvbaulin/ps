@@ -1,4 +1,4 @@
-@import '../../../constants//variables.scss';
+@import '../../../constants/variables.scss';
 
 $margin: $gap * 2;
 
@@ -15,11 +15,11 @@ $margin: $gap * 2;
   min-width: $title-card-width;
   max-width: $title-card-width;
 
-  height: $title-card-height;
-  min-height: $title-card-height;
-  max-height: $title-card-height;
+  // height: $title-card-height;
+  // min-height: $title-card-height;
+  // max-height: $title-card-height;
 
-  outline: 2px solid transparent;
+  outline: 4px solid transparent;
 
   overflow: hidden;
 
@@ -27,7 +27,7 @@ $margin: $gap * 2;
 
   @media (min-width: $width-desktop) {
     &:hover {
-      outline: 2px solid $color-surface-500;
+      outline: 4px solid $color-surface-500;
       transform: scale(1.03);
       z-index: 100;
     }

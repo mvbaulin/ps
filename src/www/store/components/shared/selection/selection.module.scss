@@ -34,8 +34,8 @@
 
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax($title-card-width, $title-card-width));
+  grid-template-columns: repeat(auto-fill, minmax($title-card-width, 1fr));
   grid-auto-rows: auto;
   justify-content: center;
-  gap: $gap * 2;
+  gap: $gap * 4 $gap * 2;
 }
