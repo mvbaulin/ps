@@ -38,8 +38,7 @@ export const TitleCard: React.FC<Props> = ({
               </h3>
 
               <p className={classNames(styles.developer)}>
-                {title.publisher} f {title.publisher}
-                {title.publisher} f {title.publisher}
+                {title.publisher}
               </p>
 
               <ul className={classNames(styles.badges)}>
@@ -54,7 +53,9 @@ export const TitleCard: React.FC<Props> = ({
 
           <div className={classNames(styles.bottom)}>
             <div className={classNames(styles.price)}>
-              <Price price={price} />
+              {title.has_offer_none &&
+                <Price price={price} />
+              }
             </div>
 
 

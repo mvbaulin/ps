@@ -6,6 +6,7 @@ import FavoritesIcon from '@/public/icons/icon-favorites.svg';
 import MenuIcon from '@/public/icons/icon-menu.svg';
 import ScrollUpIcon from '@/public/icons/icon-scroll-up.svg';
 import NextIcon from '@/public/icons/icon-next.svg';
+import HeartIcon from '@/public/icons/icon-heart.svg';
 import classNames from 'classnames';
 import styles from './icon.module.scss';
 
@@ -18,7 +19,8 @@ type AllowedNames =
   'menu' |
   'right' |
   'scroll-up' |
-  'search';
+  'search' |
+  'like';
 
 type AllowedColors =
   'default' |
@@ -61,6 +63,8 @@ export const Icon: React.FC<Props> = ({
         return <NextIcon {...attrs} style={{ transform: 'rotate(180deg)' }} />;
       case 'right':
         return <NextIcon {...attrs} />;
+      case 'like':
+        return <HeartIcon {...attrs} />;
       default:
         return null;
     }

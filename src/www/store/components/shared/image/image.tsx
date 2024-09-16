@@ -9,6 +9,7 @@ interface Props extends NextImageProps {
   height?: number;
   fetchpriority?: boolean;
   cropped?: boolean;
+  background?: boolean;
 }
 
 export const Image: React.FC<Props> = ({
@@ -18,21 +19,31 @@ export const Image: React.FC<Props> = ({
   src,
   fetchpriority = true,
   cropped = false,
+  background = true,
   ...rest
 }) => {
   const isSquare = width === height;
 
   return (
-    <div className={classNames(styles.wrapper, className)}>
-      <div className={styles.background}>
-        <NextImage
-          src={src}
-          alt=""
-          width={width}
-          height={height}
-          className={classNames(styles.blurred)}
-        />
-      </div>
+    <div
+      className={classNames(
+        styles.wrapper,
+        !background && styles['wrapper--no-background'],
+        className
+      )}>
+
+      {background &&
+        <div className={styles.background}>
+          <NextImage
+            src={src}
+            alt=""
+            width={width / 4}
+            height={height / 4}
+            className={classNames(styles.blurred)}
+            loading={fetchpriority ? 'eager' : 'lazy'}
+          />
+        </div>
+      }
 
       <div
         className={classNames(styles.inner, {

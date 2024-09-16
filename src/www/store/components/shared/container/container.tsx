@@ -1,16 +1,20 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './container.module.scss'
+import styles from './container.module.scss';
 
 interface Props {
   children: React.ReactNode;
 }
 
 export const Container: React.FC<React.PropsWithChildren<Props>> = ({
-  children
+  children,
 }) => {
   return (
-    <div className={classNames(styles.container)}>
+    <div
+      className={classNames(
+        styles.container
+      )}
+    >
       {children}
     </div>
   );

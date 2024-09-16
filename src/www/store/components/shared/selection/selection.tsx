@@ -16,6 +16,10 @@ interface Props {
 export const Selection: React.FC<Props> = ({ items, title }) => {
   const { generalDeviceType } = useDeviceInfo();
 
+  if (!items?.length) {
+    return null;
+  }
+
   return (
     <>
       {[DEVICE_CODES.MOBILE].includes(generalDeviceType) && (

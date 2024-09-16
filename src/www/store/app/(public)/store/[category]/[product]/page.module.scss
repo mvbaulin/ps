@@ -1,0 +1,115 @@
+@import '../../../../../constants/variables.scss';
+
+.main {
+  // min-height: 100vh;
+  // overflow: hidden;
+}
+
+.background_wrapper {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0.2;
+}
+
+.background {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.cover_wrapper {
+  width: 100%;
+  height: auto;
+
+  &--container {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: $width-mobile-large) {
+    display: none;
+
+    &--container {
+      display: block;
+    }
+  }
+}
+
+.cover {
+  width: 100%;
+  height: auto;
+  border-radius: 0 0 20px 20px;
+}
+
+.content {
+  padding: $container-padding-mobile 0;
+
+  @media (min-width: $width-tablet) {
+    padding: $container-padding-tablet 0;
+  }
+
+  @media (min-width: $width-desktop) {
+    padding: $container-padding-desktop 0;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prices {
+  padding: $gap * 3 0;
+}
+
+.price_item {
+  display: flex;
+  align-items: center;
+  margin-bottom: $gap;
+
+  &:first-child {
+    font-size: 40px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.price {
+  margin-right: $gap * 2;
+}
+
+.table {
+  padding: $gap * 2;
+  background-color: $color-surface-200;
+  border-radius: 20px;
+}
+
+.table_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+
+  margin-bottom: $gap;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.table_Key {
+  width: 30%;
+}
+
+.table_value {
+  width: 70%;
+  text-align: right;
+}

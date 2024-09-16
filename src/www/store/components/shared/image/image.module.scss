@@ -3,8 +3,23 @@
 .wrapper {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; // Это соотношение сторон, можно изменить по необходимости
+  padding-bottom: 56.25%;
   overflow: hidden;
+
+  &--no-background {
+    .inner {
+      display: block;
+      position: static;
+      top: auto;
+      left: auto;
+      z-index: 0;
+      opacity: 1;
+    }
+
+    .image {
+      height: auto;
+    }
+  }
 }
 
 .background {
