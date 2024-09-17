@@ -23,7 +23,7 @@
 
 .close_wrapper {
   position: absolute;
-  top: $control-max-height-mobile / 2 - $gap;
+  top: calc($control-max-height-mobile / 2 - $gap);
   right: $container-padding-mobile;
 
   @media (min-width: $width-tablet) {

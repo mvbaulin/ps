@@ -27,24 +27,36 @@ export default async function Page(
         </div>
       )}
 
-      <div className={classNames(styles.cover_wrapper)}>
-        <NextImage
-          src={data.title.cover || '#'}
-          alt={data.title.title || data.title?.id}
-          width={1920}
-          height={1080}
-          className={classNames(styles.cover)}
-        />
-      </div>
+      <Container noMobile>
+        <div className={classNames(styles.cover_wrapper)}>
+          <NextImage
+            src={data.title.cover || '#'}
+            alt={data.title.title || data.title?.id}
+            width={1920}
+            height={1080}
+            className={classNames(styles.cover)}
+          />
+        </div>
+      </Container>
 
-      <section className={classNames(styles.content, styles['content--mobile'])}>
+      <section className={classNames(styles.content)}>
         <Container>
           <div className={classNames(styles.header)}>
-            <h1 className={classNames(styles.product_title)}>
-              {data.title.title}
-            </h1>
+            <div className={classNames(styles.header_inner)}>
+              <h1 className={classNames(styles.product_title)}>
+                {data.title.title}
+              </h1>
 
-            <IconButton type='like' size={32} >Нравится</IconButton>
+              { formatedData.platforms.ps4 &&
+                <TitleBadge type={'ps4-3'} className={classNames(styles.platform)} />
+              }
+
+              { formatedData.platforms.ps5 &&
+                <TitleBadge type={'ps5-3'} />
+              }
+            </div>
+
+            <IconButton type='like' size={50} >Нравится</IconButton>
           </div>
 
 
@@ -64,7 +76,7 @@ export default async function Page(
                   price={getPrice(data.title.ps_plus_original_price, data.title.ps_plus_discount_price)}
                   className={classNames(styles.price)}
                 />
-                <TitleBadge type='ps-plus' />
+                <TitleBadge type='ps-plus' size={30}/>
               </li>
             }
 

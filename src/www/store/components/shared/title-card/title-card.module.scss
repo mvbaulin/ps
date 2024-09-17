@@ -60,7 +60,7 @@ $margin: $gap * 2;
 
 .title {
   text-wrap: stable;
-  margin-bottom: $margin / 2;
+  margin-bottom: calc($margin / 2);
   display: -webkit-box;
   line-height: 1.3;
   -webkit-box-orient: vertical;
@@ -98,6 +98,7 @@ $margin: $gap * 2;
   display: flex;
   justify-content: flex-end;
   margin-bottom: $container-padding-mobile;
+  font-size: 20px;
 }
 
 .button {
