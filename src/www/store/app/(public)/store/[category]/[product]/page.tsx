@@ -37,18 +37,6 @@ export default async function Page(
         />
       </div>
 
-      <div className={classNames(styles.cover_wrapper, styles['cover_wrapper--container'])}>
-        <Container>
-          <NextImage
-            src={data.title.cover || '#'}
-            alt={data.title.title || data.title?.id}
-            width={1920}
-            height={1080}
-            className={classNames(styles.cover)}
-          />
-        </Container>
-      </div>
-
       <section className={classNames(styles.content, styles['content--mobile'])}>
         <Container>
           <div className={classNames(styles.header)}>

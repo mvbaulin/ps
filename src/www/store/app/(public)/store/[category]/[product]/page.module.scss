@@ -1,8 +1,7 @@
 @import '../../../../../constants/variables.scss';
 
 .main {
-  // min-height: 100vh;
-  // overflow: hidden;
+
 }
 
 .background_wrapper {
@@ -13,7 +12,7 @@
   left: 0;
   z-index: -1;
   overflow: hidden;
-  opacity: 0.2;
+  opacity: 0.05;
 }
 
 .background {
@@ -23,27 +22,14 @@
 }
 
 .cover_wrapper {
-  width: 100%;
-  height: auto;
 
-  &--container {
-    display: none;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: $width-mobile-large) {
-    display: none;
-
-    &--container {
-      display: block;
-    }
-  }
 }
 
 .cover {
-  width: 100%;
+  margin: 0 auto;
+  width: auto;
   height: auto;
+  max-height: $width-mobile;
   border-radius: 0 0 20px 20px;
 }
 
@@ -84,7 +70,7 @@
 }
 
 .price {
-  margin-right: $gap * 2;
+  margin-right: $gap;
 }
 
 .table {
