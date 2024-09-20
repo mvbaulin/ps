@@ -4,9 +4,9 @@ import React, { useRef, useState, useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './section-promo.module.scss';
 import { Image } from '@/components/shared';
-import ITitle from '@/types/title';
+import { ITitle} from '@/types/title';
 import { Button, Icon } from '@/components/ui';
-import { getFormatedData, getPrice } from '@/lib/title';
+import { getPrice } from '@/lib/title';
 
 interface Props {
   titles: ITitle[],

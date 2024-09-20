@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Section, TitleCard, Carousel } from '@/components/shared';
-import ITitle from '@/types/title';
+import { ITitle } from '@/types/title';
 import classNames from 'classnames';
 import styles from './selection.module.scss';
 import useDeviceInfo from '@/hooks/use-device';
