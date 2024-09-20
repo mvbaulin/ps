@@ -1,6 +1,6 @@
 import { currency } from '@/constants/currency';
 import IPrice from '@/types/price';
-import ITitle from '@/types/title';
+import { ITitle, IFormattedData } from '@/types/title';
 
 function getOffers(title: ITitle) {
   let offers = {
@@ -63,17 +63,30 @@ function getScreenLanguages(title: ITitle) {
   return title.screen_languages ? title.screen_languages.split(',') : [];
 }
 
-export function getFormatedData(title: ITitle) {
+function getReleaseDate(title: ITitle) {
+  if (title.release_date) {
+    const day = String(title.release_date.getDate()).padStart(2, '0');
+    const month = String(title.release_date.getMonth() + 1).padStart(2, '0');
+    const year = title.release_date.getFullYear();
+
+    return `${day}.${month}.${year}`;
+  }
+
+  return '';
+}
+
+export function getFormatedData(title: ITitle): IFormattedData {
   return {
     offers: getOffers(title),
     platforms: getPlatforms(title),
     genres: getGenres(title),
     voice_actors: getVoiceActors(title),
     screen_languages: getScreenLanguages(title),
+    release_date: getReleaseDate(title)
   };
 }
 
-export function getBadges(formatedData: any): string[] {
+export function getBadges(formatedData: IFormattedData): string[] {
   let res = [];
 
   if (formatedData?.platforms?.ps4) {

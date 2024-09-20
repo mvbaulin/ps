@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Roboto_Condensed } from "next/font/google";
+import { Roboto_Flex } from "next/font/google";
 import { Header, Providers } from '@/components/shared';
 
 import "normalize.css";
 import "./globals.scss";
 
-const font = Roboto_Condensed({ subsets: ["cyrillic-ext"] });
+const font = Roboto_Flex({ subsets: ["cyrillic-ext"] });
 
 export const metadata: Metadata = {
   title: "STORE",

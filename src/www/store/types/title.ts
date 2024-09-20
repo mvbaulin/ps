@@ -1,6 +1,6 @@
 import { Decimal } from '@prisma/client/runtime/library';
 
-export default interface ITitle {
+export interface ITitle {
   id: string;
   title: string | null;
   concept_id: number | null;
@@ -38,4 +38,22 @@ export default interface ITitle {
   on_sale?: boolean | null;
   updated_at?: Date | null;
   created_at?: Date | null;
+}
+
+export interface IFormattedData {
+  offers: {
+    offer_none: boolean;
+    ps_plus: boolean;
+    ea_play: boolean;
+    gta_plus: boolean;
+    ubisoft_plus: boolean;
+  };
+  platforms: {
+    ps4: boolean;
+    ps5: boolean;
+  };
+  genres: string[];
+  voice_actors: string[];
+  screen_languages: string[];
+  release_date: string;
 }

@@ -1,17 +1,6 @@
 import React from 'react';
-import AddonBadge from '@/public/badges/badge-addon.svg';
-import EaPlayBadge from '@/public/badges/badge-ea-play.svg';
-import GtaPlusBadge from '@/public/badges/badge-gta-plus.svg';
-import PsPlusBadge from '@/public/badges/badge-ps-plus.svg';
-import Ps4Badge from '@/public/badges/badge-ps4.svg';
-import Ps5Badge from '@/public/badges/badge-ps5.svg';
-import Ps4Badge_2 from '@/public/badges/badge-ps4-2.svg';
-import Ps5Badge_2 from '@/public/badges/badge-ps5-2.svg';
-import Ps4Badge_3 from '@/public/badges/badge-ps4-3.svg';
-import Ps5Badge_3 from '@/public/badges/badge-ps5-3.svg';
-import UbisoftPlusBadge from '@/public/badges/badge-ubisoft-plus.svg';
+import Image from 'next/image';
 import classNames from 'classnames';
-import styles from './title-badge.module.scss';
 
 type allowedNames =
   'addon' |
@@ -30,6 +19,7 @@ interface Props {
   type: allowedNames | string;
   size?: number;
   className?: string;
+  color?: string;
 }
 
 const ICON_DIMENSIONS = {
@@ -46,104 +36,39 @@ const ICON_DIMENSIONS = {
   'ubisoft-plus': { width: 27, height: 16 },
 };
 
+const BADGE_PATHS = {
+  addon: '/badges/badge-addon.svg',
+  'ea-play': '/badges/badge-ea-play.svg',
+  'gta-plus': '/badges/badge-gta-plus.svg',
+  'ps-plus': '/badges/badge-ps-plus.svg',
+  ps4: '/badges/badge-ps4.svg',
+  ps5: '/badges/badge-ps5.svg',
+  'ps4-2': '/badges/badge-ps4-2.svg',
+  'ps5-2': '/badges/badge-ps5-2.svg',
+  'ps4-3': '/badges/badge-ps4-3.svg',
+  'ps5-3': '/badges/badge-ps5-3.svg',
+  'ubisoft-plus': '/badges/badge-ubisoft-plus.svg',
+};
+
 export const TitleBadge: React.FC<Props> = ({
   type,
   size = 16,
-  className
+  className,
 }) => {
-  const renderIcon = () => {
-    const icon = ICON_DIMENSIONS[type as allowedNames];
-    if (!icon) return null;
+  const icon = ICON_DIMENSIONS[type as allowedNames];
+  const badgePath = BADGE_PATHS[type as allowedNames];
 
-    const width = (icon.width / icon.height) * size;
-    const viewBox = `0 0 ${icon.width} ${icon.height}`
+  if (!icon || !badgePath) return null;
 
-    switch (type) {
-      case 'addon':
-        return <AddonBadge
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      case 'ea-play':
-        return <EaPlayBadge
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      case 'gta-plus':
-        return <GtaPlusBadge
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      case 'ps-plus':
-        return <PsPlusBadge
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      case 'ps4':
-        return <Ps4Badge
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      case 'ps5':
-        return <Ps5Badge
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      case 'ps4-2':
-        return <Ps4Badge_2
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      case 'ps5-2':
-        return <Ps5Badge_2
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      case 'ps4-3':
-        return <Ps4Badge_3
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      case 'ps5-3':
-        return <Ps5Badge_3
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      case 'ubisoft-plus':
-        return <UbisoftPlusBadge
-          width={width}
-          height={size}
-          viewBox={viewBox}
-          className={classNames(styles.badge, className)}
-        />;
-      default:
-        return null;
-    }
-  };
+  const width = (icon.width / icon.height) * size;
 
   return (
-    <>
-      {renderIcon()}
-    </>
+    <Image
+      src={badgePath}
+      alt={`${type} badge`}
+      width={width}
+      height={size}
+      className={classNames(className)}
+    />
   );
 };

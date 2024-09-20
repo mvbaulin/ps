@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './title-card.module.scss';
-import ITitle from '@/types/title';
+import { ITitle } from '@/types/title';
 import { Image, Price, TitleBadge } from '@/components/shared';
 import { Button } from '@/components/ui';
 import Link from 'next/link';

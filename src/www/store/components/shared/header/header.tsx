@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import styles from './header.module.scss';
 import { IconButton, Button } from '@/components/ui';
 import { Logo, MenuMobile, ProfileButton, ScrollUpButton, Search } from '@/components/shared';
-import { ICON_SIZES } from '@/constants/icon-sizes';
 
 export const Header: React.FC = () => {
   const [isHidden, setIsHidden] = useState(false);
@@ -83,10 +82,10 @@ export const Header: React.FC = () => {
           <Search />
           <div className={styles.inner}>
             <ProfileButton />
-            <IconButton type="favorites" size={ICON_SIZES.DESKTOP}>
+            <IconButton type="favorites">
               Избранное
             </IconButton>
-            <IconButton type="cart" size={ICON_SIZES.DESKTOP}>
+            <IconButton type="cart">
               Корзина
             </IconButton>
           </div>

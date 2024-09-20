@@ -1,79 +1,54 @@
 import React from 'react';
-
-import CartIcon from '@/public/icons/icon-cart.svg';
-import CloseIcon from '@/public/icons/icon-close.svg';
-import FavoritesIcon from '@/public/icons/icon-favorites.svg';
-import MenuIcon from '@/public/icons/icon-menu.svg';
-import ScrollUpIcon from '@/public/icons/icon-scroll-up.svg';
-import NextIcon from '@/public/icons/icon-next.svg';
-import HeartIcon from '@/public/icons/icon-heart.svg';
+import Image from 'next/image';
 import classNames from 'classnames';
 import styles from './icon.module.scss';
-
-
-type AllowedNames =
-  'cart' |
-  'close' |
-  'favorites' |
-  'left' |
-  'menu' |
-  'right' |
-  'scroll-up' |
-  'search' |
-  'like';
-
-type AllowedColors =
-  'default' |
-  'primary' |
-  'secondary' |
-  'tetriary';
+import { IconNames } from '@/types/icon';
 
 interface Props {
-  name: AllowedNames;
+  name: IconNames;
   size?: number;
-  color?: AllowedColors;
+  color?: string;
   className?: string;
 }
+
+const ICON_PATHS = {
+  'cart': '/icons/icon-cart.svg',
+  'close': '/icons/icon-close.svg',
+  'favorites': '/icons/icon-favorites.svg',
+  'menu': '/icons/icon-menu.svg',
+  'scroll-up': '/icons/icon-scroll-up.svg',
+  'left': '/icons/icon-next.svg',
+  'right': '/icons/icon-next.svg',
+  'star-full': '/icons/icon-star-full.svg',
+  'star-half': '/icons/icon-star-half.svg',
+  'star-empty': '/icons/icon-star-empty.svg',
+};
 
 export const Icon: React.FC<Props> = ({
   name,
   size = 24,
-  color = 'default',
+  color = '',
   className,
 }) => {
+  const iconPath = ICON_PATHS[name];
+
+  if (!iconPath) return null;
+
   const attrs = {
     width: size,
     height: size,
-    className: classNames(styles.icon, styles[`icon--${color}`], className),
-  };
-
-  const renderIcon = () => {
-    switch (name) {
-      case 'cart':
-        return <CartIcon {...attrs} />;
-      case 'close':
-        return <CloseIcon {...attrs} />;
-      case 'favorites':
-        return <FavoritesIcon {...attrs} />;
-      case 'menu':
-        return <MenuIcon {...attrs} />;
-      case 'scroll-up':
-        return <ScrollUpIcon {...attrs} />;
-      case 'left':
-        return <NextIcon {...attrs} style={{ transform: 'rotate(180deg)' }} />;
-      case 'right':
-        return <NextIcon {...attrs} />;
-      case 'like':
-        return <HeartIcon {...attrs} />;
-      default:
-        return null;
-    }
+    className: classNames(styles.icon, styles[`icon--${name}`], className),
   };
 
   return (
-    <>
-      {renderIcon()}
-    </>
+    <Image
+      src={iconPath}
+      alt={`${name} icon`}
+      width={size}
+      height={size}
+      className={classNames(attrs.className)}
+      {...(name === 'left' ? { style: { transform: 'rotate(180deg)' } } : {})}
+    />
   );
 };
 

@@ -4,26 +4,10 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './menu-mobile.module.scss';
 import { IconButton, Sheet, Overlay } from '@/components/ui';
-import { DEVICE_CODES } from '@/constants/device-width';
-import useDeviceInfo from '@/hooks/use-device';
-import { ICON_SIZES } from '@/constants/icon-sizes';
 
 interface Props {}
 
 export const MenuMobile: React.FC<Props> = () => {
-  const { deviceType } = useDeviceInfo();
-
-  const deviceSizeMap = {
-    [DEVICE_CODES.MOBILE]: ICON_SIZES.MOBILE,
-    [DEVICE_CODES.MOBILE_LARGE]: ICON_SIZES.MOBILE,
-    [DEVICE_CODES.TABLET]: ICON_SIZES.TABLET,
-    [DEVICE_CODES.TABLET_LARGE]: ICON_SIZES.TABLET,
-    [DEVICE_CODES.DESKTOP]: ICON_SIZES.DESKTOP,
-    [DEVICE_CODES.DESKTOP_LARGE]: ICON_SIZES.DESKTOP,
-  };
-
-  let buttonSize = deviceSizeMap[deviceType] || ICON_SIZES.MOBILE;
-
   const [isOpen, setIsOpen] = useState(false);
   const [overlayIsVisible, setOverlayIsVisible] = useState(false);
 
@@ -48,7 +32,7 @@ export const MenuMobile: React.FC<Props> = () => {
 
   return (
     <div className={classNames(styles.menuMobile)}>
-      <IconButton type="menu" size={buttonSize} onClick={() => clickHandler(true)}>
+      <IconButton type="menu" onClick={() => clickHandler(true)}>
         Меню
       </IconButton>
 

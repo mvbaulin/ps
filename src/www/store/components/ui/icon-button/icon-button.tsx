@@ -3,12 +3,12 @@ import classNames from 'classnames';
 import styles from './icon-button.module.scss';
 import Link from 'next/link';
 import Icon from '@/components/ui/icon/icon';
+import { IconNames } from '@/types/icon';
 
 interface Props {
   children: string;
-  type: 'cart' | 'favorites' | 'menu' | 'close' | 'scroll-up' | 'like';
+  type: IconNames
   href?: string;
-  size: number;
   onClick?: () => void;
   ariaLabel?: string;
 }
@@ -17,14 +17,13 @@ export const IconButton: React.FC<Props> = ({
   type,
   children,
   href,
-  size,
   onClick,
   ariaLabel
 }) => {
   const content = (
     <>
       <span className="visually-hidden">{children}</span>
-      <Icon name={type} size={size} />
+      <Icon name={type} size={36} />
     </>
   );
 

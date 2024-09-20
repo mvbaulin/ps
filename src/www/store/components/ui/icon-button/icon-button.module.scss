@@ -8,11 +8,6 @@
   background: transparent;
   border: none;
   cursor: pointer;
-
-  &:hover {
-    svg {
-      fill: $color-primary-500;
-      stroke: $color-primary-500;
-    }
-  }
+  width: 36px;
+  height: 36px;
 }
