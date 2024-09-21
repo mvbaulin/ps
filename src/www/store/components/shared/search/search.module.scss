@@ -1,0 +1,43 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+}
+
+.result {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+  z-index: 10;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: white;
+}
+
+.result ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background-color: red;
+}
+
+.result li:hover {
+  background-color: #f0f0f0;
+}
+
+.highlighted {
+  background-color: #d0e8ff;
+  font-weight: bold;
+  color: #0056b3;
+}

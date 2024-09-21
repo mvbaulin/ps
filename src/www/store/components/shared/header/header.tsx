@@ -12,43 +12,43 @@ export const Header: React.FC = () => {
   const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null);
   const [showScrollUpButton, setShowScrollUpButton] = useState(false);
 
-  // const handleScroll = () => {
-  //   const currentScrollY = window.scrollY;
-  //   const screenHeight = window.innerHeight;
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    const screenHeight = window.innerHeight;
 
-  //   if (scrollTimeout) {
-  //     clearTimeout(scrollTimeout);
-  //   }
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
 
-  //   const newTimeout = setTimeout(() => {
-  //     if (currentScrollY > scrollPosition && currentScrollY > 300) {
-  //       setIsHidden(true);
-  //     } else if (currentScrollY < scrollPosition) {
-  //       setIsHidden(false);
-  //     }
+    const newTimeout = setTimeout(() => {
+      if (currentScrollY > scrollPosition && currentScrollY > 300) {
+        setIsHidden(true);
+      } else if (currentScrollY < scrollPosition) {
+        setIsHidden(false);
+      }
 
-  //     if (currentScrollY > screenHeight) {
-  //       setShowScrollUpButton(true);
-  //     } else {
-  //       setShowScrollUpButton(false);
-  //     }
+      if (currentScrollY > screenHeight) {
+        setShowScrollUpButton(true);
+      } else {
+        setShowScrollUpButton(false);
+      }
 
-  //     setScrollPosition(currentScrollY);
-  //   }, 300);
+      setScrollPosition(currentScrollY);
+    }, 300);
 
-  //   setScrollTimeout(newTimeout);
-  // };
+    setScrollTimeout(newTimeout);
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
 
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //     if (scrollTimeout) {
-  //       clearTimeout(scrollTimeout);
-  //     }
-  //   };
-  // }, [scrollPosition]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+    };
+  }, [scrollPosition]);
 
   return (
     <>
@@ -76,15 +76,19 @@ export const Header: React.FC = () => {
       >
         <nav className={styles.nav}>
           <Logo />
+
           <Button type="link" color="secondary" href="/catalog">
             Каталог
           </Button>
           <Search />
+
           <div className={styles.inner}>
             <ProfileButton />
+
             <IconButton type="favorites">
               Избранное
             </IconButton>
+
             <IconButton type="cart">
               Корзина
             </IconButton>

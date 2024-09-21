@@ -15,13 +15,13 @@ app.get('/', (req, res) => {
   res.send('API Working!');
 });
 
-app.get('/users', async (req, res) => {
+app.get('/search', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM users');
+    const result = await pool.query('SELECT * FROM v_titles WHERE title ILIKE $1', [`%${req.query.title}%`]);
     const rows = result.rows;
 
     if (rows.length === 0) {
-      return res.status(404).json({ error: 'Users not found' });
+      return res.status(404).json({ error: 'Titles no found' });
     }
 
     res.status(200).json(rows);
