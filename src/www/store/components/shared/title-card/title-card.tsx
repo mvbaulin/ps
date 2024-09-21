@@ -28,6 +28,8 @@ export const TitleCard: React.FC<Props> = ({
               className={classNames(styles.image)}
               src={title?.cover || '#'}
               alt={title?.title || title.id}
+              width={420}
+              height={270}
             />
           </div>
 

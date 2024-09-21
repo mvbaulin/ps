@@ -1,11 +1,12 @@
-.paralax {
+.background {
+  position: fixed;
   width: 100vw;
   height: 100vh;
-  position: fixed;
   top: 0;
   opacity: 0.7;
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
   z-index: -1;
   transform-origin: center;
+  object-fit: cover;
 }

@@ -7,7 +7,8 @@ interface Props extends NextImageProps {
   className?: string;
   width?: number;
   height?: number;
-  fetchpriority?: boolean;
+  priority?: boolean;
+  loading?: 'lazy' | 'eager';
   cropped?: boolean;
   background?: boolean;
 }
@@ -17,7 +18,8 @@ export const Image: React.FC<Props> = ({
   width = 1920,
   height = 1080,
   src,
-  fetchpriority = true,
+  priority = true,
+  loading,
   cropped = false,
   background = true,
   ...rest
@@ -40,7 +42,8 @@ export const Image: React.FC<Props> = ({
             width={width / 4}
             height={height / 4}
             className={classNames(styles.blurred)}
-            loading={fetchpriority ? 'eager' : 'lazy'}
+            loading={loading}
+            priority={priority}
           />
         </div>
       }
@@ -58,8 +61,8 @@ export const Image: React.FC<Props> = ({
           className={classNames(styles.image, {
             [styles['image--cropped']]: cropped
           })}
-          priority={fetchpriority}
-          loading={fetchpriority ? 'eager' : 'lazy'}
+          priority={priority}
+          loading={loading}
         />
       </div>
     </div>

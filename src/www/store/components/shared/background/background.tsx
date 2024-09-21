@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './background.module.scss';
 
 interface Props {
@@ -6,11 +7,12 @@ interface Props {
 
 export const Background: React.FC<Props> = ({ image }) => {
   return (
-    <div
-      className={styles.paralax}
-      style={{
-        backgroundImage: `url(${image})`,
-      }}
-    ></div>
+    <Image
+      src={image}
+      alt="back"
+      width={720}
+      height={480}
+      className={styles.background}
+    ></Image>
   );
 };

@@ -42,6 +42,7 @@ export const Product: React.FC<Props> = ({
         width={720}
         height={428}
         className={styles.cover}
+        priority
       />
     </div>
   );
