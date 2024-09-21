@@ -68,6 +68,7 @@ export const TitleBadge: React.FC<Props> = ({
       alt={`${type} badge`}
       width={width}
       height={size}
+      priority
       className={classNames(className)}
     />
   );

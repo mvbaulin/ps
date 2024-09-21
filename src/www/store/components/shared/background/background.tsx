@@ -13,6 +13,7 @@ export const Background: React.FC<Props> = ({ image }) => {
       width={1080}
       height={720}
       className={styles.background}
+      priority
     ></Image>
   );
 };

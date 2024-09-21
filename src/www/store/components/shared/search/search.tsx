@@ -82,44 +82,46 @@ export const Search: React.FC<Props> = ({
         />
       </form>
 
-      <div className={
-        classNames(styles.result, { [styles['result--show']]: showResults })}
-      >
-        {loading && <p>...</p>}
-        {error && <p>{error}</p>}
+      {results?.length > 0 &&
+        <div className={
+          classNames(styles.result, { [styles['result--show']]: showResults })}
+        >
+          {loading && <p>...</p>}
+          {error && <p>{error}</p>}
 
-        <ul className={classNames(styles.list)}>
-          {results.map((title: ITitle, index: number) => (
-            <li
-              key={title.id}
-              className={classNames(
-                styles.item,
-                { [styles['item--highlighted']]: index === highlightedIndex })
-              }
-              onMouseEnter={() => setHighlightedIndex(index)}
-              onClick={() => handleItemClick(title.id)}
-            >
-              <Link
-                href={`/store/titles/${title.id}`}
-                className={classNames(styles.link)}
+          <ul className={classNames(styles.list)}>
+            {results.map((title: ITitle, index: number) => (
+              <li
+                key={title.id}
+                className={classNames(
+                  styles.item,
+                  { [styles['item--highlighted']]: index === highlightedIndex })
+                }
+                onMouseEnter={() => setHighlightedIndex(index)}
+                onClick={() => handleItemClick(title.id)}
               >
-                <Image
-                  src={title.cover + '?w=64&h=36' || ''}
-                  alt={title.title || title.id}
-                  width={64}
-                  height={36}
-                  className={classNames(styles.cover)}
-                  loading="eager"
-                />
+                <Link
+                  href={`/store/titles/${title.id}`}
+                  className={classNames(styles.link)}
+                >
+                  <Image
+                    src={title.cover + '?w=64&h=36' || ''}
+                    alt={title.title || title.id}
+                    width={64}
+                    height={36}
+                    className={classNames(styles.cover)}
+                    loading="eager"
+                  />
 
-                <span className={classNames(styles.title)}>
-                  {title.title}
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+                  <span className={classNames(styles.title)}>
+                    {title.title}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      }
     </div>
   );
 };

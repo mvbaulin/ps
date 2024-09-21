@@ -46,6 +46,7 @@ export const Icon: React.FC<Props> = ({
       alt={`${name} icon`}
       width={size}
       height={size}
+      priority
       className={classNames(attrs.className)}
       {...(name === 'left' ? { style: { transform: 'rotate(180deg)' } } : {})}
     />
