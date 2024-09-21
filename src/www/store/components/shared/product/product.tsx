@@ -184,16 +184,13 @@ export const Product: React.FC<Props> = ({
               <div className={classNames(styles.top)}>
                 <div className={classNames(styles.left)}>
                   {cover}
+                  {rating}
                 </div>
 
                 <div className={classNames(styles.right)}>
                   {title_name}
                   {prices}
                 </div>
-              </div>
-
-              <div className={classNames(styles.bottom)}>
-                {rating}
               </div>
             </div>
 
@@ -210,16 +207,13 @@ export const Product: React.FC<Props> = ({
               <div className={classNames(styles.top)}>
                 <div className={classNames(styles.left)}>
                   {cover}
+                  {rating}
                 </div>
 
                 <div className={classNames(styles.right)}>
                   {title_name}
                   {prices}
                 </div>
-              </div>
-
-              <div className={classNames(styles.bottom)}>
-                {rating}
               </div>
             </div>
 

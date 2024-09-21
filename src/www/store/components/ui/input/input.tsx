@@ -8,6 +8,8 @@ interface Props {
   placeholder: string;
   value: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
   disabled?: boolean;
   name?: string;
 }
@@ -18,6 +20,8 @@ export const Input: React.FC<Props> = ({
   placeholder = '',
   value,
   onChange,
+  onFocus,
+  onBlur,
   disabled = false,
   name,
 }) => {
@@ -35,6 +39,8 @@ export const Input: React.FC<Props> = ({
       className={classes}
       value={value}
       onChange={onChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
       disabled={disabled}
       name={name}
     />

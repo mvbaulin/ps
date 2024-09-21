@@ -68,6 +68,7 @@
       justify-content: flex-start;
       align-items: flex-start;
       gap: $container-padding-tablet;
+      margin-bottom: $container-padding-tablet;
     }
 
     .left,
@@ -77,10 +78,6 @@
 
     .cover_wrapper {
       border-radius: 10px;
-    }
-
-    .bottom {
-      margin-top: $container-padding-tablet;
       margin-bottom: $container-padding-tablet;
     }
 
@@ -105,7 +102,8 @@
       display: flex;
       justify-content: flex-start;
       align-items: flex-start;
-      gap: $container-padding-desktop;
+      gap: $container-padding-tablet;
+      margin-bottom: $container-padding-desktop;
     }
 
     .left,
@@ -115,10 +113,6 @@
 
     .cover_wrapper {
       border-radius: 10px;
-    }
-
-    .bottom {
-      margin-top: $container-padding-desktop;
       margin-bottom: $container-padding-desktop;
     }
 

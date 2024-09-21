@@ -7,8 +7,17 @@ import styles from './search.module.scss';
 import { useSearchResults } from '@/hooks/use-search-result';
 import { useRouter } from 'next/navigation';
 import { ITitle } from '@/types/title';
+import Link from 'next/link';
+import Image from 'next/image';
 
-export const Search: React.FC = () => {
+interface Props {
+  onFocus?: () => void;
+  onBlur?: () => void;
+}
+
+export const Search: React.FC<Props> = ({
+  onFocus, onBlur
+}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
   const { results, loading, error } = useSearchResults(debouncedQuery);
@@ -18,14 +27,14 @@ export const Search: React.FC = () => {
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      if (searchQuery.length >= 3) {
+      if (searchQuery.length >= 1) {
         setDebouncedQuery(searchQuery);
         setShowResults(true);
       } else {
         setDebouncedQuery('');
         setShowResults(false);
       }
-    }, 300);
+    }, 500);
 
     return () => {
       clearTimeout(handler);
@@ -68,28 +77,49 @@ export const Search: React.FC = () => {
           placeholder="Поиск..."
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
+          onFocus={onFocus}
+          onBlur={onBlur}
         />
       </form>
 
-      {showResults && results.length > 0 && (
-        <div className={classNames(styles.result)}>
-          {loading && <p>Загрузка...</p>}
-          {error && <p>{error}</p>}
+      <div className={
+        classNames(styles.result, { [styles['result--show']]: showResults })}
+      >
+        {loading && <p>...</p>}
+        {error && <p>{error}</p>}
 
-          <ul>
-            {results.map((product: ITitle, index: number) => (
-              <li
-                key={product.id}
-                className={classNames({ [styles.highlighted]: index === highlightedIndex })}
-                onMouseEnter={() => setHighlightedIndex(index)}
-                onClick={() => handleItemClick(product.id)}
+        <ul className={classNames(styles.list)}>
+          {results.map((title: ITitle, index: number) => (
+            <li
+              key={title.id}
+              className={classNames(
+                styles.item,
+                { [styles['item--highlighted']]: index === highlightedIndex })
+              }
+              onMouseEnter={() => setHighlightedIndex(index)}
+              onClick={() => handleItemClick(title.id)}
+            >
+              <Link
+                href={`/store/titles/${title.id}`}
+                className={classNames(styles.link)}
               >
-                {product.title}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+                <Image
+                  src={title.cover || ''}
+                  alt={title.title || title.id}
+                  width={32}
+                  height={18}
+                  className={classNames(styles.cover)}
+                  loading="eager"
+                />
+
+                <span className={classNames(styles.title)}>
+                  {title.title}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
