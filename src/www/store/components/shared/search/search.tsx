@@ -104,10 +104,10 @@ export const Search: React.FC<Props> = ({
                 className={classNames(styles.link)}
               >
                 <Image
-                  src={title.cover || ''}
+                  src={title.cover + '?w=64&h=36' || ''}
                   alt={title.title || title.id}
-                  width={32}
-                  height={18}
+                  width={64}
+                  height={36}
                   className={classNames(styles.cover)}
                   loading="eager"
                 />
