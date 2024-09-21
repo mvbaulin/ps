@@ -37,7 +37,7 @@ export const Product: React.FC<Props> = ({
       }
 
       <Image
-        src={title.cover || ''}
+        src={title.cover + '?w=720&h=428' || ''}
         alt={title.title || title?.id}
         width={720}
         height={428}

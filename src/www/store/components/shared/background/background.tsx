@@ -8,10 +8,10 @@ interface Props {
 export const Background: React.FC<Props> = ({ image }) => {
   return (
     <Image
-      src={image}
+      src={image + '?w=1080&h=720'}
       alt="back"
-      width={720}
-      height={480}
+      width={1080}
+      height={720}
       className={styles.background}
     ></Image>
   );
