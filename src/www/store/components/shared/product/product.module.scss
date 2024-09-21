@@ -85,8 +85,9 @@
     }
 
     .title {
-      font-size: 30px;
+      font-size: 40px;
       margin-bottom: $container-padding-tablet;
+      max-width: 70%;
     }
 
     .rating {
@@ -122,8 +123,9 @@
     }
 
     .title {
-      font-size: 30px;
+      font-size: 50px;
       margin-bottom: $container-padding-desktop;
+      max-width: 70%;
     }
 
     .rating {
