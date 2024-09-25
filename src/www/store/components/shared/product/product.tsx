@@ -49,49 +49,49 @@ export const Product: React.FC<Props> = ({
 
   const prices = (
     <ul className={classNames(styles.prices)}>
-      { title.has_offer_none &&
+      { title.hasOfferNone &&
         <li className={classNames(styles.price_item)}>
           <Price
-            price={getPrice(title.offer_none_original_price, title.offer_none_discount_price)}
+            price={getPrice(title.offerNoneOriginalPrice, title.offerNoneDiscountPrice)}
             className={classNames(styles.price)}
           />
         </li>
       }
 
-      { title.has_ps_plus &&
+      { title.hasPsPlus &&
         <li className={classNames(styles.price_item)}>
           <Price
-            price={getPrice(title.ps_plus_original_price, title.ps_plus_discount_price)}
+            price={getPrice(title.psPlusOriginalPrice, title.psPlusDiscountPrice)}
             className={classNames(styles.price)}
           />
           <TitleBadge type='ps-plus' size={30}/>
         </li>
       }
 
-      { title.has_ea_play &&
+      { title.hasEaPlay &&
         <li className={classNames(styles.price_item)}>
           <Price
-            price={getPrice(title.ea_play_original_price, title.ea_play_discount_price)}
+            price={getPrice(title.eaPlayOriginalPrice, title.eaPlayDiscountPrice)}
             className={classNames(styles.price)}
           />
           <TitleBadge type='ea-play' size={30}/>
         </li>
       }
 
-      { title.has_gta_plus &&
+      { title.hasGtaPlus &&
         <li className={classNames(styles.price_item)}>
           <Price
-            price={getPrice(title.gta_plus_original_price, title.gta_plus_discount_price)}
+            price={getPrice(title.gtaPlusOriginalPrice, title.gtaPlusDiscountPrice)}
             className={classNames(styles.price)}
           />
           <TitleBadge type='gta-plus' size={30}/>
         </li>
       }
 
-      { title.has_ubisoft_plus &&
+      { title.hasUbisoftPlus &&
         <li className={classNames(styles.price_item)}>
           <Price
-            price={getPrice(title.ubisoft_plus_original_price, title.ubisoft_plus_discount_price)}
+            price={getPrice(title.ubisoftPlusOriginalPrice, title.ubisoftPlusDiscountPrice)}
             className={classNames(styles.price)}
           />
           <TitleBadge type='ubisoft-plus' size={30}/>
@@ -118,6 +118,22 @@ export const Product: React.FC<Props> = ({
     </div>
   );
 
+  const edition_content = (
+    <div className={classNames(styles.edition_content)}>
+      <p className={classNames(styles.edition_content_title)}>
+        {/* Издание включает в себя: */}
+      </p>
+
+      <ul className={classNames(styles.edition_content_list)}>
+        {formatedData.editionContent.map((item, index) => (
+          <li className={classNames(styles.edition_content_item)} key={index}>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
   const generalInfo = (
     <div className={classNames(styles.table)}>
       <div className={classNames(styles.table_row)}>
@@ -137,7 +153,7 @@ export const Product: React.FC<Props> = ({
       <div className={classNames(styles.table_row)}>
         <span className={classNames(styles.table_key)}>Дата релиза:</span>
         <span className={classNames(styles.table_value)}>
-          {formatedData.release_date ? formatedData.release_date : '---'}
+          {formatedData.releaseDate ? formatedData.releaseDate : '---'}
         </span>
       </div>
 
@@ -151,7 +167,7 @@ export const Product: React.FC<Props> = ({
       <div className={classNames(styles.table_row)}>
         <span className={classNames(styles.table_key)}>Субтитры:</span>
         <span className={classNames(styles.table_value)}>
-          {title.screen_languages ? title.screen_languages : '---'}
+          {title.screenLanguages ? title.screenLanguages : '---'}
         </span>
       </div>
     </div>
@@ -166,6 +182,7 @@ export const Product: React.FC<Props> = ({
           <div className={classNames(styles.wrapper)}>
             <div className={classNames(styles.left)}>
               {title_name}
+              {edition_content}
               {prices}
             </div>
 
@@ -190,11 +207,11 @@ export const Product: React.FC<Props> = ({
 
                 <div className={classNames(styles.right)}>
                   {title_name}
+                  {edition_content}
                   {prices}
                 </div>
               </div>
             </div>
-
             {generalInfo}
           </div>
 
@@ -213,6 +230,7 @@ export const Product: React.FC<Props> = ({
 
                 <div className={classNames(styles.right)}>
                   {title_name}
+                  {edition_content}
                   {prices}
                 </div>
               </div>

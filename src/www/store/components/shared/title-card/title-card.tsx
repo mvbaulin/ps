@@ -17,7 +17,7 @@ export const TitleCard: React.FC<Props> = ({
 
   const formatedData = getFormatedData(title);
   const badges = getBadges(formatedData);
-  const price = getPrice(title.offer_none_original_price, title.offer_none_discount_price);
+  const price = getPrice(title.offerNoneOriginalPrice, title.offerNoneDiscountPrice);
 
   return (
     <article className={classNames(styles.card)}>
@@ -55,7 +55,7 @@ export const TitleCard: React.FC<Props> = ({
 
           <div className={classNames(styles.bottom)}>
             <div className={classNames(styles.price)}>
-              {title.has_offer_none &&
+              {title.hasOfferNone &&
                 <Price price={price} />
               }
             </div>

@@ -1,5 +1,6 @@
 import { ProductTypes } from '@/constants/product-types';
 import { PrismaClient } from "@prisma/client"
+import { mappingTitle } from './mapping';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient }
 
@@ -15,7 +16,7 @@ export async function getTitleById(id: string) {
       }
     });
 
-    return result;
+    return mappingTitle(result);
   } catch (error) {
     console.error('Error fetching title:', error);
     throw error;
@@ -32,7 +33,7 @@ export async function getRelatedTitlesByConcept(id: string, productType: string)
 
     const result = await prisma.titles.findMany({
       where: {
-        concept_id: title.concept_id || 0,
+        concept_id: title.conceptId || 0,
         product_type: productType,
         id: {
           not: id
@@ -40,7 +41,7 @@ export async function getRelatedTitlesByConcept(id: string, productType: string)
       }
     });
 
-    return result;
+    return result.map((item) => mappingTitle(item));
   } catch (error) {
     console.error('Error fetching related titles:', error);
     throw error;

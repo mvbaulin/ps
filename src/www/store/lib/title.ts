@@ -4,31 +4,31 @@ import { ITitle, IFormattedData } from '@/types/title';
 
 function getOffers(title: ITitle) {
   let offers = {
-    offer_none: false,
-    ps_plus: false,
-    ea_play: false,
-    gta_plus: false,
-    ubisoft_plus: false
+    offerNone: false,
+    psPlus: false,
+    eaPlay: false,
+    gtaPlus: false,
+    ubisoftPlus: false
   };
 
-  if (title.has_offer_none) {
-    offers.offer_none = true;
+  if (title.hasOfferNone) {
+    offers.offerNone = true;
   }
 
-  if (title.has_ps_plus) {
-    offers.ps_plus = true;
+  if (title.hasPsPlus) {
+    offers.psPlus = true;
   }
 
-  if (title.has_ea_play) {
-    offers.ea_play = true;
+  if (title.hasEaPlay) {
+    offers.eaPlay = true;
   }
 
-  if (title.has_gta_plus) {
-    offers.gta_plus = true;
+  if (title.hasGtaPlus) {
+    offers.gtaPlus = true;
   }
 
-  if (title.has_ubisoft_plus) {
-    offers.ubisoft_plus = true;
+  if (title.hasUbisoftPlus) {
+    offers.ubisoftPlus = true;
   }
 
   return offers;
@@ -60,14 +60,18 @@ function getVoiceActors(title: ITitle) {
 }
 
 function getScreenLanguages(title: ITitle) {
-  return title.screen_languages ? title.screen_languages.split(',') : [];
+  return title.screenLanguages ? title.screenLanguages.split(',') : [];
+}
+
+function getEditionContent(title: ITitle) {
+  return title.content ? title.content.split(';').filter(item => item) : [];
 }
 
 function getReleaseDate(title: ITitle) {
-  if (title.release_date) {
-    const day = String(title.release_date.getDate()).padStart(2, '0');
-    const month = String(title.release_date.getMonth() + 1).padStart(2, '0');
-    const year = title.release_date.getFullYear();
+  if (title.releaseDate) {
+    const day = String(title.releaseDate.getDate()).padStart(2, '0');
+    const month = String(title.releaseDate.getMonth() + 1).padStart(2, '0');
+    const year = title.releaseDate.getFullYear();
 
     return `${day}.${month}.${year}`;
   }
@@ -80,9 +84,10 @@ export function getFormatedData(title: ITitle): IFormattedData {
     offers: getOffers(title),
     platforms: getPlatforms(title),
     genres: getGenres(title),
-    voice_actors: getVoiceActors(title),
-    screen_languages: getScreenLanguages(title),
-    release_date: getReleaseDate(title)
+    voiceActors: getVoiceActors(title),
+    screenLanguages: getScreenLanguages(title),
+    releaseDate: getReleaseDate(title),
+    editionContent: getEditionContent(title),
   };
 }
 
@@ -97,19 +102,19 @@ export function getBadges(formatedData: IFormattedData): string[] {
     res.push('ps5');
   }
 
-  if (formatedData?.offers?.ps_plus) {
+  if (formatedData?.offers?.psPlus) {
     res.push('ps-plus');
   }
 
-  if (formatedData?.offers?.ea_play) {
+  if (formatedData?.offers?.eaPlay) {
     res.push('ea-play');
   }
 
-  if (formatedData?.offers?.ubisoft_plus) {
+  if (formatedData?.offers?.ubisoftPlus) {
     res.push('ubisoft-plus');
   }
 
-  if (formatedData?.offers?.gta_plus) {
+  if (formatedData?.offers?.gtaPlus) {
     res.push('gta-plus');
   }
 

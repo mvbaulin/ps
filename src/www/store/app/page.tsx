@@ -1,12 +1,10 @@
 import { SectionPromo, Selection } from '@/components/shared';
-import { prisma } from '@/lib/prisma';
 import classNames from 'classnames';
 import styles from './page.module.scss';
+import { getPromo } from '@/lib/promo';
 
 export default async function Page() {
-  const promo = await prisma.v_promo.findMany({
-    take: 10,
-  });
+  const promo = await getPromo();
 
   return (
     <main className={classNames(styles.main)}>
