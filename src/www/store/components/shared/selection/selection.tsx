@@ -9,7 +9,7 @@ import useDeviceInfo from '@/hooks/use-device';
 import { DEVICE_CODES } from '@/constants/device-width';
 
 interface Props {
-  title: string;
+  title?: string;
   items: ITitle[];
 }
 

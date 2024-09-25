@@ -22,6 +22,7 @@ const ICON_PATHS = {
   'star-full': '/icons/icon-star-full.svg',
   'star-half': '/icons/icon-star-half.svg',
   'star-empty': '/icons/icon-star-empty.svg',
+  'filters': '/icons/icon-filters.svg',
 };
 
 export const Icon: React.FC<Props> = ({

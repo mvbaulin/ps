@@ -8,4 +8,5 @@ export type IconNames =
   'scroll-up' |
   'star-full' |
   'star-half' |
-  'star-empty';
+  'star-empty' |
+  'filters';

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './menu-mobile.module.scss';
 import { IconButton, Sheet, Overlay } from '@/components/ui';
+import Link from 'next/link';
 
 interface Props {}
 
@@ -42,7 +43,11 @@ export const MenuMobile: React.FC<Props> = () => {
         <nav className={classNames(styles.nav)}>
           <ul className={classNames(styles.list)}>
             <li className={classNames(styles.item)}>
-              Элемент
+              <Link
+                href="/catalog"
+                onClick={() => clickHandler(false)}>
+                  Каталог
+              </Link>
             </li>
           </ul>
         </nav>
