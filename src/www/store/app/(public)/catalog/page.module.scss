@@ -42,4 +42,12 @@
       padding: $container-padding-mobile 0;
     }
   }
+
+  &--desktop {
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      padding: $container-padding-desktop 0;
+    }
+  }
 }
