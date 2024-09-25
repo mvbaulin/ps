@@ -89,7 +89,7 @@ export const SectionPromo: React.FC<Props> = ({
 
               <div className={classNames(styles.button)}>
                 <Button href={`#`}>
-                  {getPrice(title?.offer_none_original_price, title.offer_none_discount_price).price} {getPrice(title?.offer_none_original_price, title.offer_none_discount_price).currency}
+                  {getPrice(title?.offerNoneOriginalPrice, title.offerNoneDiscountPrice).price} {getPrice(title?.offerNoneOriginalPrice, title.offerNoneDiscountPrice).currency}
                 </Button>
               </div>
             </div>
