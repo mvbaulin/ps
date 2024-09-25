@@ -127,7 +127,7 @@ export const Product: React.FC<Props> = ({
       <ul className={classNames(styles.edition_content_list)}>
         {formatedData.editionContent.map((item, index) => (
           <li className={classNames(styles.edition_content_item)} key={index}>
-            {item}
+            {item};
           </li>
         ))}
       </ul>
