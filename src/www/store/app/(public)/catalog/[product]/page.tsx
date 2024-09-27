@@ -4,6 +4,7 @@ import styles from './page.module.scss';
 import { getFormatedData, getPrice } from '@/lib/title';
 import { Product } from '@/components/shared/product/product';
 import { Background, Selection } from '@/components/shared';
+import { redirect } from 'next/navigation';
 
 
 export default async function Page(
@@ -11,6 +12,11 @@ export default async function Page(
   { params: { product: string } }) {
 
   const data = await getTitle(product);
+
+  if (!data?.title.id) {
+    redirect('/catalog');
+  }
+
   const formatedData = getFormatedData(data.title);
 
   return (

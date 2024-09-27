@@ -10,6 +10,10 @@ if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma
 
 export async function getTitleById(id: string) {
   try {
+    if (!id) {
+      return null;
+    }
+
     const result = await prisma.v_titles.findUnique({
       where: {
         id
@@ -27,13 +31,9 @@ export async function getRelatedTitlesByConcept(id: string, productType: string)
   try {
     const title = await getTitleById(id);
 
-    if (!title) {
-      throw new Error(`Title with id ${id} not found`);
-    }
-
     const result = await prisma.titles.findMany({
       where: {
-        concept_id: title.conceptId || 0,
+        concept_id: title?.conceptId || 0,
         product_type: productType,
         id: {
           not: id
@@ -53,7 +53,7 @@ export async function getTitle(id: string) {
     const title = await getTitleById(id);
 
     if (!title) {
-      throw new Error(`Title with id ${id} not found`);
+      return null;
     }
 
     const [
