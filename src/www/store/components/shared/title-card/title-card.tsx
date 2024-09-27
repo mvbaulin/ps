@@ -21,7 +21,7 @@ export const TitleCard: React.FC<Props> = ({
 
   return (
     <article className={classNames(styles.card)}>
-      <Link href={`/catalog/${title.id}`} className={classNames(styles.link)}>
+      <Link href={`/catalog/titles/${title.id}`} className={classNames(styles.link)}>
         <div className={classNames(styles.wrapper)}>
           <div className={classNames(styles.image_wrapper)}>
             <Image

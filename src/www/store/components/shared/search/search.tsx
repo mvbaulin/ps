@@ -64,7 +64,7 @@ export const Search: React.FC<Props> = ({
   };
 
   const handleItemClick = (id: string) => {
-    router.push(`/catalog/${id}`);
+    router.push(`/catalog/titles/${id}`);
     setSearchQuery('');
     setShowResults(false);
   };

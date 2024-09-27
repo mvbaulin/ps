@@ -17,10 +17,6 @@ export default async function Page() {
 
       <Selection title="Рекомендуемые" items={promo} />
 
-      <Selection title="Новинки" items={promo} />
-      <Selection title="Новинки" items={promo} />
-      <Selection title="Новинки" items={promo} />
-      <Selection title="Новинки" items={promo} />
     </main>
   );
 }

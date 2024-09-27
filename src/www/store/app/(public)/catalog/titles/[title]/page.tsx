@@ -8,10 +8,10 @@ import { redirect } from 'next/navigation';
 
 
 export default async function Page(
-  { params: { product } }:
-  { params: { product: string } }) {
+  { params: { title } }:
+  { params: { title: string } }) {
 
-  const data = await getTitle(product);
+  const data = await getTitle(title);
 
   if (!data?.title.id) {
     redirect('/catalog');
