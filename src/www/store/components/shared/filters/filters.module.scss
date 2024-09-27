@@ -1,0 +1,25 @@
+@import '../../../constants/variables.scss';
+
+.filters {
+  width: 100%;
+
+  @media (min-width: $width-tablet) {
+    display: flex;
+  }
+}
+
+.dropdown {
+  margin-bottom: $gap;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.toggle {
+  margin-bottom: $gap;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

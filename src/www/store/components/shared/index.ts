@@ -5,6 +5,7 @@ export { Header } from '@/components/shared/header/header';
 export { Image } from '@/components/shared/image/image';
 export { Logo } from '@/components/shared/logo/logo';
 export { ParalaxBackground } from '@/components/shared/paralax-background/paralax-background';
+export { Popup } from '@/components/shared/popup/popup';
 export { MenuMobile } from '@/components/shared/menu-mobile/menu-mobile';
 export { Price } from '@/components/shared/price/price';
 export { ProfileButton } from '@/components/shared/profile-button/profile-button';

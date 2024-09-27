@@ -1,0 +1,65 @@
+@import '../../../constants/variables.scss';
+
+.dropdown {
+  width: 100%;
+
+  &--active {
+    .title {
+      border-radius: 10px 10px 0 0;
+
+      &::after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+
+    .list {
+      display: block;
+    }
+  }
+}
+
+.title {
+  position: relative;
+  margin: 0;
+  padding: $gap $container-padding-mobile;
+  width: 100%;
+  text-align: left;
+  background: $color-background-800;
+  color: $color-on-background-800;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    right: $container-padding-mobile;
+    transform: translateY(-50%);
+    background-image: url('/icons/icon-dropdown.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    z-index: 99;
+    transition: 0.3s;
+  }
+}
+
+.list {
+  display: none;
+  background: $color-background-600;
+  border-radius: 0 0 10px 10px;
+  padding: $gap $container-padding-mobile;
+}
+
+.item {
+  text-align: left;
+  padding: $gap $container-padding-mobile;
+  border-bottom: 1px solid $color-background-700;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}

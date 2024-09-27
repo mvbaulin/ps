@@ -169,3 +169,21 @@ WHERE t.id IN (
     'EP8534-PPSA21781_00-0845649175857950'
 )
 ORDER BY users;
+
+
+DROP VIEW IF EXISTS v_genres;
+CREATE VIEW v_genres AS
+SELECT DISTINCT trim(unnest(string_to_array(genres, ','))) AS genre
+FROM titles
+WHERE
+    genres IS NOT NULL
+ORDER BY genre;
+
+
+DROP VIEW IF EXISTS v_product_types;
+CREATE VIEW v_product_types AS
+SELECT DISTINCT trim(unnest(string_to_array(product_type, ','))) AS product_type
+FROM titles
+WHERE
+    product_type IS NOT NULL
+ORDER BY product_type;

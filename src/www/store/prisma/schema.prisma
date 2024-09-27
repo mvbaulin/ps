@@ -173,3 +173,11 @@ view v_promo {
   updated_at                  DateTime? @db.Timestamptz(6)
   created_at                  DateTime? @db.Timestamptz(6)
 }
+
+view v_genres {
+  genre String @unique
+}
+
+view v_product_types {
+  product_type String @unique
+}

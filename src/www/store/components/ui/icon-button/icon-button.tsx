@@ -11,6 +11,7 @@ interface Props {
   href?: string;
   onClick?: () => void;
   ariaLabel?: string;
+  className?: string;
 }
 
 export const IconButton: React.FC<Props> = ({
@@ -18,7 +19,8 @@ export const IconButton: React.FC<Props> = ({
   children,
   href,
   onClick,
-  ariaLabel
+  ariaLabel,
+  className
 }) => {
   const content = (
     <>
@@ -30,7 +32,7 @@ export const IconButton: React.FC<Props> = ({
   return href ? (
     <Link
       href={href}
-      className={styles.button}
+      className={classNames(styles.button, className)}
     >
       <a aria-label={ariaLabel ||children}>
         {content}
@@ -39,7 +41,7 @@ export const IconButton: React.FC<Props> = ({
   ) : (
     <button
       type="button"
-      className={styles.button}
+      className={classNames(styles.button, className)}
       onClick={onClick}
       aria-label={ariaLabel || children}
     >

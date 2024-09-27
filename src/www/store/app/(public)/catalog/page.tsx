@@ -1,7 +1,7 @@
 import { Container, Selection } from '@/components/shared';
 import classNames from 'classnames';
 import styles from './page.module.scss';
-import { IconButton } from '@/components/ui';
+import { Filters } from '@/components/shared/filters/filters';
 
 export default function Page() {
 
@@ -9,12 +9,6 @@ export default function Page() {
     <Selection
       items={[]}
     />
-  );
-
-  const filters = (
-    <div className={classNames(styles.filters)}>
-
-    </div>
   );
 
   return (
@@ -27,11 +21,8 @@ export default function Page() {
           classNames(styles['catalog--mobile']))}
         >
           <div className={styles.wrapper}>
-            <IconButton type="filters">Фильтры</IconButton>
-
-            {items}
+            <Filters />
           </div>
-
         </div>
 
         <div className={classNames(
@@ -39,11 +30,9 @@ export default function Page() {
           classNames(styles['catalog--tablet']))}
         >
           <div className={styles.wrapper}>
-            <IconButton type="filters">Фильтры</IconButton>
 
-            {items}
+            <Filters />
           </div>
-
         </div>
 
         <div className={classNames(
@@ -51,13 +40,10 @@ export default function Page() {
           classNames(styles['catalog--desktop']))}
         >
           <div className={styles.wrapper}>
-            {filters}
-            {items}
+
+            <Filters />
           </div>
-
         </div>
-
-
       </Container>
     </main>
   );

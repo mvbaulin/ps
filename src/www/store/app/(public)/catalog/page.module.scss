@@ -30,8 +30,14 @@
   &--mobile {
     .wrapper {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
       padding: $container-padding-mobile 0;
+    }
+
+    .filters_button {
+      margin-bottom: $container-padding-mobile;
     }
   }
 

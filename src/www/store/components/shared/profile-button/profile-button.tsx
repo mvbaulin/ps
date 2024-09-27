@@ -1,6 +1,6 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import React from 'react';
 import { Button } from '@/components/ui';
 
@@ -9,7 +9,15 @@ export const ProfileButton: React.FC = () => {
 
   return (
     <>
-      {!session && <Button color="secondary" bordered>Войти</Button>}
+      {!session &&
+        <Button
+          color="secondary"
+          bordered
+          onClick={() => signIn('yandex')}
+        >
+          Войти
+        </Button>
+      }
       {session && <Button>{JSON.stringify(session)}</Button>}
     </>
   );
