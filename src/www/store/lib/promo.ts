@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/prisma';
-import { mappingTitle } from './mapping';
+import { mappingTitle } from '@/lib/mapping';
 
 export async function getPromo() {
   const promo = await prisma.v_promo.findMany({

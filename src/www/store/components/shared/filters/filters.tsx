@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import styles from './filters.module.scss';
 import { useGenres } from '@/hooks/use-genres';
 import { Toggle, Dropdown } from '@/components/ui';
-import { IGenre } from '@/types/filters';
 import { useProductTypes } from '@/hooks/use-product-types';
 
 interface Props {

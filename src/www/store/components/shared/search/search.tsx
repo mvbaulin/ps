@@ -55,7 +55,7 @@ export const Search: React.FC<Props> = ({
       event.preventDefault();
     } else if (event.key === 'Enter') {
       if (highlightedIndex >= 0) {
-        router.push(`/catalog/${results[highlightedIndex].id}`);
+        router.push(`/catalog/titles/${results[highlightedIndex].id}`);
         setSearchQuery('');
         setShowResults(false);
       }

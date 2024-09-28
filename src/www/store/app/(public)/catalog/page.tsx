@@ -1,7 +1,7 @@
 import { Container, Selection } from '@/components/shared';
 import classNames from 'classnames';
 import styles from './page.module.scss';
-import { Filters } from '@/components/shared/filters/filters';
+import { Filters } from '@/components/shared/';
 
 export default function Page() {
 

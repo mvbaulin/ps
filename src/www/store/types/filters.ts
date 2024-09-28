@@ -1,7 +1,10 @@
 export interface IGenre {
-  genre: string;
+  title: string;
+  translation?: string;
+  image?: string;
 }
 
 export interface IProductType {
   productType: string;
+  translation?: string;
 }

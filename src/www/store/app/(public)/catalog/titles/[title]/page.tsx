@@ -1,7 +1,6 @@
-import { getTitle } from '@/lib/prisma';
 import classNames from 'classnames';
 import styles from './page.module.scss';
-import { getFormatedData, getPrice } from '@/lib/title';
+import { getFormatedData, getTitle } from '@/lib/title';
 import { Product } from '@/components/shared/product/product';
 import { Background, Selection } from '@/components/shared';
 import { redirect } from 'next/navigation';

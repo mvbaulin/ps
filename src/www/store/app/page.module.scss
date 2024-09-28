@@ -1,13 +1,10 @@
 @import '../constants/variables.scss';
 
 .main {
-  // padding-top: $header-height-mobile;
-
-  // @media (min-width: $width-tablet) {
-  //   padding-top: $header-height-tablet;
-  // }
-
-  // @media (min-width: $width-desktop) {
-  //   padding-top: $header-height-desktop;
-  // }
+  .genre_wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: $gap;
+    justify-items: center;
+  }
 }

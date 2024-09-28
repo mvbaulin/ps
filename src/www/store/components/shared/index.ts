@@ -1,6 +1,8 @@
 export { Background } from '@/components/shared/background/background';
 export { Carousel } from '@/components/shared/carousel/carousel';
 export { Container } from '@/components/shared/container/container';
+export { Filters } from '@/components/shared/filters/filters';
+export { GenreCard } from '@/components/shared/genre-card/genre-card';
 export { Header } from '@/components/shared/header/header';
 export { Image } from '@/components/shared/image/image';
 export { Logo } from '@/components/shared/logo/logo';

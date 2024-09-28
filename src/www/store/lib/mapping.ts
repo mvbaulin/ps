@@ -1,3 +1,4 @@
+import { IGenre } from '@/types/filters';
 import { ITitle } from '@/types/title';
 
 export function mappingTitle(title: any): ITitle {
@@ -39,5 +40,17 @@ export function mappingTitle(title: any): ITitle {
     onSale: title?.on_sale,
     updatedAt: title?.updated_at,
     createdAt: title?.created_at
+  }
+}
+
+export function mappingGenre(genre: any): IGenre {
+  const pictureName = genre?.genre?.toLowerCase()
+    .replace(/ /g, '-')
+    .replace('/', '-');
+
+  return {
+    title: genre?.genre,
+    translation: genre?.translation,
+    image: `/genres/genre-${pictureName}.jpg`
   }
 }
