@@ -1,59 +1,32 @@
 @import '../../../constants/variables.scss';
 
 .catalog {
-  &--mobile {
-    display: block;
-
-    @media (min-width: $width-tablet) {
-      display: none;
-    }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: $container-padding-mobile 0;
   }
 
-  &--tablet {
-    display: none;
-
-    @media (min-width: $width-tablet) and (max-width: calc($width-desktop - 1px)) {
-      display: block;
-    }
-  }
-
-  &--desktop {
-    display: none;
-
-    @media (min-width: $width-desktop) {
-      display: block;
-    }
-  }
-}
-
-.catalog {
-  &--mobile {
+  @media (min-width: $width-tablet) {
     .wrapper {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
       padding: $container-padding-mobile 0;
     }
 
-    .filters_button {
-      margin-bottom: $container-padding-mobile;
+    .filters {
+      width: 30%;
     }
   }
 
-  &--tablet {
+  @media (min-width: $width-desktop) {
     .wrapper {
-      display: flex;
-      justify-content: center;
       padding: $container-padding-mobile 0;
     }
-  }
 
-  &--desktop {
-    .wrapper {
-      display: flex;
-      justify-content: center;
-      padding: $container-padding-desktop 0;
+    .filters {
+
     }
   }
 }

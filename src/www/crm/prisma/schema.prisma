@@ -25,7 +25,7 @@ model titles {
   url                         String
   cover                       String?
   background                  String?
-  rating                      Decimal?  @db.Decimal(10, 2)
+  rating                      Float?
   description                 String?
   legal                       String?
   users                       Int?
@@ -43,20 +43,22 @@ model titles {
   has_ea_play                 Boolean?
   has_ubisoft_plus            Boolean?
   has_gta_plus                Boolean?
-  offer_none_original_price   Decimal?  @db.Decimal(10, 2)
-  offer_none_discount_price   Decimal?  @db.Decimal(10, 2)
-  ps_plus_original_price      Decimal?  @db.Decimal(10, 2)
-  ps_plus_discount_price      Decimal?  @db.Decimal(10, 2)
-  ubisoft_plus_original_price Decimal?  @db.Decimal(10, 2)
-  ubisoft_plus_discount_price Decimal?  @db.Decimal(10, 2)
-  ea_play_original_price      Decimal?  @db.Decimal(10, 2)
-  ea_play_discount_price      Decimal?  @db.Decimal(10, 2)
-  gta_plus_original_price     Decimal?  @db.Decimal(10, 2)
-  gta_plus_discount_price     Decimal?  @db.Decimal(10, 2)
+  offer_none_original_price   Float?
+  offer_none_discount_price   Float?
+  ps_plus_original_price      Float?
+  ps_plus_discount_price      Float?
+  ubisoft_plus_original_price Float?
+  ubisoft_plus_discount_price Float?
+  ea_play_original_price      Float?
+  ea_play_discount_price      Float?
+  gta_plus_original_price     Float?
+  gta_plus_discount_price     Float?
   on_sale                     Boolean?  @default(true)
   updated_at                  DateTime? @db.Timestamptz(6)
   created_at                  DateTime? @default(now()) @db.Timestamptz(6)
   concepts                    concepts  @relation(fields: [concept_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_titles_concept_id")
+
+  @@index([title], map: "idx_titles_title")
 }
 
 model crm_sessions {
@@ -70,7 +72,7 @@ model crm_sessions {
 
 model crm_users {
   id            String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  login         String
+  login         String         @unique
   name          String
   password      String
   role          String         @default("manager")

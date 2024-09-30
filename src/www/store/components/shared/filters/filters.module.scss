@@ -2,10 +2,6 @@
 
 .filters {
   width: 100%;
-
-  @media (min-width: $width-tablet) {
-    display: flex;
-  }
 }
 
 .dropdown {

@@ -1,4 +1,4 @@
-import { IGenre } from '@/types/filters';
+import { IGenre, IProductType } from '@/types/filters';
 import { ITitle } from '@/types/title';
 
 export function mappingTitle(title: any): ITitle {
@@ -49,8 +49,17 @@ export function mappingGenre(genre: any): IGenre {
     .replace('/', '-');
 
   return {
-    title: genre?.genre,
+    id: genre?.genre,
+    name: genre?.genre,
     translation: genre?.translation,
     image: `/genres/genre-${pictureName}.jpg`
+  }
+}
+
+export function mappingProductType(productType: any): IProductType {
+  return {
+    id: productType?.product_type,
+    name: productType?.product_type,
+    translation: productType?.translation
   }
 }

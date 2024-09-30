@@ -43,7 +43,7 @@
     "hashpass:test": "env-cmd -f .env.test node scripts/hash-passwords.js",
     "hashpass:prod": "env-cmd -f .env.production node scripts/hash-passwords.js",
 
-    "clean": "rm -rf node_modules && rm -rf package_lock.json && rm -rf .next",
+    "clean": "rm -rf node_modules && rm -rf package-lock.json && rm -rf .next",
     "lint": "next lint"
   },
   "dependencies": {

@@ -1,47 +1,27 @@
 import { Container, Selection } from '@/components/shared';
+import { Filters } from '@/components/shared/';
 import classNames from 'classnames';
 import styles from './page.module.scss';
-import { Filters } from '@/components/shared/';
 
 export default function Page() {
-
-  const items = (
-    <Selection
-      items={[]}
-    />
-  );
-
   return (
     <main>
       <Container>
         <h1 className="visually-hidden">Каталог</h1>
 
-        <div className={classNames(
-          styles.catalog,
-          classNames(styles['catalog--mobile']))}
-        >
+        <div className={classNames(styles.catalog)}>
           <div className={styles.wrapper}>
-            <Filters />
-          </div>
-        </div>
+            <Filters
+              className={classNames(styles.filters)}
+            />
 
-        <div className={classNames(
-          styles.catalog,
-          classNames(styles['catalog--tablet']))}
-        >
-          <div className={styles.wrapper}>
+            {/* <Selection
+              items={[]}
+            /> */}
 
-            <Filters />
-          </div>
-        </div>
-
-        <div className={classNames(
-          styles.catalog,
-          classNames(styles['catalog--desktop']))}
-        >
-          <div className={styles.wrapper}>
-
-            <Filters />
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, repellat!
+            </div>
           </div>
         </div>
       </Container>

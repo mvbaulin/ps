@@ -1,59 +1,45 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './filters.module.scss';
-import { useGenres } from '@/hooks/use-genres';
 import { Toggle, Dropdown } from '@/components/ui';
-import { useProductTypes } from '@/hooks/use-product-types';
+import { useGenres, useProductTypes } from '@/storage/zustand';
+import { IGenre, IProductType } from '@/types/filters';
 
 interface Props {
   className?: string;
 }
 
-export const Filters: React.FC<Props> = ({
-  className
-}) => {
-  const genres = useGenres();
-  const productTypes = useProductTypes();
+export const Filters: React.FC<Props> = ({ className }) => {
+  const { genres, fetchGenres } = useGenres();
+  const { productTypes, fetchProductTypes } = useProductTypes();
 
-  const genresNode = (
-    genres.results.map((genre) => (
+  useEffect(() => {
+    fetchGenres();
+    fetchProductTypes();
+  }, [fetchGenres, fetchProductTypes]);
+
+  const renderToggles = (items: Array<IGenre | IProductType>) =>
+    items.map((item) => (
       <Toggle
-        key={genre.genre}
-        label={genre.genre}
+        key={item.id}
+        label={item.name}
         className={styles.toggle}
       />
-    ))
-  );
-
-  const productTypesNode = (
-    productTypes.results.map((productType) => (
-      <Toggle
-        key={productType.productType}
-        label={productType.productType}
-        className={styles.toggle}
-      />
-    ))
-  );
+    ));
 
   return (
     <div className={classNames(styles.filters, className)}>
-      {genres && (
-        <Dropdown
-          title="Жанр"
-          className={styles.dropdown}
-        >
-          {genresNode}
+      {genres.length > 0 && (
+        <Dropdown title="Жанр" className={styles.dropdown}>
+          {renderToggles(genres)}
         </Dropdown>
       )}
 
-      {productTypes && (
-        <Dropdown
-          title="Тип"
-          className={styles.dropdown}
-        >
-          {productTypesNode}
+      {productTypes.length > 0 && (
+        <Dropdown title="Тип" className={styles.dropdown}>
+          {renderToggles(productTypes)}
         </Dropdown>
       )}
     </div>
