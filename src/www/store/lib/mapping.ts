@@ -48,12 +48,18 @@ export function mappingGenre(genre: any): IGenre {
     .replace(/ /g, '-')
     .replace('/', '-');
 
-  return {
+  let res = {
     id: genre?.genre,
     name: genre?.genre,
     translation: genre?.translation,
     image: `/genres/genre-${pictureName}.jpg`
   }
+
+  if (res?.id == 'Role Playing Games') {
+    res.name = 'RPG';
+  }
+
+  return res;
 }
 
 export function mappingProductType(productType: any): IProductType {
