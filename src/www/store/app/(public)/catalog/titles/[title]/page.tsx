@@ -1,10 +1,9 @@
 import classNames from 'classnames';
 import styles from './page.module.scss';
 import { getFormatedData, getTitle } from '@/lib/title';
-import { Product } from '@/components/shared/product/product';
-import { Background, Selection } from '@/components/shared';
+import { Background } from '@/components/shared';
+import { Selection, Product } from '@/components/layouts';
 import { redirect } from 'next/navigation';
-
 
 export default async function Page(
   { params: { title } }:
@@ -21,7 +20,9 @@ export default async function Page(
   return (
     <main className={classNames('inner-page', styles.main)}>
       {data.title.background && (
-        <Background image={data.title.background} />
+        <Background
+          image={data.title.background}
+        />
       )}
 
       <Product title={data.title} formatedData={formatedData} />

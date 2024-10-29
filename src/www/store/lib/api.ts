@@ -1,5 +1,5 @@
 import { IGenre, IProductType } from '@/types/filters';
-import { mappingGenre, mappingProductType } from '@/lib/mapping';
+import { mappingGenre, mappingProductType, mappingTitle } from '@/lib/mapping';
 
 export const getGenres = async (): Promise<IGenre[]> => {
   const response = await fetch('/api/genres');
@@ -38,3 +38,29 @@ export const getProductTypes = async (): Promise<IProductType[]> => {
     .filter((productType: IProductType) => !disabled.includes(productType.name))
     .sort((a: IProductType, b: IProductType) => a.name.localeCompare(b.name));
 };
+
+export async function fetchFilteredProducts(
+  selectedGenres: string[],
+  selectedProductTypes: string[],
+  page: number
+) {
+  const genreParam = selectedGenres.length
+    ? `genres=${encodeURIComponent(selectedGenres.join(','))}`
+    : '';
+  const productTypeParam = selectedProductTypes.length
+    ? `productTypes=${encodeURIComponent(selectedProductTypes.join(','))}`
+    : '';
+  const query = `?${[genreParam, productTypeParam, `page=${page}`, `limit=20`]
+    .filter(Boolean)
+    .join('&')}`;
+
+  const result = await fetch(`/api/filters${query}`);
+
+  if (!result.ok) {
+    throw new Error('Ошибка при загрузке продуктов');
+  }
+
+  const data = await result.json();
+
+  return data.map((title: any) => mappingTitle(title));
+}

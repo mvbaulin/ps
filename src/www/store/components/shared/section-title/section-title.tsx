@@ -15,7 +15,7 @@ export const SectionTitle: React.FC<Props> = ({
 }) => {
   return (
     <h2 className={
-      classNames(styles.section_title, styles[`section_title--${position}`], className)
+      classNames(styles.title, styles[`title--${position}`], className)
     }>
       {children}
     </h2>

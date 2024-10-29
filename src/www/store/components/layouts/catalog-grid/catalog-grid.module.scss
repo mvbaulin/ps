@@ -1,0 +1,24 @@
+@import '../../../constants/variables.scss';
+
+.wrapper {
+
+
+  @media (min-width: $width-tablet) {
+
+  }
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($title-card-width, 1fr));
+  grid-auto-rows: auto;
+  gap: $gap * 2;
+}
+
+.inner {
+  padding-top: $gap * 4;
+}
+
+.loadMore {
+  margin: 0 auto;
+}

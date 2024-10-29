@@ -39,8 +39,8 @@ export const Image: React.FC<Props> = ({
           <NextImage
             src={src}
             alt=""
-            width={width / 4}
-            height={height / 4}
+            width={width}
+            height={height}
             className={classNames(styles.blurred)}
             loading={loading}
             priority={priority}

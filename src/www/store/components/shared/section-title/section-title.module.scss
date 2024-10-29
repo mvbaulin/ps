@@ -1,12 +1,12 @@
 @import '../../../constants/variables.scss';
 
-.section_title {
+.title {
   display: block;
   margin: 0;
   font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  text-shadow: $text-shadow;
 
   &--left {
     text-align: left;

@@ -225,13 +225,13 @@ export const Product: React.FC<Props> = ({
               <div className={classNames(styles.top)}>
                 <div className={classNames(styles.left)}>
                   {cover}
-                  {rating}
+                  {prices}
                 </div>
 
                 <div className={classNames(styles.right)}>
                   {title_name}
                   {edition_content}
-                  {prices}
+                  {rating}
                 </div>
               </div>
             </div>

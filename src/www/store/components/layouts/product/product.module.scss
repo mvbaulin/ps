@@ -168,7 +168,7 @@
   font-size: 22px;
   line-height: 1.2;
   word-break: break-word;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  text-shadow: $text-shadow;
 }
 
 // Prices
@@ -189,7 +189,7 @@
 
 .price {
   margin-right: $gap;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  text-shadow: $text-shadow;
 }
 
 //  General Info
@@ -207,7 +207,7 @@
 
   border-bottom: 1px solid $color-surface-100;
 
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  text-shadow: $text-shadow;
 
   &:last-child {
     margin-bottom: 0;
@@ -230,7 +230,7 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  text-shadow: $text-shadow;
 }
 
 .users {
@@ -249,7 +249,7 @@
 
 // Eition Content
 .edition_content {
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+  text-shadow: $text-shadow;
 }
 
 .edition_content_title {

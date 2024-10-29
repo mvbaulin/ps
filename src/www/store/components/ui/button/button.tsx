@@ -12,6 +12,8 @@ interface Props {
   uppercase?: boolean;
   disabled?: boolean;
   wide?: boolean;
+  transparent?: boolean;
+  className?: string;
   onClick?: () => void;
 }
 
@@ -24,6 +26,8 @@ export const Button: React.FC<Props> = ({
   uppercase = true,
   disabled = false,
   wide = false,
+  transparent = false,
+  className,
   onClick,
 }) => {
   const classes = classNames(
@@ -32,7 +36,9 @@ export const Button: React.FC<Props> = ({
     bordered && styles['button--bordered'],
     uppercase && styles['button--uppercase'],
     disabled && styles['button--disabled'],
-    wide && styles['button--wide']
+    wide && styles['button--wide'],
+    transparent && styles['button--transparent'],
+    className,
   );
 
   if (type === 'link') {

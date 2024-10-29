@@ -11,9 +11,14 @@ import { DEVICE_CODES } from '@/constants/device-width';
 interface Props {
   title?: string;
   items: ITitle[];
+  className?: string;
 }
 
-export const Selection: React.FC<Props> = ({ items, title }) => {
+export const Selection: React.FC<Props> = ({
+  items,
+  title,
+  className
+}) => {
   const { generalDeviceType } = useDeviceInfo();
 
   if (!items?.length) {
@@ -26,12 +31,16 @@ export const Selection: React.FC<Props> = ({ items, title }) => {
         <Section
           title={title}
           container={false}
-          className={classNames(styles.selection, styles['selection--mobile'])}
+          className={classNames(
+            styles.selection,
+            styles['selection--mobile'],
+            className
+          )}
         >
           <Carousel rows={1}>
-            {items.map((item, index) => (
+            {items.map((item) => (
               <TitleCard
-                key={index}
+                key={item.id}
                 title={item}
               />
             ))}
@@ -44,12 +53,11 @@ export const Selection: React.FC<Props> = ({ items, title }) => {
           title={title}
           container={false}
           className={classNames(styles.selection, styles['selection--tablet'])}
-          titleAlign="center"
         >
           <Carousel rows={2}>
-            {items.map((item, index) => (
+            {items.map((item) => (
               <TitleCard
-                key={index}
+                key={item.id}
                 title={item}
               />
             ))}
@@ -64,10 +72,11 @@ export const Selection: React.FC<Props> = ({ items, title }) => {
           className={classNames(styles.selection, styles['selection--desktop'])}
         >
           <div className={styles.list}>
-            {items.map((item, index) => (
+            {items.map((item) => (
               <TitleCard
-                key={index}
+                key={item.id}
                 title={item}
+                responsive
               />
             ))}
           </div>

@@ -9,27 +9,39 @@ import { getBadges, getFormatedData, getPrice } from '@/lib/title';
 
 interface Props {
   title: ITitle;
+  responsive?: boolean;
 }
 
 export const TitleCard: React.FC<Props> = ({
-  title
+  title,
+  responsive = false
 }) => {
 
   const formatedData = getFormatedData(title);
   const badges = getBadges(formatedData);
   const price = getPrice(title.offerNoneOriginalPrice, title.offerNoneDiscountPrice);
 
+  const imageSize = {
+    width: 420,
+    height: 270
+  };
+
   return (
-    <article className={classNames(styles.card)}>
+    <article className={
+      classNames(
+        styles.card,
+        responsive && styles['card--responsive'],
+      )
+    }>
       <Link href={`/catalog/titles/${title.id}`} className={classNames(styles.link)}>
         <div className={classNames(styles.wrapper)}>
           <div className={classNames(styles.image_wrapper)}>
             <Image
               className={classNames(styles.image)}
-              src={title?.cover + '?w=420&h=270' || '#'}
+              src={title?.cover + `?w=${imageSize.width}&h=${imageSize.height}` || '#'}
               alt={title?.title || title.id}
-              width={420}
-              height={270}
+              width={imageSize.width}
+              height={imageSize.height}
             />
           </div>
 
@@ -44,7 +56,7 @@ export const TitleCard: React.FC<Props> = ({
               </p>
 
               <ul className={classNames(styles.badges)}>
-                {badges && badges.map((b, i) => (
+                {badges && badges.map((b) => (
                   <li className={classNames(styles.badge)} key={b}>
                     <TitleBadge type={b} />
                   </li>
@@ -59,7 +71,6 @@ export const TitleCard: React.FC<Props> = ({
                 <Price price={price} />
               }
             </div>
-
 
             <div className={classNames(styles.button)}>
               <Button>

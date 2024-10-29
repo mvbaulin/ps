@@ -8,7 +8,7 @@ interface Props {
   title?: string;
   titleAlign?: 'left' | 'center' | 'right';
   container?: boolean,
-  className?: string
+  className?: string,
 }
 
 export const Section: React.FC<Props> = ({
@@ -16,23 +16,26 @@ export const Section: React.FC<Props> = ({
   title,
   container = true,
   className,
-  titleAlign = 'left'
+  titleAlign = 'left',
 }) => {
   return (
     <section
       aria-label={title}
-      className={classNames(styles.section, className)}
+      className={classNames(
+        styles.section,
+        className
+      )}
     >
-      <Container>
-        {title &&
+      {title &&
+        <Container>
           <SectionTitle
             position={titleAlign}
             className={classNames(styles.title)}
           >
             {title}
           </SectionTitle>
-        }
-      </Container>
+        </Container>
+      }
 
       {container && <Container>{children}</Container> || children}
 

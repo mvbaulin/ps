@@ -15,6 +15,12 @@ $margin: $gap * 2;
   min-width: $title-card-width;
   max-width: $title-card-width;
 
+  &--responsive {
+    width: 100%;
+    min-width: $title-card-width;
+    max-width: 100%;
+  }
+
   outline: 4px solid transparent;
 
   overflow: hidden;
@@ -24,7 +30,6 @@ $margin: $gap * 2;
   @media (min-width: $width-desktop) {
     &:hover {
       outline: 4px solid $color-surface-500;
-      transform: scale(1.03);
     }
   }
 }
@@ -64,6 +69,7 @@ $margin: $gap * 2;
   display: -webkit-box;
   line-height: 1.3;
   -webkit-box-orient: vertical;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -74,6 +80,7 @@ $margin: $gap * 2;
   text-wrap: stable;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  line-clamp: 1;
   -webkit-line-clamp: 1;
   overflow: hidden;
   text-overflow: ellipsis;

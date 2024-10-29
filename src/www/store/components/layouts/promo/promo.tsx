@@ -2,20 +2,20 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import classNames from 'classnames';
-import styles from './section-promo.module.scss';
+import styles from './promo.module.scss';
 import { Image } from '@/components/shared';
-import { ITitle} from '@/types/title';
+import { ITitle } from '@/types/title';
 import { Button, Icon } from '@/components/ui';
 import { getPrice } from '@/lib/title';
 
 interface Props {
-  titles: ITitle[],
-  interval?: number
+  interval?: number;
+  titles: ITitle[];
 }
 
-export const SectionPromo: React.FC<Props> = ({
+export const Promo: React.FC<Props> = ({
+  interval = 30000,
   titles,
-  interval = 20000
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const startX = useRef<number | null>(null);
@@ -61,7 +61,8 @@ export const SectionPromo: React.FC<Props> = ({
   };
 
   return (
-    <section className={classNames(styles.promo)}
+    <section
+      className={classNames(styles.promo)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -70,7 +71,7 @@ export const SectionPromo: React.FC<Props> = ({
           <div
             key={title.id}
             className={classNames(styles.item, {
-              [styles['item--active']]: idx === currentSlide
+              [styles['item--active']]: idx === currentSlide,
             })}
             style={{ opacity: idx === currentSlide ? 1 : 0 }}
           >
@@ -83,13 +84,12 @@ export const SectionPromo: React.FC<Props> = ({
             />
 
             <div className={classNames(styles.content)}>
-              <div className={classNames(styles.title)}>
-                {title.title}
-              </div>
+              <div className={classNames(styles.title)}>{title.title}</div>
 
               <div className={classNames(styles.button)}>
                 <Button href={`#`}>
-                  {getPrice(title?.offerNoneOriginalPrice, title.offerNoneDiscountPrice).price} {getPrice(title?.offerNoneOriginalPrice, title.offerNoneDiscountPrice).currency}
+                  {getPrice(title?.offerNoneOriginalPrice, title.offerNoneDiscountPrice).price}{' '}
+                  {getPrice(title?.offerNoneOriginalPrice, title.offerNoneDiscountPrice).currency}
                 </Button>
               </div>
             </div>
@@ -118,7 +118,7 @@ export const SectionPromo: React.FC<Props> = ({
             key={idx}
             onClick={() => goToSlide(idx)}
             className={classNames(styles.dot, {
-              [styles['dot--active']]: idx === currentSlide
+              [styles['dot--active']]: idx === currentSlide,
             })}
           />
         ))}

@@ -1,18 +1,24 @@
 import Image from 'next/image';
 import styles from './background.module.scss';
+import classNames from 'classnames';
 
 interface Props {
   image: string;
 }
 
 export const Background: React.FC<Props> = ({ image }) => {
+  const imageSize = {
+    width: 1920,
+    height: 1080
+  }
+
   return (
     <Image
-      src={image + '?w=1080&h=720'}
+      src={image + `?w=${imageSize.width}&h=${imageSize.height}`}
       alt="back"
-      width={1080}
-      height={720}
-      className={styles.background}
+      width={imageSize.width}
+      height={imageSize.height}
+      className={classNames(styles.background)}
       priority
     ></Image>
   );

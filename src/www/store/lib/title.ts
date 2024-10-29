@@ -157,11 +157,15 @@ function getEditionContent(title: ITitle) {
 
 function getReleaseDate(title: ITitle) {
   if (title.releaseDate) {
-    const day = String(title.releaseDate.getDate()).padStart(2, '0');
-    const month = String(title.releaseDate.getMonth() + 1).padStart(2, '0');
-    const year = title.releaseDate.getFullYear();
+    const date = new Date(title.releaseDate);
 
-    return `${day}.${month}.${year}`;
+    if (!isNaN(date.getTime())) {
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+
+      return `${day}.${month}.${year}`;
+    }
   }
 
   return '';
