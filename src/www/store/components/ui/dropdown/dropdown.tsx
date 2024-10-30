@@ -8,14 +8,16 @@ interface Props {
   title?: string;
   className?: string;
   children?: React.ReactNode;
+  defaultOpen?: boolean;
 }
 
 export const Dropdown: React.FC<Props> = ({
   className,
   title,
-  children
+  children,
+  defaultOpen = false
 }) => {
-  const [active, setActive] = React.useState(false);
+  const [active, setActive] = React.useState(defaultOpen);
 
   return (
     <div className={classNames(

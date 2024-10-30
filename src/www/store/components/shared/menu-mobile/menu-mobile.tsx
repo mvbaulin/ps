@@ -44,6 +44,14 @@ export const MenuMobile: React.FC<Props> = () => {
           <ul className={classNames(styles.list)}>
             <li className={classNames(styles.item)}>
               <Link
+                href="/"
+                onClick={() => clickHandler(false)}>
+                  Главная
+              </Link>
+            </li>
+
+            <li className={classNames(styles.item)}>
+              <Link
                 href="/catalog"
                 onClick={() => clickHandler(false)}>
                   Каталог

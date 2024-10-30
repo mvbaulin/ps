@@ -9,7 +9,7 @@ export async function GET(request: Request) {
     const page = parseInt(searchParams.get('page') || '1', 10);
     const limit = parseInt(searchParams.get('limit') || '20', 10);
 
-    const result = await prisma.v_titles.findMany({
+    const filteredResult = await prisma.v_titles.findMany({
       where: {
         AND: [
           {
@@ -34,9 +34,17 @@ export async function GET(request: Request) {
       take: limit,
     });
 
-    return NextResponse.json(result);
+    if (filteredResult.length === 0) {
+      const allData = await prisma.v_titles.findMany({
+        skip: (page - 1) * limit,
+        take: limit,
+      });
+      return NextResponse.json(allData);
+    }
+
+    return NextResponse.json(filteredResult);
   } catch (error) {
-    console.error('Error fetching filtered titles:', error);
+    console.error('Error fetching titles:', error);
     return NextResponse.json({ error: 'Ошибка при получении данных.' }, { status: 500 });
   }
 }

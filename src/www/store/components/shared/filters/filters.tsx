@@ -1,57 +1,64 @@
-// Filters.tsx
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './filters.module.scss';
-import { Toggle, Dropdown, Button } from '@/components/ui';
+import { Toggle, Dropdown } from '@/components/ui';
 import { useGenres, useProductTypes } from '@/storage/zustand';
 
 interface Props {
   className?: string;
   onFiltersChange: (selectedGenres: string[], selectedProductTypes: string[]) => void;
+  selectedGenres: string[];
+  selectedProductTypes: string[];
 }
 
-export const Filters: React.FC<Props> = ({ className, onFiltersChange }) => {
+export const Filters: React.FC<Props> = ({
+  className,
+  onFiltersChange,
+  selectedGenres,
+  selectedProductTypes,
+}) => {
   const { genres, fetchGenres } = useGenres();
   const { productTypes, fetchProductTypes } = useProductTypes();
 
-  const [tempSelectedGenres, setTempSelectedGenres] = useState<string[]>([]);
-  const [tempSelectedProductTypes, setTempSelectedProductTypes] = useState<string[]>([]);
-
-  React.useEffect(() => {
+  useEffect(() => {
     fetchGenres();
     fetchProductTypes();
   }, [fetchGenres, fetchProductTypes]);
 
   const handleGenreToggle = (id: string) => {
-    setTempSelectedGenres((prev) =>
-      prev.includes(id) ? prev.filter((genre) => genre !== id) : [...prev, id]
-    );
+    const updatedGenres = selectedGenres.includes(id)
+      ? selectedGenres.filter((genre) => genre !== id)
+      : [...selectedGenres, id];
+
+    onFiltersChange(updatedGenres, selectedProductTypes);
   };
 
   const handleProductTypeToggle = (id: string) => {
-    setTempSelectedProductTypes((prev) =>
-      prev.includes(id) ? prev.filter((type) => type !== id) : [...prev, id]
-    );
-  };
+    const updatedProductTypes = selectedProductTypes.includes(id)
+      ? selectedProductTypes.filter((type) => type !== id)
+      : [...selectedProductTypes, id];
 
-  const applyFilters = () => {
-    onFiltersChange(tempSelectedGenres, tempSelectedProductTypes);
+    onFiltersChange(selectedGenres, updatedProductTypes);
   };
 
   return (
     <div className={classNames(styles.filters, className)}>
       <form onSubmit={(e) => e.preventDefault()}>
         {productTypes.length > 0 && (
-          <Dropdown title="Тип" className={styles.dropdown}>
+          <Dropdown
+            title="Тип"
+            className={styles.dropdown}
+            defaultOpen
+            >
             {productTypes.map((type) => (
               <Toggle
                 key={type.id}
                 label={type.name}
                 className={styles.toggle}
                 onToggle={() => handleProductTypeToggle(type.id)}
-                isChecked={tempSelectedProductTypes.includes(type.id)}
+                isChecked={selectedProductTypes.includes(type.id)}
               />
             ))}
           </Dropdown>
@@ -65,21 +72,11 @@ export const Filters: React.FC<Props> = ({ className, onFiltersChange }) => {
                 label={genre.name}
                 className={styles.toggle}
                 onToggle={() => handleGenreToggle(genre.id)}
-                isChecked={tempSelectedGenres.includes(genre.id)}
+                isChecked={selectedGenres.includes(genre.id)}
               />
             ))}
           </Dropdown>
         )}
-
-        <Button
-          type="button"
-          onClick={applyFilters}
-          className={classNames(styles.button)}
-          color="secondary"
-          bordered
-        >
-          Применить
-        </Button>
       </form>
     </div>
   );

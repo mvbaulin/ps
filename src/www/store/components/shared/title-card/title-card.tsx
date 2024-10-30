@@ -22,8 +22,8 @@ export const TitleCard: React.FC<Props> = ({
   const price = getPrice(title.offerNoneOriginalPrice, title.offerNoneDiscountPrice);
 
   const imageSize = {
-    width: 420,
-    height: 270
+    width: 1080,
+    height: 720
   };
 
   return (

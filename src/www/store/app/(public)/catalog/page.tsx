@@ -16,25 +16,50 @@ export default function Page() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  const loadProducts = useCallback(async (pageNum: number = 1) => {
-    const filteredProducts = await fetchFilteredProducts(selectedGenres, selectedProductTypes, pageNum);
-    setTitles((prev) => (pageNum === 1 ? filteredProducts : [...prev, ...filteredProducts]));
+  const loadProducts = useCallback(async (pageNum: number = 1, genres = selectedGenres, productTypes = selectedProductTypes) => {
+    const filteredProducts = await fetchFilteredProducts(genres, productTypes, pageNum);
+
+    if (pageNum === 1) {
+      setTitles(filteredProducts);
+    } else {
+      setTitles((prev) => [...prev, ...filteredProducts]);
+    }
 
     if (filteredProducts.length < 20) {
       setHasMore(false);
     }
   }, [selectedGenres, selectedProductTypes]);
 
-  const handleFiltersChange = (newGenres: string[], newProductTypes: string[]) => {
+  const handleFiltersChange = async (newGenres: string[], newProductTypes: string[]) => {
     setSelectedGenres(newGenres);
     setSelectedProductTypes(newProductTypes);
     setPage(1);
     setHasMore(true);
+
+    console.log('Selected Genres:', newGenres);
+    console.log('Selected Product Types:', newProductTypes);
+
+    await loadProducts(1, newGenres, newProductTypes);
+
+    const genreParam = newGenres.length ? `genres=${encodeURIComponent(newGenres.join(','))}` : '';
+    const productTypeParam = newProductTypes.length ? `productTypes=${encodeURIComponent(newProductTypes.join(','))}` : '';
+    const query = `?${[genreParam, productTypeParam].filter(Boolean).join('&')}`;
+
+    window.history.pushState({}, '', query);
   };
 
   useEffect(() => {
-    loadProducts(1);
-  }, [loadProducts]);
+    const { searchParams } = new URL(window.location.href);
+    const genresFromUrl = searchParams.get('genres')?.split(',') || [];
+    const productTypesFromUrl = searchParams.get('productTypes')?.split(',') || [];
+
+    setSelectedGenres(genresFromUrl);
+    setSelectedProductTypes(productTypesFromUrl);
+    setPage(1);
+    setHasMore(true);
+
+    loadProducts(1, genresFromUrl, productTypesFromUrl);
+  }, []);
 
   const loadMoreProducts = async () => {
     const nextPage = page + 1;
@@ -52,6 +77,8 @@ export default function Page() {
             <Filters
               className={classNames(styles.filters)}
               onFiltersChange={handleFiltersChange}
+              selectedGenres={selectedGenres}
+              selectedProductTypes={selectedProductTypes}
             />
 
             <CatalogGrid
