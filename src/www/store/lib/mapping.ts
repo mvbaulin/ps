@@ -46,16 +46,17 @@ export function mappingTitle(title: any): ITitle {
 export function mappingGenre(genre: any): IGenre {
   const pictureName = genre?.genre?.toLowerCase()
     .replace(/ /g, '-')
-    .replace('/', '-');
+    .replace(/\//g, '-');
 
   let res = {
     id: genre?.genre,
     name: genre?.genre,
     translation: genre?.translation,
-    image: `/genres/genre-${pictureName}.jpg`
-  }
+    image: `/genres/genre-${pictureName}.jpeg`,
+    link: `/catalog?genres=${encodeURIComponent(genre?.genre)}`
+  };
 
-  if (res?.id == 'Role Playing Games') {
+  if (res?.id === 'Role Playing Games') {
     res.name = 'RPG';
   }
 

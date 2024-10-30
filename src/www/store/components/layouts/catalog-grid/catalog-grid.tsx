@@ -19,7 +19,7 @@ export const CatalogGrid: React.FC<Props> = ({
   hasMore,
 }) => {
   return (
-    <div className={classNames(styles.wrapper, className)}>
+    <section className={classNames(styles.wrapper, className)}>
       <div className={styles.catalog}>
         {titles.map((title) => (
           <TitleCard
@@ -42,6 +42,6 @@ export const CatalogGrid: React.FC<Props> = ({
           </Button>
         </div>
       )}
-    </div>
+    </section>
   );
 };

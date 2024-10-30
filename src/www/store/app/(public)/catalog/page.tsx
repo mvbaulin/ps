@@ -6,7 +6,7 @@ import { Container } from '@/components/shared';
 import { Filters } from '@/components/shared/';
 import classNames from 'classnames';
 import styles from './page.module.scss';
-import { CatalogGrid } from '@/components/layouts/catalog-grid/catalog-grid';
+import { CatalogGrid } from '@/components/layouts/';
 import { fetchFilteredProducts } from '@/lib/api';
 import { ITitle } from '@/types/title';
 

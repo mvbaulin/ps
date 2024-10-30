@@ -1,8 +1,9 @@
 export interface IGenre {
   id: string;
   name: string;
+  image: string;
+  link: string;
   translation?: string;
-  image?: string;
 }
 
 export interface IProductType {

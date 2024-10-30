@@ -1,4 +1,4 @@
-import { Promo, Selection } from '@/components/layouts';
+import { Genres, Promo, Selection } from '@/components/layouts';
 import classNames from 'classnames';
 import styles from './page.module.scss';
 import { getPromo } from '@/lib/promo';
@@ -11,6 +11,8 @@ export default async function Page() {
       <Promo titles={promo} />
 
       <Selection title="Рекомендуемые" items={promo} />
+
+      <Genres />
     </main>
   );
 }

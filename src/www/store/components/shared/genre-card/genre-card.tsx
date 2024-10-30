@@ -16,17 +16,17 @@ export const GenreCard: React.FC<Props> = ({
 }) => {
   return (
     <Link
-      href={`/catalog/genres/${genre.title}`}
+      href={genre.link}
       className={classNames(styles.card, className)}
     >
       <h2 className={classNames(styles.title)}>
-        {genre.title}
+        {genre.name}
       </h2>
 
       <Image
         className={classNames(styles.image)}
         src={genre.image || ''}
-        alt={genre.title}
+        alt={genre.name}
         width={190}
         height={190}
       />
