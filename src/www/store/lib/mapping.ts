@@ -1,5 +1,6 @@
 import { IGenre, IProductType } from '@/types/filters';
 import { ITitle } from '@/types/title';
+import { genreTranslations, productTypeTranslations } from '@/lib/translations';
 
 export function mappingTitle(title: any): ITitle {
   return {
@@ -48,10 +49,12 @@ export function mappingGenre(genre: any): IGenre {
     .replace(/ /g, '-')
     .replace(/\//g, '-');
 
-  let res = {
+  const translation = genreTranslations[genre?.genre] || genre?.genre;
+
+  let res: IGenre = {
     id: genre?.genre,
     name: genre?.genre,
-    translation: genre?.translation,
+    translation: translation,
     image: `/genres/genre-${pictureName}.jpeg`,
     link: `/catalog?genres=${encodeURIComponent(genre?.genre)}`
   };
@@ -67,6 +70,6 @@ export function mappingProductType(productType: any): IProductType {
   return {
     id: productType?.product_type,
     name: productType?.product_type,
-    translation: productType?.translation
+    translation: productTypeTranslations[productType?.product_type] || productType?.product_type
   }
 }

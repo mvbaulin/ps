@@ -20,7 +20,7 @@ export const GenreCard: React.FC<Props> = ({
       className={classNames(styles.card, className)}
     >
       <h2 className={classNames(styles.title)}>
-        {genre.name}
+        {genre.translation}
       </h2>
 
       <Image

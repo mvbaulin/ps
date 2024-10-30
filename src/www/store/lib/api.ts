@@ -23,6 +23,9 @@ export const getProductTypes = async (): Promise<IProductType[]> => {
     'Demo',
     'Full Game Trial',
     'Theme',
+    'Playable',
+    'Full Game Upgrade',
+    'Beta',
     'STOREFRONT_CLASS.PS1_CLASSIC',
     'STOREFRONT_CLASS.PS2_CLASSIC',
   ];

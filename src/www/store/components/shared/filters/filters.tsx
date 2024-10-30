@@ -60,7 +60,7 @@ export const Filters: React.FC<Props> = ({
             {productTypes.map((type) => (
               <Toggle
                 key={type.id}
-                label={type.name}
+                label={type.translation || type.name}
                 className={styles.toggle}
                 onToggle={() => handleProductTypeToggle(type.id)}
                 isChecked={selectedProductTypes.includes(type.id)}
@@ -74,7 +74,7 @@ export const Filters: React.FC<Props> = ({
             {genres.map((genre) => (
               <Toggle
                 key={genre.id}
-                label={genre.name}
+                label={genre.translation || genre.name}
                 className={styles.toggle}
                 onToggle={() => handleGenreToggle(genre.id)}
                 isChecked={selectedGenres.includes(genre.id)}
