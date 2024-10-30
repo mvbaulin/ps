@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useCallback } from 'react';
+import { debounce } from 'lodash';
 import { Container } from '@/components/shared';
 import { Filters } from '@/components/shared/';
 import classNames from 'classnames';
@@ -16,6 +17,9 @@ export default function Page() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
+  const [tempGenres, setTempGenres] = useState<string[]>([]);
+  const [tempProductTypes, setTempProductTypes] = useState<string[]>([]);
+
   const loadProducts = useCallback(async (pageNum: number = 1, genres = selectedGenres, productTypes = selectedProductTypes) => {
     const filteredProducts = await fetchFilteredProducts(genres, productTypes, pageNum);
 
@@ -30,22 +34,29 @@ export default function Page() {
     }
   }, [selectedGenres, selectedProductTypes]);
 
-  const handleFiltersChange = async (newGenres: string[], newProductTypes: string[]) => {
-    setSelectedGenres(newGenres);
-    setSelectedProductTypes(newProductTypes);
-    setPage(1);
-    setHasMore(true);
+  const debouncedLoadProducts = useCallback(
+    debounce((genres, productTypes) => {
+      setSelectedGenres(genres);
+      setSelectedProductTypes(productTypes);
+      setPage(1);
+      setHasMore(true);
 
-    console.log('Selected Genres:', newGenres);
-    console.log('Selected Product Types:', newProductTypes);
+      loadProducts(1, genres, productTypes);
+    }, 3000),
+    [loadProducts]
+  );
 
-    await loadProducts(1, newGenres, newProductTypes);
+  const handleFiltersChange = (newGenres: string[], newProductTypes: string[]) => {
+    setTempGenres(newGenres);
+    setTempProductTypes(newProductTypes);
 
     const genreParam = newGenres.length ? `genres=${encodeURIComponent(newGenres.join(','))}` : '';
     const productTypeParam = newProductTypes.length ? `productTypes=${encodeURIComponent(newProductTypes.join(','))}` : '';
     const query = `?${[genreParam, productTypeParam].filter(Boolean).join('&')}`;
 
     window.history.pushState({}, '', query);
+
+    debouncedLoadProducts(newGenres, newProductTypes);
   };
 
   useEffect(() => {
@@ -53,8 +64,8 @@ export default function Page() {
     const genresFromUrl = searchParams.get('genres')?.split(',') || [];
     const productTypesFromUrl = searchParams.get('productTypes')?.split(',') || [];
 
-    setSelectedGenres(genresFromUrl);
-    setSelectedProductTypes(productTypesFromUrl);
+    setTempGenres(genresFromUrl);
+    setTempProductTypes(productTypesFromUrl);
     setPage(1);
     setHasMore(true);
 
@@ -77,8 +88,8 @@ export default function Page() {
             <Filters
               className={classNames(styles.filters)}
               onFiltersChange={handleFiltersChange}
-              selectedGenres={selectedGenres}
-              selectedProductTypes={selectedProductTypes}
+              selectedGenres={tempGenres}
+              selectedProductTypes={tempProductTypes}
             />
 
             <CatalogGrid

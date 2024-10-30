@@ -3,8 +3,9 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './filters.module.scss';
-import { Toggle, Dropdown } from '@/components/ui';
+import { Toggle, Dropdown, Button } from '@/components/ui';
 import { useGenres, useProductTypes } from '@/storage/zustand';
+import { redirect } from 'next/navigation';
 
 interface Props {
   className?: string;
@@ -43,6 +44,11 @@ export const Filters: React.FC<Props> = ({
     onFiltersChange(selectedGenres, updatedProductTypes);
   };
 
+  const clearFilters = () => {
+    onFiltersChange([], []);
+    redirect('/catalog');
+  };
+
   return (
     <div className={classNames(styles.filters, className)}>
       <form onSubmit={(e) => e.preventDefault()}>
@@ -50,7 +56,6 @@ export const Filters: React.FC<Props> = ({
           <Dropdown
             title="Тип"
             className={styles.dropdown}
-            defaultOpen
             >
             {productTypes.map((type) => (
               <Toggle
@@ -77,6 +82,15 @@ export const Filters: React.FC<Props> = ({
             ))}
           </Dropdown>
         )}
+
+        <Button
+          bordered
+          className={classNames(styles.clear)}
+          color="secondary"
+          onClick={clearFilters}
+        >
+          Очистить
+        </Button>
       </form>
     </div>
   );
