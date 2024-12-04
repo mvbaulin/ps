@@ -87,7 +87,9 @@ export const Promo: React.FC<Props> = ({
               <div className={classNames(styles.title)}>{title.title}</div>
 
               <div className={classNames(styles.button)}>
-                <Button href={`#`}
+                <Button
+                  type="link"
+                  href={`/catalog/titles/${title.id}`}
                   color="tetriary"
                 >
                   {getPrice(title?.offerNoneOriginalPrice, title.offerNoneDiscountPrice).price}{' '}
