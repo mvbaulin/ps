@@ -11,13 +11,22 @@ export const Logo: React.FC = () => {
       className={classNames(styles.logo)}
       aria-label="PS Store"
     >
+      <Image
+        src="/logo-mobile.svg"
+        alt="PS Store"
+        width={110}
+        height={38}
+        className={classNames(classNames(styles['image--mobile']))}
+        />
 
       <Image
         src="/logo.svg"
         alt="PS Store"
-        width={36}
-        height={36}
+        width={194}
+        height={44}
+        className={classNames(classNames(styles['image--desktop']))}
       />
+
     </Link>
   );
 };

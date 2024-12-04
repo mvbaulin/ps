@@ -97,7 +97,22 @@ export const Header: React.FC = () => {
             </div>
 
             <div className={classNames(styles.center)}>
-              <Button type="link" href="/catalog">Каталог</Button>
+              <Button
+                type="link"
+                href="/#subscriptions"
+                bordered
+                >
+                  Подписки
+              </Button>
+
+              <Button
+                type="link"
+                href="/catalog"
+                bordered
+                >
+                  Каталог
+                </Button>
+
               <Search
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setIsSearchFocused(false)}

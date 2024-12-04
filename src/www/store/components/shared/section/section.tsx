@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Container, SectionTitle } from '@/components/shared';
 
 interface Props {
+  id?: string;
   children: React.ReactNode;
   title?: string;
   titleAlign?: 'left' | 'center' | 'right';
@@ -12,6 +13,7 @@ interface Props {
 }
 
 export const Section: React.FC<Props> = ({
+  id,
   children,
   title,
   container = true,
@@ -20,6 +22,7 @@ export const Section: React.FC<Props> = ({
 }) => {
   return (
     <section
+      id={id}
       aria-label={title}
       className={classNames(
         styles.section,

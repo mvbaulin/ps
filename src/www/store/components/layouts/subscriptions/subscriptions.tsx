@@ -15,7 +15,9 @@ export const Subscriptions: React.FC<Props> = ({
 }) => {
   return (
 
-    <Section className={className}
+    <Section
+      id="subscriptions"
+      className={className}
       title="Подписки"
     >
       <div className={styles.wrapper}>

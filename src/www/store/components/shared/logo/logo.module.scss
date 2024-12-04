@@ -2,22 +2,24 @@
 
 .logo {
   display: block;
-  width: $icon-size-mobile;
-  height: $icon-size-mobile;
+  font-size: 0;
+  line-height: 1;
+}
+
+.image {
+  display: block;
+
+  &--desktop {
+    display: none;
+  }
 
   @media (min-width: $width-tablet) {
-    width: $icon-size-tablet;
-    height: $icon-size-tablet;
-  }
+    &--mobile {
+      display: none;
+    }
 
-  @media (min-width: $width-desktop) {
-    width: $icon-size-desktop;
-    height: $icon-size-desktop;
-  }
-
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
+    &--desktop {
+      display: block;
+    }
   }
 }
