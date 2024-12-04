@@ -12,11 +12,11 @@
 .result {
   display: none;
   position: absolute;
-  top: $header-height-mobile;
+  top: $header-height;
   left: 0;
   width: 100vw;
   z-index: -1;
-  max-height: calc(100vh - $header-height-mobile);
+  max-height: calc(100vh - $header-height);
   overflow-y: auto;
   background-color: $color-background-500;
 

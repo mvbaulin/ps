@@ -26,6 +26,10 @@ body {
 }
 
 body {
+  padding-top: $header-height;
+}
+
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

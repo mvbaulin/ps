@@ -3,15 +3,7 @@
 .promo {
   position: relative;
   overflow: hidden;
-  height: calc(100vh - $header-height-mobile);
-
-  @media (min-width: $width-tablet) {
-    height: calc(100vh - $header-height-tablet);
-  }
-
-  @media (min-width: $width-desktop) {
-    height: calc(100vh - $header-height-desktop);
-  }
+  height: calc(100vh - $header-height);
 }
 
 .list {

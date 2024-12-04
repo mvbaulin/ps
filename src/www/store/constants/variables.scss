@@ -59,9 +59,7 @@ $control-max-height-tablet: $icon-size-desktop + $gap;
 $control-max-height-desktop: $icon-size-desktop + $gap;
 
 // Header
-$header-height-mobile: 4rem; // 64px;
-$header-height-tablet: 4rem; // 64px;
-$header-height-desktop: 4rem; // 64px;
+$header-height: calc(4rem - 1px); // 63px;
 
 // Title-card
 $title-card-width: 18rem; // 288px

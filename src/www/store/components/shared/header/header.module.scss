@@ -3,6 +3,10 @@
 .header {
   background: $color-background-700;
   padding: $gap 0;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
 
   &--mobile {
     display: block;

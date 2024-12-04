@@ -80,6 +80,8 @@ export const Promo: React.FC<Props> = ({
               src={title.background || ''}
               alt={title.title || title.id}
               priority={true}
+              width={2160}
+              height={1080}
               cropped
             />
 
