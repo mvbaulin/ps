@@ -8,29 +8,13 @@
   text-align: left;
   text-decoration: none;
   background: none;
-  border-radius: 1000px;
+  border-radius: $radius * 4;
   font-weight: 600;
   border: none;
   width: 100%;
   transition: $control-transition;
   touch-action: manipulation;
   -ms-touch-action: manipulation;
-
-  height: $control-max-height-mobile;
-  min-height: $control-max-height-mobile;
-  max-height: $control-max-height-mobile;
-
-  @media (min-width: $width-tablet) {
-    height: $control-max-height-tablet;
-    min-height: $control-max-height-tablet;
-    max-height: $control-max-height-tablet;
-  }
-
-  @media (min-width: $width-desktop) {
-    height: $control-max-height-desktop;
-    min-height: $control-max-height-desktop;
-    max-height: $control-max-height-desktop;
-  }
 
   &:focus {
     // outline: $control-focus;
@@ -40,7 +24,6 @@
     background: $color-gray-300;
     border: $control-border-size solid $color-gray-300;
     color: $color-gray-500;
-
   }
 
   &--darker {

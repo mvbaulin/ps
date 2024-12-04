@@ -10,7 +10,7 @@
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
   transition: right 0.3s ease-in-out;
   z-index: $z-index-sheet;
-  border-radius: 25px 0 0 25px;
+  border-radius: $radius * 4 0 0 $radius * 4;
 
   &--open {
     right: 0;

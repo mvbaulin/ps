@@ -1,5 +1,6 @@
-import { getGenres, getProductTypes } from '@/lib/api';
+import { getGenres, getProductTypes, getSubscriptions } from '@/lib/api';
 import { IGenre, IProductType } from '@/types/filters';
+import { ISubscription } from '@/types/subscription';
 import { create } from 'zustand';
 
 interface GenreState {
@@ -10,6 +11,11 @@ interface GenreState {
 interface ProductTypeState {
   productTypes: IProductType[];
   fetchProductTypes: () => Promise<void>;
+}
+
+interface SubscriptionState {
+  subscriptions: ISubscription[];
+  fetchSubscriptions: () => Promise<void>;
 }
 
 export const useGenres = create<GenreState>((set) => ({
@@ -25,5 +31,13 @@ export const useProductTypes = create<ProductTypeState>((set) => ({
   fetchProductTypes: async () => {
     const productTypes = await getProductTypes();
     set({ productTypes });
+  }
+}));
+
+export const useSubscriptions = create<SubscriptionState>((set) => ({
+  subscriptions: [],
+  fetchSubscriptions: async () => {
+    const subscriptions = await getSubscriptions();
+    set({ subscriptions });
   }
 }));

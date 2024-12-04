@@ -16,7 +16,10 @@
 }
 
 .inner {
+  display: flex;
+  justify-content: center;
   padding-top: $gap * 4;
+
 }
 
 .loadMore {

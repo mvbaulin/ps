@@ -20,7 +20,11 @@
   }
 }
 
+.inner {
+  display: flex;
+  justify-content: center;
+}
+
 .clear {
-  margin: 0 auto;
   margin-top: $gap * 2;
 }

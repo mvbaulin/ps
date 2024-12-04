@@ -1,0 +1,76 @@
+@import '../../../constants/variables.scss';
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 1;
+  border-radius: $radius * 2;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &--ps-plus {
+    &::after {
+      background-image: url('/subscriptions/bg-ps-plus.png');
+    }
+  }
+
+  &--ubisoft-plus {
+    &::after {
+      background-image: url('/subscriptions/bg-ubisoft-plus.png');
+    }
+  }
+
+  &--ea-play {
+    &::after {
+      background: $ea-gradient;
+    }
+  }
+
+  &--gta-plus {
+    &::after {
+      background-image: url('/subscriptions/bg-gta-plus.png');
+    }
+  }
+}
+
+.wrapper {
+  height: 100%;
+
+  &--mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 $gap * 2;
+
+
+    .logo {
+      margin: 0 auto;
+    }
+
+    @media (min-width: $width-tablet) {
+      display: none;
+    }
+  }
+
+  &--tablet {
+    display: none;
+
+    @media (min-width: $width-tablet) {
+      display: block;
+    }
+  }
+}

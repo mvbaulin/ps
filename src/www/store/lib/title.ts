@@ -1,8 +1,8 @@
-import { currency } from '@/constants/currency';
+import { Currency } from '@/constants/constants';
 import IPrice from '@/types/price';
 import { ITitle, IFormattedData } from '@/types/title';
 import { prisma } from '@/lib//prisma';
-import { ProductTypes } from '@/constants/product-types';
+import { ProductTypes } from '@/constants/constants';
 import { mappingTitle } from '@/lib/mapping';
 
 export async function getTitleById(id: string) {
@@ -219,7 +219,7 @@ export function getPrice(price: number | undefined | null, discount: number | un
       price: price || 0,
       discount: discount || 0,
       percent: 0,
-      currency: currency.RUB
+      currency: Currency.RUB
     };
   }
 
@@ -227,7 +227,7 @@ export function getPrice(price: number | undefined | null, discount: number | un
     price: price,
     discount: discount,
     percent: 0,
-    currency: currency.RUB
+    currency: Currency.RUB
   };
 
   if (price !== discount) {

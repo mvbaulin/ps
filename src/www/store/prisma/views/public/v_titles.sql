@@ -37,4 +37,6 @@ SELECT
   updated_at,
   created_at
 FROM
-  titles;
+  titles t
+WHERE
+  (on_sale IS TRUE);

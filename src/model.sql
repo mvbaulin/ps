@@ -20,8 +20,8 @@ CREATE TABLE crm_users (
 
 INSERT INTO crm_users (login, password, name, role)
 VALUES
-('admin', 'admin', 'admin', 'admin'),
-('manager', 'manager', 'manager', 'manager');
+    ('admin', 'admin', 'admin', 'admin'),
+    ('manager', 'manager', 'manager', 'manager');
 
 
 -- Session
@@ -51,7 +51,6 @@ CREATE TABLE concepts (
 
 -- Titles
 DROP TABLE IF EXISTS titles;
-
 CREATE TABLE titles (
     id VARCHAR(255) PRIMARY KEY NOT NULL,
     title TEXT NOT NULL,
@@ -87,7 +86,7 @@ CREATE TABLE titles (
     ea_play_discount_price FLOAT,
     gta_plus_original_price FLOAT,
     gta_plus_discount_price FLOAT,
-    on_sale BOOLEAN DEFAULT TRUE,
+    on_sale BOOLEAN NOT NULL DEFAULT TRUE,
     updated_at TIMESTAMPTZ DEFAULT NULL,
     created_at TIMESTAMPTZ DEFAULT NOW(),
 
@@ -100,11 +99,45 @@ DROP INDEX IF EXISTS idx_titles_title;
 CREATE INDEX idx_titles_title ON titles(title);
 
 
+-- Subscriprions
+DROP TABLE IF EXISTS subscriptions;
+CREATE TABLE subscriptions (
+    id VARCHAR(255) PRIMARY KEY NOT NULL,
+    category TEXT NOT NULL,
+    name TEXT NOT NULL,
+    title TEXT NOT NULL,
+    term INTEGER NOT NULL,
+    term_description TEXT NOT NULL,
+    original_price FLOAT,
+    discount_price FLOAT,
+    on_sale BOOLEAN NOT NULL DEFAULT TRUE,
+    updated_at TIMESTAMPTZ DEFAULT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+INSERT INTO subscriptions (
+    id, category, title, name, term, term_description, original_price
+)
+VALUES
+    ('PS-PLUS-DELUXE_1', 'ps-plus', 'Playstation Plus', 'PS+ Deluxe', 1, '1 Month', 1001),
+    ('PS-PLUS-DELUXE_2', 'ps-plus', 'Playstation Plus', 'PS+ Deluxe', 2, '2 Months', 2002),
+    ('PS-PLUS-DELUXE_3', 'ps-plus', 'Playstation Plus', 'PS+ Deluxe', 3, '3 Months', 3003),
+    ('PS-PLUS-EXTRA_1', 'ps-plus', 'Playstation Plus', 'PS+ Extra', 1, '1 Month', 1004),
+    ('PS-PLUS-EXTRA_2', 'ps-plus', 'Playstation Plus', 'PS+ Extra', 2, '2 Months', 2005),
+    ('PS-PLUS-EXTRA_3', 'ps-plus', 'Playstation Plus', 'PS+ Extra', 3, '3 Months', 3006),
+    ('PS-PLUS-ESSENTIAL_1', 'ps-plus', 'Playstation Plus', 'PS+ Essential', 1, '1 Month', 1007),
+    ('PS-PLUS-ESSENTIAL_2', 'ps-plus', 'Playstation Plus', 'PS+ Essential', 2, '2 Months', 2008),
+    ('PS-PLUS-ESSENTIAL_3', 'ps-plus', 'Playstation Plus', 'PS+ Essential', 3, '3 Months', 3009),
+    ('UBISOFT-PLUS_1', 'ubisoft-plus', 'Ubisoft+', 'Ubisoft+', 1, '1 Month', 1000),
+    ('GTA-PLUS_1', 'gta-plus', 'GTA+', 'GTA+', 1, '1 Month', 1000),
+    ('EA-PLAY_1', 'ea-play', 'EA Play', 'EA Play', 1, '1 Month', 1000),
+    ('EA-PLAY_12', 'ea-play', 'EA Play', 'EA Play', 12, '12 Months', 1000);
+
 -- Triggers
 CREATE OR REPLACE FUNCTION update_updated_date()
 RETURNS TRIGGER AS $$
 BEGIN
-    NEW.updated_date = NOW();
+    NEW.updated_at = NOW();
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
@@ -116,6 +149,11 @@ EXECUTE FUNCTION update_updated_date();
 
 CREATE TRIGGER set_updated_date
 BEFORE UPDATE ON titles
+FOR EACH ROW
+EXECUTE FUNCTION update_updated_date();
+
+CREATE TRIGGER set_updated_date
+BEFORE UPDATE ON subscriptions
 FOR EACH ROW
 EXECUTE FUNCTION update_updated_date();
 
@@ -137,7 +175,7 @@ WITH sorted_titles AS (
         t.on_sale = TRUE AND
         (
             offer_none_discount_price != offer_none_original_price OR
-            ps_plus_discount_price != ps_plus_original_price OR
+            PS-PLUS_discount_price != PS-PLUS_original_price OR
             gta_plus_discount_price != gta_plus_original_price OR
             ea_play_discount_price != ea_play_original_price OR
             ubisoft_plus_discount_price != ubisoft_plus_original_price
@@ -155,20 +193,8 @@ ORDER BY release_date DESC;
 
 DROP VIEW IF EXISTS v_titles;
 CREATE VIEW v_titles AS
-SELECT * FROM titles;
-
-
-DROP VIEW IF EXISTS v_promo;
-CREATE VIEW v_promo AS
 SELECT * FROM titles t
-WHERE t.id IN (
-    'EP1004-PPSA01721_00-GTAOANDSPUPGRADE',
-    'EP0001-PPSA22100_00-GAME000000000000',
-    'EP9000-CUSA03173_00-BLOODBORNE0000EU',
-    'EP9000-PPSA08338_00-MARVELSPIDERMAN2',
-    'EP8534-PPSA21781_00-0845649175857950'
-)
-ORDER BY users;
+WHERE t.on_sale IS TRUE;
 
 
 DROP VIEW IF EXISTS v_genres;
@@ -187,3 +213,23 @@ FROM titles
 WHERE
     product_type IS NOT NULL
 ORDER BY product_type;
+
+
+DROP VIEW IF EXISTS v_subscriptions;
+CREATE VIEW v_subscriptions AS
+SELECT * FROM subscriptions s
+WHERE s.on_sale IS TRUE;
+
+
+-- View selections
+DROP VIEW IF EXISTS v_promo;
+CREATE VIEW v_promo AS
+SELECT * FROM titles t
+WHERE t.id IN (
+    'EP1004-PPSA01721_00-GTAOANDSPUPGRADE',
+    'EP0001-PPSA22100_00-GAME000000000000',
+    'EP9000-CUSA03173_00-BLOODBORNE0000EU',
+    'EP9000-PPSA08338_00-MARVELSPIDERMAN2',
+    'EP8534-PPSA21781_00-0845649175857950'
+)
+ORDER BY users;

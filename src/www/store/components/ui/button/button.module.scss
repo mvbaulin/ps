@@ -1,32 +1,17 @@
 @import '../../../constants/variables.scss';
 
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   padding: $control-padding;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   background: none;
-  border-radius: 1000px;
+  border-radius: $radius * 4;
+  font-size: 1rem;
+  line-height: 1;
   font-weight: 600;
   transition: $control-transition;
-  height: $control-max-height-mobile;
-  min-height: $control-max-height-mobile;
-  max-height: $control-max-height-mobile;
-
-  @media (min-width: $width-tablet) {
-    height: $control-max-height-tablet;
-    min-height: $control-max-height-tablet;
-    max-height: $control-max-height-tablet;
-  }
-
-  @media (min-width: $width-desktop) {
-    height: $control-max-height-desktop;
-    min-height: $control-max-height-desktop;
-    max-height: $control-max-height-desktop;
-  }
 
   &:focus {
     // outline: $control-focus;

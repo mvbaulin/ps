@@ -1,5 +1,5 @@
 import { IGenre, IProductType } from '@/types/filters';
-import { mappingGenre, mappingProductType, mappingTitle } from '@/lib/mapping';
+import { mappingGenre, mappingProductType, mappingSubscription, mappingTitle } from '@/lib/mapping';
 
 export const getGenres = async (): Promise<IGenre[]> => {
   const response = await fetch('/api/genres');
@@ -60,10 +60,22 @@ export async function fetchFilteredProducts(
   const result = await fetch(`/api/filters${query}`);
 
   if (!result.ok) {
-    throw new Error('Ошибка при загрузке продуктов');
+    throw new Error('Failed to fetch filtered products');
   }
 
   const data = await result.json();
 
   return data.map((title: any) => mappingTitle(title));
+}
+
+export async function getSubscriptions() {
+  const subscriptions = await fetch('/api/subscriptions');
+
+  if (!subscriptions.ok) {
+    throw new Error('Failed to fetch subscriptions');
+  }
+
+  const data = await subscriptions.json();
+
+  return data.map((item: any) => mappingSubscription(item));
 }

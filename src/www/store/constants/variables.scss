@@ -1,17 +1,24 @@
 @import './theme-dark.scss';
 
+// Font Size
+$font-size: 16px;
+
+// Radius
+$radius: 0.5rem; // 8px;
+$circle: 50%;
+
 // Width
-$width-mobile: 320px;
-$width-mobile-large: 360px;
-$width-tablet: 768px;
-$width-tablet-large: 1024;
-$width-desktop: 1280px;
-$width-desktop-large: 1440px;
-$width-fullscreen: 1920px;
-$width-widescreen: 2560px;
+$width-mobile: 20rem; // 320px
+$width-mobile-large: 22.5rem; // 360px
+$width-tablet: 48rem; // 768px
+$width-tablet-large: 64rem; // 1024px
+$width-desktop: 80rem; // 1280px
+$width-desktop-large: 90rem; // 1440px
+$width-fullscreen: 120rem; // 1920px
+$width-widescreen: 160rem; // 2560px
 
 // Gap
-$gap: 8px;
+$gap: 0.5rem;
 $gap-mobile: $gap * 2;
 $gap-tablet: $gap * 2;
 $gap-desktop: $gap * 3;
@@ -31,23 +38,18 @@ $container-max-width-mobile-large: 100%;
 $container-max-width-tablet: 100%;
 $container-max-width-tablet-large: 100%;
 $container-max-width-desktop: 100%px;
-$container-max-width-desktop-large: 1680px;
-$container-max-width-fullscreen: 1680px;
-$container-max-width-widescreen: 1680px;
-
-// Font size
-$font-size-mobile: 16px;
-$font-size-tablet: 16px;
-$font-size-desktop: 16px;
+$container-max-width-desktop-large: 105rem; // 1680px;
+$container-max-width-fullscreen: 105rem; // 1680px;
+$container-max-width-widescreen: 105rem; // 1680px;
 
 // Icons
-$icon-size-mobile: 32px;
-$icon-size-tablet: 36px;
-$icon-size-desktop: 36px;
+$icon-size-mobile: 2rem; // 32px;
+$icon-size-tablet: 2.25rem; // 36px;
+$icon-size-desktop: 2.25rem; // 36px;
 
 // Controls
-$control-border-size: 2px;
-$control-padding: 0 $gap * 3;
+$control-border-size: 0.125rem; // 2px;
+$control-padding: 0.75rem 2rem;
 $control-transition: all 0.3s ease;
 $control-focus: $control-border-size * 2 solid $color-warning;
 $contol-active: $control-border-size solid $color-warning;
@@ -57,12 +59,12 @@ $control-max-height-tablet: $icon-size-desktop + $gap;
 $control-max-height-desktop: $icon-size-desktop + $gap;
 
 // Header
-$header-height-mobile: 60px;
-$header-height-tablet: 60px;
-$header-height-desktop: 60px;
+$header-height-mobile: 4rem; // 64px;
+$header-height-tablet: 4rem; // 64px;
+$header-height-desktop: 4rem; // 64px;
 
 // Title-card
-$title-card-width: 300px;
+$title-card-width: 18rem; // 288px
 $title-card-height: 438.28px;
 
 // Z-index
@@ -70,6 +72,26 @@ $z-index-overlay: 80;
 $z-index-sheet: 200;
 $z-index-controls: 90;
 $z-index-dots: 100;
+
+// Subscriptions
+$ps-essential-bg: #FFFFFF;
+$ps-essential-color: #252524;
+$ps-extra-bg: linear-gradient(90deg, #FFE741 0%, #FDC101 100%);
+$ps-extra-color: #252524;
+$ps-deluxe-bg: linear-gradient(90deg, #242424 0%, #363636 100%);
+$ps-deluxe-color: #FCC000;
+
+$ubisoft-bg: #448CDE;
+$ubisoft-gradient: linear-gradient(84.36deg, rgba(3, 9, 23, 0.8) 0%, rgba(9, 52, 118, 0.8) 100%);
+$ubisoft-color: #FFFFFF;
+
+$gta-main: #000000;
+$gta-secondary: #FFB002;
+$font-color-gta: #000000;
+
+$ea-bg: #FF4747;
+$ea-gradient: linear-gradient(228.75deg, #FF4747 -51.59%, #0D1042 71.08%);
+$ea-color: #FFFFFF;
 
 // Contrast
 $text-shadow: 0px 0px 10px $color-on-gray-100;

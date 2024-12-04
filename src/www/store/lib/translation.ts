@@ -1,3 +1,12 @@
+export const subscriptionTermTranslations: Record<string, string> = {
+  "1 Month": "1 Месяц",
+  "2 Months": "2 Месяца",
+  "3 Months": "3 Месяца",
+  "6 Months": "6 Месяцев",
+  "12 Months": "12 Месяцев",
+  "1 Year": "1 Год",
+};
+
 export const genreTranslations: Record<string, string> = {
   "Action": "Экшены",
   "Adult": "Для взрослых",
@@ -10,7 +19,7 @@ export const genreTranslations: Record<string, string> = {
   "Family": "Семейные",
   "Fighting": "Файтинги",
   "Fitness": "Фитнес",
-  "Horror": "Ужасы",
+  "Horror": "Хорроры",
   "Music/Rhythm": "Музыкальные",
   "Party": "Для компании",
   "Puzzle": "Пазлы",
@@ -36,4 +45,4 @@ export const productTypeTranslations: Record<string, string> = {
   "Soundtrack": "Soundtrack",
   "Subscription": "Подписки",
   "Virtual Currency": "Вирт. валюты",
-}
+};

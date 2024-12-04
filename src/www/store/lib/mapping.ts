@@ -1,6 +1,9 @@
 import { IGenre, IProductType } from '@/types/filters';
 import { ITitle } from '@/types/title';
-import { genreTranslations, productTypeTranslations } from '@/lib/translations';
+import { ISubscription } from '@/types/subscription';
+import { genreTranslations, productTypeTranslations, subscriptionTermTranslations } from '@/lib/translation';
+import { SubscriptionTypes } from '@/constants/constants';
+import { toCamelCase, toUpperSnakeCase } from './common';
 
 export function mappingTitle(title: any): ITitle {
   return {
@@ -72,4 +75,32 @@ export function mappingProductType(productType: any): IProductType {
     name: productType?.product_type,
     translation: productTypeTranslations[productType?.product_type] || productType?.product_type
   }
+}
+
+export function mappingSubscription(subscription: any): ISubscription {
+  const result = {
+    id: subscription?.id,
+    category: subscription.category,
+    title: subscription?.title,
+    name: subscription?.name,
+    term: subscription?.term,
+    termDescription: subscription?.term_description,
+    translation: subscription?.translation,
+    originalPrice: subscription?.original_price,
+    discountPrice: subscription?.discount_price,
+    type: toUpperSnakeCase(subscription?.category),
+    link: `/catalog/subscriptions/${subscription.category}`,
+
+    logo: `/subscriptions/logo-${subscription?.category}.svg`,
+    background: [SubscriptionTypes.EA_PLAY].includes(subscription?.category)
+      ? null : `/subscriptions/bg-${subscription?.category}.png`,
+
+    onSale: subscription?.on_sale,
+    updatedAt: subscription?.updated_at,
+    createdAt: subscription?.created_at
+  };
+
+  result.translation = subscriptionTermTranslations[result?.termDescription];
+
+  return result;
 }

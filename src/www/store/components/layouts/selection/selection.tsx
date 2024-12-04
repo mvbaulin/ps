@@ -6,7 +6,7 @@ import { ITitle } from '@/types/title';
 import classNames from 'classnames';
 import styles from './selection.module.scss';
 import useDeviceInfo from '@/hooks/use-device';
-import { DEVICE_CODES } from '@/constants/device-width';
+import { DeviceCodes } from '@/constants/constants';
 
 interface Props {
   title?: string;
@@ -27,7 +27,7 @@ export const Selection: React.FC<Props> = ({
 
   return (
     <>
-      {[DEVICE_CODES.MOBILE].includes(generalDeviceType) && (
+      {[DeviceCodes.MOBILE].includes(generalDeviceType) && (
         <Section
           title={title}
           container={false}
@@ -48,7 +48,7 @@ export const Selection: React.FC<Props> = ({
         </Section>
       )}
 
-      {[DEVICE_CODES.TABLET].includes(generalDeviceType) && (
+      {[DeviceCodes.TABLET].includes(generalDeviceType) && (
         <Section
           title={title}
           container={false}
@@ -65,7 +65,7 @@ export const Selection: React.FC<Props> = ({
         </Section>
       )}
 
-      {[DEVICE_CODES.DESKTOP].includes(generalDeviceType) && (
+      {[DeviceCodes.DESKTOP].includes(generalDeviceType) && (
         <Section
           title={title}
           container={true}

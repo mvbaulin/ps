@@ -16,5 +16,6 @@ export { Search } from '@/components/shared/search/search';
 export { Section } from '@/components/shared/section/section';
 export { SectionTitle } from '@/components/shared/section-title/section-title';
 export { StarRating } from '@/components/shared/star-rating/star-rating';
+export { SubscriptionCard } from '@/components/shared/subscription-card/subscription-card';
 export { TitleBadge } from '@/components/shared/title-badge/title-badge';
 export { TitleCard } from '@/components/shared/title-card/title-card';

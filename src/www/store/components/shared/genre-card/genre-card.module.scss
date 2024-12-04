@@ -4,7 +4,7 @@
   display: block;
   position: relative;
   aspect-ratio: 1;
-  border-radius: 15px;
+  border-radius: $radius * 2;
   transition: 0.3s;
 
   &:hover {
@@ -13,8 +13,8 @@
     }
   }
 
-  @media (max-width: 443px) {
-    aspect-ratio: 16 / 4;
+  @media (max-width: 27.6875rem) { // 443px
+    aspect-ratio: 4 / 1;
   }
 }
 
@@ -26,7 +26,7 @@
   text-align: center;
   text-transform: uppercase;
   z-index: 100;
-  font-size: 18px;
+  font-size: 1.125rem;
   text-shadow: $text-shadow;
 }
 
@@ -34,7 +34,7 @@
   width: 100%;
   height: 100%;
   transition: 0.3s;
-  border-radius: 15px;
+  border-radius: $radius * 2;
   filter: brightness(0.5);
   object-fit: cover;
 }

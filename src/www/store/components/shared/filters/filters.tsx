@@ -50,7 +50,7 @@ export const Filters: React.FC<Props> = ({
   };
 
   return (
-    <div className={classNames(styles.filters, className)}>
+    <aside className={classNames(styles.filters, className)}>
       <form onSubmit={(e) => e.preventDefault()}>
         {productTypes.length > 0 && (
           <Dropdown
@@ -83,15 +83,17 @@ export const Filters: React.FC<Props> = ({
           </Dropdown>
         )}
 
-        <Button
-          bordered
-          className={classNames(styles.clear)}
-          color="secondary"
-          onClick={clearFilters}
-        >
-          Очистить
-        </Button>
+        <div className={classNames(styles.inner)}>
+          <Button
+            bordered
+            className={classNames(styles.clear)}
+            color="secondary"
+            onClick={clearFilters}
+          >
+            Очистить
+          </Button>
+        </div>
       </form>
-    </div>
+    </aside>
   );
 };

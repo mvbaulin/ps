@@ -28,13 +28,13 @@
   color: $color-on-background-800;
   cursor: pointer;
   border: none;
-  border-radius: 10px;
+  border-radius: $radius * 4;
 
   &::after {
     position: absolute;
     content: '';
-    width: 32px;
-    height: 32px;
+    width: 2em;
+    height: 2em;
     top: 50%;
     right: $container-padding-mobile;
     transform: translateY(-50%);
@@ -50,14 +50,14 @@
 .list {
   display: none;
   background: $color-background-600;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 $radius * 4 $radius * 4;
   padding: $gap $container-padding-mobile;
 }
 
 .item {
   text-align: left;
   padding: $gap $container-padding-mobile;
-  border-bottom: 1px solid $color-background-700;
+  border-bottom: 0.0625em solid $color-background-700;
 
   &:last-child {
     border-bottom: none;

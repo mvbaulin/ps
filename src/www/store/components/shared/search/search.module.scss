@@ -53,11 +53,11 @@
   justify-content: flex-start;
   gap: $gap;
   color: $color-on-background-500;
-  height: 40px;
+  height: 2.5em;
 }
 
 .cover {
-  width: 32px;
+  width: 2em;
   height: auto;
 }
 
@@ -68,5 +68,5 @@
   -webkit-line-clamp: 1;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 14px;
+  font-size: inherit;
 }

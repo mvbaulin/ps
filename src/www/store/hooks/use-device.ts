@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { DEVICE_WIDTH, DEVICE_CODES } from '@/constants/device-width';
+import { DeviceWidth, DeviceCodes } from '@/constants/constants';
 
 export default function useDeviceInfo() {
   const [isClient, setIsClient] = useState(false);
@@ -15,8 +15,8 @@ export default function useDeviceInfo() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  let deviceType: string = DEVICE_CODES.MOBILE;
-  let generalDeviceType: string = DEVICE_CODES.MOBILE;
+  let deviceType: DeviceCodes = DeviceCodes.MOBILE;
+  let generalDeviceType: DeviceCodes = DeviceCodes.MOBILE;
 
   if (!isClient) {
     return {
@@ -26,30 +26,30 @@ export default function useDeviceInfo() {
     };
   }
 
-  if (deviceWidth < DEVICE_WIDTH.MOBILE_LARGE) {
-    deviceType = DEVICE_CODES.MOBILE;
-    generalDeviceType = DEVICE_CODES.MOBILE;
-  } else if (deviceWidth < DEVICE_WIDTH.TABLET) {
-    deviceType = DEVICE_CODES.MOBILE_LARGE;
-    generalDeviceType = DEVICE_CODES.MOBILE;
-  } else if (deviceWidth < DEVICE_WIDTH.TABLET_LARGE) {
-    deviceType = DEVICE_CODES.TABLET;
-    generalDeviceType = DEVICE_CODES.TABLET;
-  } else if (deviceWidth < DEVICE_WIDTH.DESKTOP) {
-    deviceType = DEVICE_CODES.TABLET_LARGE;
-    generalDeviceType = DEVICE_CODES.TABLET;
-  } else if (deviceWidth < DEVICE_WIDTH.DESKTOP_LARGE) {
-    deviceType = DEVICE_CODES.DESKTOP;
-    generalDeviceType = DEVICE_CODES.DESKTOP;
-  } else if (deviceWidth < DEVICE_WIDTH.FULLSCREEN) {
-    deviceType = DEVICE_CODES.DESKTOP_LARGE;
-    generalDeviceType = DEVICE_CODES.DESKTOP;
-  } else if (deviceWidth < DEVICE_WIDTH.WIDESCREEN) {
-    deviceType = DEVICE_CODES.FULLSCREEN;
-    generalDeviceType = DEVICE_CODES.DESKTOP;
+  if (deviceWidth < DeviceWidth.MOBILE_LARGE) {
+    deviceType = DeviceCodes.MOBILE;
+    generalDeviceType = DeviceCodes.MOBILE;
+  } else if (deviceWidth < DeviceWidth.TABLET) {
+    deviceType = DeviceCodes.MOBILE_LARGE;
+    generalDeviceType = DeviceCodes.MOBILE;
+  } else if (deviceWidth < DeviceWidth.TABLET_LARGE) {
+    deviceType = DeviceCodes.TABLET;
+    generalDeviceType = DeviceCodes.TABLET;
+  } else if (deviceWidth < DeviceWidth.DESKTOP) {
+    deviceType = DeviceCodes.TABLET_LARGE;
+    generalDeviceType = DeviceCodes.TABLET;
+  } else if (deviceWidth < DeviceWidth.DESKTOP_LARGE) {
+    deviceType = DeviceCodes.DESKTOP;
+    generalDeviceType = DeviceCodes.DESKTOP;
+  } else if (deviceWidth < DeviceWidth.FULLSCREEN) {
+    deviceType = DeviceCodes.DESKTOP_LARGE;
+    generalDeviceType = DeviceCodes.DESKTOP;
+  } else if (deviceWidth < DeviceWidth.WIDESCREEN) {
+    deviceType = DeviceCodes.FULLSCREEN;
+    generalDeviceType = DeviceCodes.DESKTOP;
   } else {
-    deviceType = DEVICE_CODES.WIDESCREEN;
-    generalDeviceType = DEVICE_CODES.DESKTOP;
+    deviceType = DeviceCodes.WIDESCREEN;
+    generalDeviceType = DeviceCodes.DESKTOP;
   }
 
   return {
