@@ -2,12 +2,13 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './button.module.scss';
 import Link from 'next/link';
+import { Color } from '@/types/color';
 
 interface Props {
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'link';
   href?: string;
-  color?: 'primary' | 'secondary' | 'tetriary';
+  color?: Color
   bordered?: boolean;
   uppercase?: boolean;
   disabled?: boolean;

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ISubscription } from '@/types/subscription';
 import { LogoSizes, SubscriptionTypes } from '@/constants/constants';
 import { Button } from '@/components/ui';
+import { Color } from '@/types/color';
 
 interface Props {
   subscription: ISubscription[];
@@ -44,26 +45,35 @@ export const SubscriptionCard: React.FC<Props> = ({
           width={logoSize.width}
           height={logoSize.height}
         />
+
+        <span className={classNames(styles.marker)}>
+          Подробнее
+        </span>
       </Link>
 
       <div className={classNames(styles.wrapper, styles['wrapper--tablet'])}>
-        <Image
-          className={classNames(styles.logo)}
-          src={commonData.logo}
-          alt={commonData.category}
-          width={logoSize.width}
-          height={logoSize.height}
-        />
+        <div className={classNames(styles.inner)}>
+          <Image
+            className={classNames(styles.logo)}
+            src={commonData.logo}
+            alt={commonData.category}
+            width={logoSize.width * 1.2}
+            height={logoSize.height * 1.2}
+          />
 
-        <p className={classNames(styles.description)}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia illum praesentium doloribus sint doloremque veniam beatae distinctio voluptatibus error blanditiis.
-        </p>
+          <p className={classNames(styles.description)}>
+            {subscription[0].description}
+          </p>
+        </div>
 
         <Button
           type="link"
           href={commonData.link}
           className={classNames(styles.button)}
-        >Узнать подробнее</Button>
+          color={commonData.category as Color}
+        >
+          Подробнее
+        </Button>
       </div>
     </article>
   );

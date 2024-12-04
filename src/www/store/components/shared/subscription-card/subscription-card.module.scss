@@ -64,13 +64,45 @@
     @media (min-width: $width-tablet) {
       display: none;
     }
+
+    .marker {
+      position: absolute;
+      right: $gap * 2;
+      bottom: $gap * 2;
+      text-shadow: $text-shadow;
+
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0.0625em;
+        background: $color-on-background-800;
+        border-radius: $circle;
+      }
+    }
   }
 
   &--tablet {
     display: none;
 
     @media (min-width: $width-tablet) {
-      display: block;
+      display: flex;
+      padding: $gap * 4;
+
+      .logo {
+        margin-bottom: $gap * 2;
+      }
+
+      .description {
+        padding-right: $gap * 2;
+      }
+
+      .button {
+        align-self: flex-end;
+        margin-left: auto;
+      }
     }
   }
 }

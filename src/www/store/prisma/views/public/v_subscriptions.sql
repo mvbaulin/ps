@@ -2,6 +2,7 @@ SELECT
   id,
   category,
   name,
+  description,
   title,
   term,
   term_description,

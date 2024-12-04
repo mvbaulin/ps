@@ -13,10 +13,6 @@
   font-weight: 600;
   transition: $control-transition;
 
-  &:focus {
-    // outline: $control-focus;
-  }
-
   &--primary {
     background: $color-primary-500;
     border: $control-border-size solid $color-primary-500;
@@ -51,6 +47,30 @@
       border: $control-border-size solid $color-tetriary-600;
       color: $color-on-tetriary-600;
     }
+  }
+
+  &--ps-plus {
+    background: $ps-essential-bg;
+    border: $control-border-size solid $ps-essential-bg;
+    color: $ps-essential-color;
+  }
+
+  &--ubisoft-plus {
+    background: $ubisoft-bg;
+    border: $control-border-size solid $ubisoft-gradient;
+    color: $ubisoft-color;
+  }
+
+  &--gta-plus {
+    background: $gta-secondary;
+    border: $control-border-size solid $gta-secondary;
+    color: $gta-color;
+  }
+
+  &--ea-play {
+    background: $ea-bg;
+    border: $control-border-size solid $ea-bg;
+    color: $ea-color;
   }
 
   &--bordered {

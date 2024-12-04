@@ -85,14 +85,14 @@ $ubisoft-bg: #448CDE;
 $ubisoft-gradient: linear-gradient(84.36deg, rgba(3, 9, 23, 0.8) 0%, rgba(9, 52, 118, 0.8) 100%);
 $ubisoft-color: #FFFFFF;
 
-$gta-main: #000000;
+$gta-bg: #000000;
 $gta-secondary: #FFB002;
-$font-color-gta: #000000;
+$gta-color: #000000;
 
 $ea-bg: #FF4747;
 $ea-gradient: linear-gradient(228.75deg, #FF4747 -51.59%, #0D1042 71.08%);
 $ea-color: #FFFFFF;
 
 // Contrast
-$text-shadow: 0px 0px 10px $color-on-gray-100;
+$text-shadow: 0px 0px 1rem $color-on-gray-100;
 $text-stroke: 1px $color-on-gray-100;

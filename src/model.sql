@@ -105,6 +105,7 @@ CREATE TABLE subscriptions (
     id VARCHAR(255) PRIMARY KEY NOT NULL,
     category TEXT NOT NULL,
     name TEXT NOT NULL,
+    description TEXT NOT NULL,
     title TEXT NOT NULL,
     term INTEGER NOT NULL,
     term_description TEXT NOT NULL,
@@ -116,22 +117,22 @@ CREATE TABLE subscriptions (
 );
 
 INSERT INTO subscriptions (
-    id, category, title, name, term, term_description, original_price
+    id, category, title, name, description, term, term_description, original_price
 )
 VALUES
-    ('PS-PLUS-DELUXE_1', 'ps-plus', 'Playstation Plus', 'PS+ Deluxe', 1, '1 Month', 1001),
-    ('PS-PLUS-DELUXE_2', 'ps-plus', 'Playstation Plus', 'PS+ Deluxe', 2, '2 Months', 2002),
-    ('PS-PLUS-DELUXE_3', 'ps-plus', 'Playstation Plus', 'PS+ Deluxe', 3, '3 Months', 3003),
-    ('PS-PLUS-EXTRA_1', 'ps-plus', 'Playstation Plus', 'PS+ Extra', 1, '1 Month', 1004),
-    ('PS-PLUS-EXTRA_2', 'ps-plus', 'Playstation Plus', 'PS+ Extra', 2, '2 Months', 2005),
-    ('PS-PLUS-EXTRA_3', 'ps-plus', 'Playstation Plus', 'PS+ Extra', 3, '3 Months', 3006),
-    ('PS-PLUS-ESSENTIAL_1', 'ps-plus', 'Playstation Plus', 'PS+ Essential', 1, '1 Month', 1007),
-    ('PS-PLUS-ESSENTIAL_2', 'ps-plus', 'Playstation Plus', 'PS+ Essential', 2, '2 Months', 2008),
-    ('PS-PLUS-ESSENTIAL_3', 'ps-plus', 'Playstation Plus', 'PS+ Essential', 3, '3 Months', 3009),
-    ('UBISOFT-PLUS_1', 'ubisoft-plus', 'Ubisoft+', 'Ubisoft+', 1, '1 Month', 1000),
-    ('GTA-PLUS_1', 'gta-plus', 'GTA+', 'GTA+', 1, '1 Month', 1000),
-    ('EA-PLAY_1', 'ea-play', 'EA Play', 'EA Play', 1, '1 Month', 1000),
-    ('EA-PLAY_12', 'ea-play', 'EA Play', 'EA Play', 12, '12 Months', 1000);
+    ('PS-PLUS-DELUXE_1', 'ps-plus', 'Playstation Plus', 'PS+ Deluxe', 'Играй в игры бесплатно с подпиской Playstation Plus', 1, '1 Month', 1001),
+    ('PS-PLUS-DELUXE_2', 'ps-plus', 'Playstation Plus', 'PS+ Deluxe', 'Играй в игры бесплатно с подпиской Playstation Plus', 2, '2 Months', 2002),
+    ('PS-PLUS-DELUXE_3', 'ps-plus', 'Playstation Plus', 'PS+ Deluxe', 'Играй в игры бесплатно с подпиской Playstation Plus', 3, '3 Months', 3003),
+    ('PS-PLUS-EXTRA_1', 'ps-plus', 'Playstation Plus', 'PS+ Extra', 'Играй в игры бесплатно с подпиской Playstation Plus', 1, '1 Month', 1004),
+    ('PS-PLUS-EXTRA_2', 'ps-plus', 'Playstation Plus', 'PS+ Extra', 'Играй в игры бесплатно с подпиской Playstation Plus', 2, '2 Months', 2005),
+    ('PS-PLUS-EXTRA_3', 'ps-plus', 'Playstation Plus', 'PS+ Extra', 'Играй в игры бесплатно с подпиской Playstation Plus', 3, '3 Months', 3006),
+    ('PS-PLUS-ESSENTIAL_1', 'ps-plus', 'Playstation Plus', 'PS+ Essential', 'Играй в игры бесплатно с подпиской Playstation Plus', 1, '1 Month', 1007),
+    ('PS-PLUS-ESSENTIAL_2', 'ps-plus', 'Playstation Plus', 'PS+ Essential', 'Играй в игры бесплатно с подпиской Playstation Plus', 2, '2 Months', 2008),
+    ('PS-PLUS-ESSENTIAL_3', 'ps-plus', 'Playstation Plus', 'PS+ Essential', 'Играй в игры бесплатно с подпиской Playstation Plus', 3, '3 Months', 3009),
+    ('UBISOFT-PLUS_1', 'ubisoft-plus', 'Ubisoft+', 'Ubisoft+', 'Играй в игры от Ubisoft с подпиской Ubisoft+', 1, '1 Month', 1000),
+    ('GTA-PLUS_1', 'gta-plus', 'GTA+', 'GTA+', 'Играй в игры от Rockstar Games с подпсикой GTA+ и получай бонусы', 1, '1 Month', 1000),
+    ('EA-PLAY_1', 'ea-play', 'EA Play', 'EA Play', 'Получи доступ к каталогу игр от EA', 1, '1 Month', 1000),
+    ('EA-PLAY_12', 'ea-play', 'EA Play', 'EA Play', 'Получи доступ к каталогу игр от EA', 12, '12 Months', 1000);
 
 -- Triggers
 CREATE OR REPLACE FUNCTION update_updated_date()

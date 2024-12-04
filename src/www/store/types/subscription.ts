@@ -3,6 +3,7 @@ export interface ISubscription {
   category: string;
   name: string;
   title: string;
+  description: string;
   term: number;
   termDescription: string;
   originalPrice?: number | null;

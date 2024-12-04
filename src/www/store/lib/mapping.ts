@@ -83,6 +83,7 @@ export function mappingSubscription(subscription: any): ISubscription {
     category: subscription.category,
     title: subscription?.title,
     name: subscription?.name,
+    description: subscription?.description,
     term: subscription?.term,
     termDescription: subscription?.term_description,
     translation: subscription?.translation,
