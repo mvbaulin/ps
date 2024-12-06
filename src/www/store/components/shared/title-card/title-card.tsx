@@ -5,7 +5,8 @@ import { ITitle } from '@/types/title';
 import { Image, Price, TitleBadge } from '@/components/shared';
 import { Button } from '@/components/ui';
 import Link from 'next/link';
-import { getBadges, getFormatedData, getPrice } from '@/lib/title';
+import { getBadges, getFormatedData } from '@/lib/title';
+import { getPrice } from '@/lib/common';
 
 interface Props {
   title: ITitle;

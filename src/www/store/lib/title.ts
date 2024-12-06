@@ -212,27 +212,3 @@ export function getBadges(formatedData: IFormattedData): string[] {
 
   return res;
 }
-
-export function getPrice(price: number | undefined | null, discount: number | undefined | null): IPrice {
-  if (price == null || discount == null || price === 0) {
-    return {
-      price: price || 0,
-      discount: discount || 0,
-      percent: 0,
-      currency: Currency.RUB
-    };
-  }
-
-  let res = {
-    price: price,
-    discount: discount,
-    percent: 0,
-    currency: Currency.RUB
-  };
-
-  if (price !== discount) {
-    res.percent = -(100 - parseFloat(((discount / price) * 100).toFixed(0)));
-  }
-
-  return res;
-}

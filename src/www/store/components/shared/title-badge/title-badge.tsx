@@ -12,6 +12,7 @@ type allowedNames =
   'ps4-2' |
   'ps5-2' |
   'ps4-3' |
+  'ps4-3-white' |
   'ps5-3' |
   'ubisoft-plus';
 
@@ -32,6 +33,7 @@ const ICON_DIMENSIONS = {
   'ps4-2': { width: 29, height: 16 },
   'ps5-2': { width: 29, height: 16 },
   'ps4-3': { width: 72, height: 16 },
+  'ps4-3-white': { width: 72, height: 16 },
   'ps5-3': { width: 74, height: 16 },
   'ubisoft-plus': { width: 27, height: 16 },
 };
@@ -46,6 +48,7 @@ const BADGE_PATHS = {
   'ps4-2': '/badges/badge-ps4-2.svg',
   'ps5-2': '/badges/badge-ps5-2.svg',
   'ps4-3': '/badges/badge-ps4-3.svg',
+  'ps4-3-white': '/badges/badge-ps4-3-white.svg',
   'ps5-3': '/badges/badge-ps5-3.svg',
   'ubisoft-plus': '/badges/badge-ubisoft-plus.svg',
 };

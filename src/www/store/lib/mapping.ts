@@ -1,4 +1,4 @@
-import { IGenre, IProductType } from '@/types/filters';
+import { IGenre, IProductType } from '@/types/filter';
 import { ITitle } from '@/types/title';
 import { ISubscription } from '@/types/subscription';
 import { genreTranslations, productTypeTranslations, subscriptionTermTranslations } from '@/lib/translation';
@@ -92,6 +92,7 @@ export function mappingSubscription(subscription: any): ISubscription {
     type: toUpperSnakeCase(subscription?.category),
     link: `/catalog/subscriptions/${subscription.category}`,
 
+    cover: `/covers/${subscription?.category}.jpg`,
     logo: `/subscriptions/logo-${subscription?.category}.svg`,
     background: [SubscriptionTypes.EA_PLAY].includes(subscription?.category)
       ? null : `/subscriptions/bg-${subscription?.category}.png`,

@@ -30,6 +30,15 @@ export enum SubscriptionTypes {
   EA_PLAY = 'ea-play',
 };
 
+export enum SubscriptionNames {
+  PS_PLUS_DELUXE = 'PS+ Deluxe',
+  PS_PLUS_EXTRA = 'PS+ Extra',
+  PS_PLUS_ESSENTIAL = 'PS+ Essential',
+  UBISOFT_PLUS = 'Ubisoft+',
+  GTA_PLUS = 'GTA+',
+  EA_PLAY = 'EA Play',
+};
+
 export enum Currency {
   RUB = '₽',
   USD = '$',

@@ -6,7 +6,7 @@ import styles from './promo.module.scss';
 import { Image } from '@/components/shared';
 import { ITitle } from '@/types/title';
 import { Button, Icon } from '@/components/ui';
-import { getPrice } from '@/lib/title';
+import { getPrice } from '@/lib/common';
 
 interface Props {
   interval?: number;

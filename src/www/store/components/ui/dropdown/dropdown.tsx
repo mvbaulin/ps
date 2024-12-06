@@ -9,13 +9,15 @@ interface Props {
   className?: string;
   children?: React.ReactNode;
   defaultOpen?: boolean;
+  transparent?: boolean
 }
 
 export const Dropdown: React.FC<Props> = ({
   className,
   title,
   children,
-  defaultOpen = false
+  defaultOpen = false,
+  transparent = false,
 }) => {
   const [active, setActive] = React.useState(defaultOpen);
 
@@ -23,6 +25,7 @@ export const Dropdown: React.FC<Props> = ({
     <div className={classNames(
       styles.dropdown,
       { [styles['dropdown--active']]: active && children },
+      { [styles['dropdown--transparent']]: transparent },
       className
     )}>
       <button
@@ -32,7 +35,7 @@ export const Dropdown: React.FC<Props> = ({
         {title}
       </button>
 
-      <div className={classNames(styles.list, className)}>
+      <div className={classNames(styles.content)}>
         {children}
       </div>
     </div>

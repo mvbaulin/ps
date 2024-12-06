@@ -28,7 +28,7 @@
   grid-template-columns: repeat($title-card-width, $title-card-width);
   gap: $gap * 2;
   grid-auto-rows: minmax(auto, auto);
-  margin: 0 auto;
+  // margin: 0 auto;
 
   &.rows-1 {
     grid-template-rows: repeat(1, auto);

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './product.module.scss';
 import { Container, Image, Price, TitleBadge, StarRating } from '@/components/shared';
 import { IconButton } from '@/components/ui';
-import { getPrice } from '@/lib/title';
+import { getPrice } from '@/lib/common';
 
 interface Props {
   title: ITitle,
@@ -15,6 +15,13 @@ export const Product: React.FC<Props> = ({
   title,
   formatedData
 }) => {
+  const ps4Only = formatedData?.platforms?.ps4 && !formatedData?.platforms?.ps5;
+
+  const coverSize = {
+    width: 720,
+    height: 428
+  };
+
   const title_name = (
     <h1 className={styles.title}>
       {title.title}
@@ -25,22 +32,33 @@ export const Product: React.FC<Props> = ({
     <div className={styles.cover_wrapper}>
 
       {(formatedData?.platforms?.ps4 || formatedData?.platforms?.ps5) &&
-        <div className={styles.platforms}>
+        <div className={classNames(
+          styles.platforms,
+          ps4Only && styles['platforms--ps4-only']
+        )}>
           {formatedData?.platforms?.ps4 &&
-            TitleBadge({ type: 'ps4-3', size: 18, className: styles.platform })
+            TitleBadge({
+              type: ps4Only ? 'ps4-3-white' : 'ps4-3',
+              size: 18,
+              className: styles.platform,
+            })
           }
 
           {formatedData?.platforms?.ps5 &&
-            TitleBadge({ type: 'ps5-3', size: 18, color: '#000000', className: styles.platform })
+            TitleBadge({
+              type: 'ps5-3',
+              size: 18,
+              className: styles.platform
+            })
           }
         </div>
       }
 
       <Image
-        src={title.cover + '?w=720&h=428' || ''}
+        src={title.cover + `?w=${coverSize.width}&h=${coverSize.height}` || ''}
         alt={title.title || title?.id}
-        width={720}
-        height={428}
+        width={coverSize.width}
+        height={coverSize.height}
         className={styles.cover}
         priority
       />
@@ -120,10 +138,6 @@ export const Product: React.FC<Props> = ({
 
   const edition_content = (
     <div className={classNames(styles.edition_content)}>
-      <p className={classNames(styles.edition_content_title)}>
-        {/* Издание включает в себя: */}
-      </p>
-
       <ul className={classNames(styles.edition_content_list)}>
         {formatedData.editionContent.map((item, index) => (
           <li className={classNames(styles.edition_content_item)} key={index}>
@@ -202,19 +216,25 @@ export const Product: React.FC<Props> = ({
               <div className={classNames(styles.top)}>
                 <div className={classNames(styles.left)}>
                   {cover}
-                  {rating}
                 </div>
 
                 <div className={classNames(styles.right)}>
                   {title_name}
                   {edition_content}
-                  {prices}
                 </div>
               </div>
-            </div>
-            {generalInfo}
-          </div>
 
+              <div className={classNames(styles.center)}>
+                {prices}
+              </div>
+
+              {generalInfo}
+
+              <div className={classNames(styles.bottom)}>
+                {rating}
+              </div>
+            </div>
+          </div>
         </Container>
       </article>
 
@@ -225,20 +245,25 @@ export const Product: React.FC<Props> = ({
               <div className={classNames(styles.top)}>
                 <div className={classNames(styles.left)}>
                   {cover}
-                  {prices}
                 </div>
 
                 <div className={classNames(styles.right)}>
                   {title_name}
                   {edition_content}
-                  {rating}
                 </div>
               </div>
+
+              <div className={classNames(styles.center)}>
+                {prices}
+              </div>
+
+              {generalInfo}
+
+              <div className={classNames(styles.bottom)}>
+                {rating}
+              </div>
             </div>
-
-            {generalInfo}
           </div>
-
         </Container>
       </article>
     </>

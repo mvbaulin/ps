@@ -54,7 +54,7 @@ export const Selection: React.FC<Props> = ({
           container={false}
           className={classNames(styles.selection, styles['selection--tablet'])}
         >
-          <Carousel rows={2}>
+          <Carousel rows={1}>
             {items.map((item) => (
               <TitleCard
                 key={item.id}

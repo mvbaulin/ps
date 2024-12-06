@@ -6,6 +6,7 @@ export interface ISubscription {
   description: string;
   term: number;
   termDescription: string;
+  cover: string;
   originalPrice?: number | null;
   discountPrice?: number | null;
   type: string;

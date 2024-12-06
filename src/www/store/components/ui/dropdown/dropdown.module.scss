@@ -5,15 +5,27 @@
 
   &--active {
     .title {
-      border-radius: 10px 10px 0 0;
+      border-radius: $radius * 4 $radius * 4 0 0;
 
       &::after {
         transform: translateY(-50%) rotate(180deg);
       }
     }
 
-    .list {
+    .content {
       display: block;
+    }
+  }
+
+  &--transparent {
+    .title {
+      border-radius: $radius * 4;
+    }
+
+    .content {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
     }
   }
 }
@@ -47,7 +59,7 @@
   }
 }
 
-.list {
+.content {
   display: none;
   background: $color-background-600;
   border-radius: 0 0 $radius * 4 $radius * 4;

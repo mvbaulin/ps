@@ -28,6 +28,8 @@ $margin: $gap * 2;
   transition: transform 0.3s ease, outline 0.3s ease;
 
   @media (min-width: $width-desktop) {
+    max-width: calc(($container-max-width-desktop - (4 * $gap)) / 5);
+
     &:hover {
       outline: 4px solid $color-surface-500;
     }
