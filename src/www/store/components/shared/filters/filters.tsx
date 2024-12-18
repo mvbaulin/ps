@@ -90,7 +90,7 @@ export const Filters: React.FC<Props> = ({
             color="secondary"
             onClick={clearFilters}
           >
-            Очистить
+            Очистить фильтры
           </Button>
         </div>
       </form>
