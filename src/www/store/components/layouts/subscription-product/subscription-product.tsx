@@ -134,7 +134,7 @@ export const SubscriptionProduct: React.FC<Props> = ({
   const gtaLayout = (
     <section className={classNames(styles.layout, styles['layout--gta'])}>
       {Object.keys(groupedData).reverse().map((name) => (
-        <div className={classNames(styles.content)}>
+        <div className={classNames(styles.content)} key={name}>
           <ul className={classNames(styles.list)}>
             {groupedData[name].map((item) => (
               <li
@@ -184,7 +184,7 @@ export const SubscriptionProduct: React.FC<Props> = ({
   const ubisoftLayout = (
     <section className={classNames(styles.layout, styles['layout--ubisoft'])}>
       {Object.keys(groupedData).reverse().map((name) => (
-        <div className={classNames(styles.content)}>
+        <div className={classNames(styles.content)} key={name}>
           <ul className={classNames(styles.list)}>
             {groupedData[name].map((item) => (
               <li
@@ -234,7 +234,7 @@ export const SubscriptionProduct: React.FC<Props> = ({
   const eaLayout = (
     <section className={classNames(styles.layout, styles['layout--ea'])}>
       {Object.keys(groupedData).reverse().map((name) => (
-        <div className={classNames(styles.content)}>
+        <div className={classNames(styles.content)} key={name}>
           <ul className={classNames(styles.list)}>
             {groupedData[name].map((item) => (
               <li
