@@ -1,23 +1,21 @@
-@import '../../../constants/variables.scss';
-
-$margin: $gap * 2;
+$margin: calc(var(--gap) * 2);
 
 .card {
   display: flex;
   flex-direction: column;
   height: 100%;
 
-  border-radius: $radius * 2;
-  background-color: $color-background-600;
-  border: 1px solid $color-surface-400;
+  border-radius: calc(var(--radius) * 2);
+  background-color: var(--color-background-600);
+  border: 1px solid var(--color-surface-400);
 
-  width: $title-card-width;
-  min-width: $title-card-width;
-  max-width: $title-card-width;
+  width: var(--title-card-width);
+  min-width: var(--title-card-width);
+  max-width: var(--title-card-width);
 
   &--responsive {
     width: 100%;
-    min-width: $title-card-width;
+    min-width: var(--title-card-width);
     max-width: 100%;
   }
 
@@ -27,11 +25,11 @@ $margin: $gap * 2;
 
   transition: transform 0.3s ease, outline 0.3s ease;
 
-  @media (min-width: $width-desktop) {
-    max-width: calc(($container-max-width-desktop - (4 * $gap)) / 5);
+  @media (min-width: var(--width-desktop)) {
+    max-width: calc((var(--container-max-width-desktop) - (4 * var(--gap))) / 5);
 
     &:hover {
-      outline: 4px solid $color-surface-500;
+      outline: 4px solid var(--color-surface-500);
     }
   }
 }
@@ -44,12 +42,12 @@ $margin: $gap * 2;
 }
 
 .top {
-  padding: $container-padding-mobile;
+  padding: var(--container-padding-mobile);
   flex-grow: 1;
 }
 
 .bottom {
-  padding: $container-padding-mobile;
+  padding: var(--container-padding-mobile);
   padding-top: 0;
   flex-shrink: 0;
 }
@@ -96,7 +94,7 @@ $margin: $gap * 2;
 
 .badge {
   max-height: 1rem;
-  margin-right: $gap;
+  margin-right: var(--gap);
 
   &:last-child {
     margin-right: 0;
@@ -106,7 +104,7 @@ $margin: $gap * 2;
 .price {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: $container-padding-mobile;
+  margin-bottom: var(--container-padding-mobile);
   font-size: 1.25rem;
 }
 

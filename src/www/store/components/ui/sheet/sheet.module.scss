@@ -1,46 +1,44 @@
-@import '../../../constants/variables.scss';
-
 .sheet {
   position: fixed;
   top: 0;
   right: -70%;
   width: 70%;
   height: 100%;
-  background-color: $color-surface-600;
+  background-color: var(--color-surface-600);
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
   transition: right 0.3s ease-in-out;
-  z-index: $z-index-sheet;
-  border-radius: $radius * 4 0 0 $radius * 4;
+  z-index: var(--z-index-sheet);
+  border-radius: calc(var(--radius) * 4) 0 0 calc(var(--radius) * 4);
 
   &--open {
     right: 0;
   }
 
-  @media (min-width: $width-tablet) {
+  @media (min-width: var(--width-tablet)) {
     width: 30%;
   }
 }
 
 .close_wrapper {
   position: absolute;
-  top: calc($control-max-height-mobile / 2 - $gap);
-  right: $container-padding-mobile;
+  top: calc(var(--control-max-height-mobile) / 2 - var(--gap));
+  right: var(--container-padding-mobile);
 
-  @media (min-width: $width-tablet) {
-    right: $container-padding-tablet;
+  @media (min-width: var(--width-tablet)) {
+    right: var(--container-padding-tablet);
   }
 }
 
 .content {
   height: 100%;
   overflow-y: auto;
-  padding: 0 $container-padding-mobile;
-  padding-top: $container-padding-mobile - $gap + $icon-size-mobile;
-  padding-bottom: $container-padding-mobile;
+  padding: 0 var(--container-padding-mobile);
+  padding-top: var(--container-padding-mobile) - var(--gap) + var(--icon-size-mobile);
+  padding-bottom: var(--container-padding-mobile);
 
-  @media (min-width: $width-tablet) {
-    padding: 0 $container-padding-tablet;
-    padding-top: $gap * 2 + $icon-size-tablet;
-    padding-bottom: $container-padding-tablet;
+  @media (min-width: var(--width-tablet)) {
+    padding: 0 var(--container-padding-tablet);
+    padding-top: calc(var(--gap) * 2 + var(--icon-size-tablet));
+    padding-bottom: var(--container-padding-tablet);
   }
 }

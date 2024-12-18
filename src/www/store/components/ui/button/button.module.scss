@@ -1,60 +1,58 @@
-@import '../../../constants/variables.scss';
-
 .button {
   display: inline-block;
-  padding: $control-padding;
+  padding: var(--control-padding);
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   background: none;
-  border-radius: $radius * 4;
+  border-radius: calc(var(--radius) * 4);
   font-size: 1rem;
   line-height: 1;
   font-weight: 600;
-  transition: $control-transition;
+  transition: var(--control-transition);
   overflow: hidden;
   flex-shrink: 0;
 
   &--primary {
-    background: $color-primary-500;
-    border: $control-border-size solid $color-primary-500;
-    color: $color-on-primary-500;
+    background: var(--color-primary-500);
+    border: var(--control-border-size) solid var(--color-primary-500);
+    color: var(--color-on-primary-500);
 
     &:hover {
-      background: $color-primary-600;
-      border: $control-border-size solid $color-primary-600;
-      color: $color-on-primary-500;
+      background: var(--color-primary-600);
+      border: var(--control-border-size) solid var(--color-primary-600);
+      color: var(--color-on-primary-500);
     }
   }
 
   &--secondary {
-    background: $color-secondary-500;
-    border: $control-border-size solid $color-secondary-500;
-    color: $color-on-secondary-500;
+    background: var(--color-secondary-500);
+    border: var(--control-border-size) solid var(--color-secondary-500);
+    color: var(--color-on-secondary-500);
 
     &:hover {
-      background: $color-secondary-600;
-      border: $control-border-size solid $color-secondary-600;
-      color: $color-on-secondary-600;
+      background: var(--color-secondary-600);
+      border: var(--control-border-size) solid var(--color-secondary-600);
+      color: var(--color-on-secondary-600);
     }
   }
 
   &--tetriary {
-    background: $color-tetriary-500;
-    border: $control-border-size solid $color-tetriary-500;
-    color: $color-on-tetriary-500;
+    background: var(--color-tetriary-500);
+    border: var(--control-border-size) solid var(--color-tetriary-500);
+    color: var(--color-on-tetriary-500);
 
     &:hover {
-      background: $color-tetriary-600;
-      border: $control-border-size solid $color-tetriary-600;
-      color: $color-on-tetriary-600;
+      background: var(--color-tetriary-600);
+      border: var(--control-border-size) solid var(--color-tetriary-600);
+      color: var(--color-on-tetriary-600);
     }
   }
 
   &--ps-plus {
-    background: $ps-essential-bg;
-    border: $control-border-size solid $ps-essential-bg;
-    color: $ps-essential-color;
+    background: var(--ps-essential-bg);
+    border: var(--control-border-size) solid var(--ps-essential-bg);
+    color: var(--ps-essential-color);
     opacity: 1;
 
     &:hover {
@@ -63,9 +61,9 @@
   }
 
   &--ubisoft-plus {
-    background: $ubisoft-bg;
-    border: $control-border-size solid $ubisoft-gradient;
-    color: $ubisoft-color;
+    background: var(--ubisoft-bg);
+    border: var(--control-border-size) solid var(--ubisoft-gradient);
+    color: var(--ubisoft-color);
     opacity: 1;
 
     &:hover {
@@ -74,9 +72,9 @@
   }
 
   &--gta-plus {
-    background: $gta-secondary;
-    border: $control-border-size solid $gta-secondary;
-    color: $gta-color;
+    background: var(--gta-secondary);
+    border: var(--control-border-size) solid var(--gta-secondary);
+    color: var(--gta-color);
     opacity: 1;
 
     &:hover {
@@ -85,9 +83,9 @@
   }
 
   &--ea-play {
-    background: $ea-bg;
-    border: $control-border-size solid $ea-bg;
-    color: $ea-color;
+    background: var(--ea-bg);
+    border: var(--control-border-size) solid var(--ea-bg);
+    color: var(--ea-color);
     opacity: 1;
 
     &:hover {

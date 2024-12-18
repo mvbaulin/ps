@@ -1,13 +1,11 @@
-@import '../../../constants/variables.scss';
-
 .catalog {
-  padding: $container-padding-mobile 0;
+  padding: var(--container-padding-mobile) 0;
 }
 
 .filters {
-  margin-bottom: $container-padding-mobile;
+  margin-bottom: var(--container-padding-mobile);
 
-  @media (min-width: $width-tablet) {
+  @media (min-width: var(--width-tablet)) {
     margin-bottom: 0;
   }
 }
@@ -19,15 +17,15 @@
   align-items: center;
 }
 
-@media (min-width: $width-tablet) {
+@media (min-width: var(--width-tablet)) {
   .wrapper {
     display: grid;
     grid-template-columns: 260px 1fr;
-    gap: $container-padding-mobile;
+    gap: var(--container-padding-mobile);
     align-items: start;
   }
 }
 
-@media (min-width: $width-desktop) {
+@media (min-width: var(--width-desktop)) {
 
 }

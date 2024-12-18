@@ -1,10 +1,8 @@
-@import '../../../constants/variables.scss';
-
 .section {
-  padding-top: $gap * 8;
-  padding-bottom: $gap;
+  padding-top: calc(var(--gap) * 8);
+  padding-bottom: var(--gap);
 }
 
 .title {
-  padding-bottom: $gap * 4;
+  padding-bottom: calc(var(--gap) * 4);
 }

@@ -1,18 +1,16 @@
-@import '../../../constants/variables.scss';
-
 .wrapper {
-  padding: $gap * 2;
-  background-color: $color-surface-500;
+  padding: calc(var(--gap) * 2);
+  background-color: var(--color-surface-500);
   z-index: 1000;
   border-radius: 50%;
 
-  @media (min-width: $width-tablet) {
-    bottom: $container-padding-tablet;
-    left: $container-padding-tablet;
+  @media (min-width: var(--width-tablet)) {
+    bottom: var(--container-padding-tablet);
+    left: var(--container-padding-tablet);
   }
 
-  @media (min-width: $width-desktop) {
-    bottom: $container-padding-desktop;
-    left: $container-padding-desktop;
+  @media (min-width: var(--width-desktop)) {
+    bottom: var(--container-padding-desktop);
+    left: var(--container-padding-desktop);
   }
 }

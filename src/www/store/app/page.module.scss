@@ -1,10 +1,8 @@
-@import '../constants/variables.scss';
-
 .main {
   .genre_wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(11.875rem, 1fr));
-    gap: $gap;
+    gap: var(--gap);
     justify-items: center;
   }
 }

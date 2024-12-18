@@ -1,14 +1,12 @@
-@import '../../../constants/variables.scss';
-
 .list {
-  padding: $container-padding-mobile 0;
+  padding: var(--container-padding-mobile) 0;
 }
 
 .item {
   font-size: 1.25rem;
   text-transform: uppercase;
   text-align: center;
-  padding: $container-padding-mobile 0;
+  padding: var(--container-padding-mobile) 0;
 
   &:last-child {
     margin-bottom: 0;

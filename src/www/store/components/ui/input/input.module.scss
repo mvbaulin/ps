@@ -1,34 +1,32 @@
-@import '../../../constants/variables.scss';
-
 .input {
   display: block;
-  padding: $control-padding;
+  padding: var(--control-padding);
   cursor: pointer;
   line-height: 1;
   text-align: left;
   text-decoration: none;
   background: none;
-  border-radius: $radius * 4;
+  border-radius: calc(var(--radius) * 4);
   font-weight: 600;
   border: none;
   width: 100%;
-  transition: $control-transition;
+  transition: var(--control-transition);
   touch-action: manipulation;
   -ms-touch-action: manipulation;
 
   &:focus {
-    // outline: $control-focus;
+    // outline: var(--control-focus);
   }
 
   &--default {
-    background: $color-gray-300;
-    border: $control-border-size solid $color-gray-300;
-    color: $color-gray-500;
+    background: var(--color-gray-300);
+    border: var(--control-border-size) solid var(--color-gray-300);
+    color: var(--color-gray-500);
   }
 
   &--darker {
-    background: $color-gray-500;
-    border: $control-border-size solid $color-gray-500;
-    color: $color-gray-900;
+    background: var(--color-gray-500);
+    border: var(--control-border-size) solid var(--color-gray-500);
+    color: var(--color-gray-900);
   }
 }

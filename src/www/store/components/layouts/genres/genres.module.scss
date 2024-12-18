@@ -1,7 +1,5 @@
-@import '../../../constants/variables.scss';
-
 .wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: $gap * 2;
+  gap: calc(var(--gap) * 2);
 }

@@ -1,8 +1,6 @@
-@import '../../../constants/variables.scss';
-
 .header {
-  background: $color-background-700;
-  padding: $gap 0;
+  background: var(--color-background-700);
+  padding: var(--gap) 0;
   position: fixed;
   top: 0;
   z-index: 9999;
@@ -11,7 +9,7 @@
   &--mobile {
     display: block;
 
-    @media (min-width: $width-tablet) {
+    @media (min-width: var(--width-tablet)) {
       display: none;
     }
   }
@@ -19,7 +17,7 @@
   &--tablet {
     display: none;
 
-    @media (min-width: $width-tablet) and (max-width: calc($width-desktop - 1px)) {
+    @media (min-width: var(--width-tablet)) and (max-width: calc(var(--width-desktop) - 1px)) {
       display: block;
     }
   }
@@ -27,7 +25,7 @@
   &--desktop {
     display: none;
 
-    @media (min-width: $width-desktop) {
+    @media (min-width: var(--width-desktop)) {
       display: block;
     }
   }
@@ -40,7 +38,7 @@
       grid-template-columns: 1fr 2fr 1;
       grid-template-areas: 'logo search menu';
       align-items: center;
-      gap: $gap;
+      gap: var(--gap);
       transition: grid-template-columns 1s;
 
       >*:nth-child(1) {
@@ -84,7 +82,7 @@
       grid-template-columns: 1fr 2fr 1;
       grid-template-areas: 'logo search menu';
       align-items: center;
-      gap: $gap;
+      gap: var(--gap);
       transition: grid-template-columns 1s;
 
       >*:nth-child(1) {
@@ -111,7 +109,7 @@
       grid-template-columns: 1fr 2fr 1fr;
       grid-template-areas: 'left center right';
       align-items: center;
-      gap: $gap;
+      gap: var(--gap);
     }
 
     .left {
@@ -123,7 +121,7 @@
 
       display: flex;
       align-items: center;
-      gap: calc($gap * 3);
+      gap: calc(var(--gap) * 3);
     }
 
     .right {
@@ -132,7 +130,7 @@
 
       display: flex;
       align-items: center;
-      gap: calc($gap * 3);
+      gap: calc(var(--gap) * 3);
     }
   }
 }

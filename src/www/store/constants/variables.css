@@ -1,0 +1,84 @@
+:root {
+  --font-size: 16px;
+
+  --radius: 0.5rem;
+  --circle: 50%;
+
+  --width-mobile: 20rem;
+  --width-mobile-large: 22.5rem;
+  --width-tablet: 48rem;
+  --width-tablet-large: 64rem;
+  --width-desktop: 80rem;
+  --width-desktop-large: 90rem;
+  --width-fullscreen: 120rem;
+  --width-widescreen: 160rem;
+
+  --gap: 0.5rem;
+  --gap-mobile: calc(var(--gap) * 2);
+  --gap-tablet: calc(var(--gap) * 2);
+  --gap-desktop: calc(var(--gap) * 3);
+
+  --container-padding-mobile: calc(var(--gap) * 3);
+  --container-padding-mobile-large: calc(var(--gap) * 3);
+  --container-padding-tablet: calc(var(--gap) * 6);
+  --container-padding-tablet-large: calc(var(--gap) * 6);
+  --container-padding-desktop: calc(var(--gap) * 6);
+  --container-padding-desktop-large: calc(var(--gap) * 6);
+  --container-padding-fullscreen: calc(var(--gap) * 6);
+  --container-padding-widescreen: calc(var(--gap) * 6);
+
+  --container-max-width-mobile: 100%;
+  --container-max-width-mobile-large: 100%;
+  --container-max-width-tablet: 100%;
+  --container-max-width-tablet-large: 100%;
+  --container-max-width-desktop: 105rem;
+  --container-max-width-desktop-large: 105rem;
+  --container-max-width-fullscreen: 105rem;
+  --container-max-width-widescreen: 105rem;
+
+  --icon-size-mobile: 2rem;
+  --icon-size-tablet: 2.25rem;
+  --icon-size-desktop: 2.25rem;
+
+  --control-border-size: 0.125rem;
+  --control-padding: 0.75rem 2rem;
+  --control-transition: all 0.3s ease;
+  --control-focus: calc(var(--control-border-size) * 2) solid var(--color-warning);
+  --contol-active: var(--control-border-size) solid var(--color-warning);
+
+  --control-max-height-mobile: calc(var(--icon-size-desktop) + var(--gap));
+  --control-max-height-tablet: calc(var(--icon-size-desktop) + var(--gap));
+  --control-max-height-desktop: calc(var(--icon-size-desktop) + var(--gap));
+
+  --header-height: calc(4rem - 1px);
+
+  --title-card-width: 18rem;
+  --title-card-height: 438.28px;
+
+  --z-index-overlay: 80;
+  --z-index-sheet: 200;
+  --z-index-controls: 90;
+  --z-index-dots: 100;
+
+  --ps-essential-bg: #FFFFFF;
+  --ps-essential-color: #252524;
+  --ps-extra-bg: linear-gradient(90deg, #FFE741 0%, #FDC101 100%);
+  --ps-extra-color: #252524;
+  --ps-deluxe-bg: linear-gradient(90deg, #242424 0%, #363636 100%);
+  --ps-deluxe-color: #FCC000;
+
+  --ubisoft-bg: #448CDE;
+  --ubisoft-gradient: linear-gradient(84.36deg, rgba(3, 9, 23, 0.8) 0%, rgba(9, 52, 118, 0.8) 100%);
+  --ubisoft-color: #FFFFFF;
+
+  --gta-bg: #000000;
+  --gta-secondary: #FFB002;
+  --gta-color: #000000;
+
+  --ea-bg: #FF4747;
+  --ea-gradient: linear-gradient(228.75deg, #FF4747 -51.59%, #0D1042 71.08%);
+  --ea-color: #FFFFFF;
+
+  --text-shadow: 0px 0px 1rem var(--color-on-gray-100);
+  --text-stroke: 1px var(--color-on-gray-100);
+}

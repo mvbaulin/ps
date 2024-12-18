@@ -1,18 +1,16 @@
-@import '../../../constants/variables.scss';
-
 .container {
   margin: 0 auto;
-  padding: 0 $container-padding-mobile;
-  max-width: $container-max-width-mobile;
+  padding: 0 var(--container-padding-mobile);
+  max-width: var(--container-max-width-mobile);
 
   &--no-mobile {
     padding: 0;
     max-width: 100%;
   }
 
-  @media (min-width: $width-mobile) {
-    padding: 0 $container-padding-mobile;
-    max-width: $container-max-width-mobile;
+  @media (min-width: var(--width-mobile)) {
+    padding: 0 var(--container-padding-mobile);
+    max-width: var(--container-max-width-mobile);
 
     &--no-mobile {
       padding: 0;
@@ -20,9 +18,9 @@
     }
   }
 
-  @media (min-width: $width-mobile-large) {
-    padding: 0 $container-padding-mobile-large;
-    max-width: $container-max-width-mobile-large;
+  @media (min-width: var(--width-mobile-large)) {
+    padding: 0 var(--container-padding-mobile)-large;
+    max-width: var(--container-max-width-mobile-large);
 
     &--no-mobile {
       padding: 0;
@@ -30,33 +28,33 @@
     }
   }
 
-  @media (min-width: $width-tablet) {
-    padding: 0 $container-padding-tablet;
-    max-width: $container-max-width-tablet;
+  @media (min-width: var(--width-tablet)) {
+    padding: 0 var(--container-padding-tablet);
+    max-width: var(--container-max-width-tablet);
   }
 
-  @media (min-width: $width-tablet-large) {
-    padding: 0 $container-padding-tablet-large;
-    max-width: $container-max-width-tablet-large;
+  @media (min-width: var(--width-tablet-large)) {
+    padding: 0 var(--container-padding-tablet)-large;
+    max-width: var(--container-max-width-tablet-large);
   }
 
-  @media (min-width: $width-desktop) {
-    padding: 0 $container-padding-desktop;
-    max-width: $container-max-width-desktop;
+  @media (min-width: var(--width-desktop)) {
+    padding: 0 var(--container-padding-desktop);
+    max-width: var(--container-max-width-desktop);
   }
 
-  @media (min-width: $width-desktop-large) {
-    padding: 0 $container-padding-desktop-large;
-    max-width: $container-max-width-desktop-large;
+  @media (min-width: var(--width-desktop-large)) {
+    padding: 0 var(--container-padding-desktop)-large;
+    max-width: var(--container-max-width-desktop-large);
   }
 
-  @media (min-width: $width-fullscreen) {
-    padding: 0 $container-padding-fullscreen;
-    max-width: $container-max-width-fullscreen;
+  @media (min-width: var(--width-fullscreen)) {
+    padding: 0 var(--container-padding-fullscreen);
+    max-width: var(--container-max-width-fullscreen);
   }
 
-  @media (min-width: $width-widescreen) {
-    padding: 0 $container-padding-widescreen;
-    max-width: $container-max-width-widescreen;
+  @media (min-width: var(--width-widescreen)) {
+    padding: 0 var(--container-padding-widescreen);
+    max-width: var(--container-max-width-widescreen);
   }
 }

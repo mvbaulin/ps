@@ -1,5 +1,3 @@
-@import '../../../constants/variables.scss';
-
 .price {
   display: flex;
   flex-direction: row;
@@ -17,7 +15,7 @@
   line-height: 1;
   font-size: 1em;
 
-  margin-right: $gap;
+  margin-right: var(--gap);
 }
 
 .discount_box {
@@ -25,7 +23,7 @@
   display: inline-block;
   line-height: 1;
   font-size: 0.7em;
-  color: $color-gray-100;
+  color: var(--color-gray-100);
 
   &::after {
     position: absolute;
@@ -34,9 +32,9 @@
     height: 0.125em;
     top: 70%;
     left: 0%;
-    background: $color-tetriary-500;
+    background: var(--color-tetriary-500);
     transform: rotate(-10deg) translateY(-50%);
     transform-origin: left center;
-    border-radius: $radius;
+    border-radius: var(--radius);
   }
 }

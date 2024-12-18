@@ -1,9 +1,7 @@
-@import '../../../constants/variables.scss';
-
 .promo {
   position: relative;
   overflow: hidden;
-  height: calc(100vh - $header-height);
+  height: calc(100vh - var(--header-height));
 }
 
 .list {
@@ -47,10 +45,10 @@
 
 .title {
   font-size: 3.125rem;
-  text-shadow: $text-shadow;
-  margin-bottom: $gap * 3;
+  text-shadow: var(--text-shadow);
+  margin-bottom: calc(var(--gap) * 3);
 
-  @media (min-width: $width-tablet) {
+  @media (min-width: var(--width-tablet)) {
     font-size: 3.75rem;
   }
 }
@@ -93,17 +91,17 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: $container-padding-mobile;
-  left: $container-padding-mobile;
+  bottom: var(--container-padding-mobile);
+  left: var(--container-padding-mobile);
 
-  @media (min-width: $width-tablet) {
-    bottom: $container-padding-tablet;
-    left: $container-padding-tablet;
+  @media (min-width: var(--width-tablet)) {
+    bottom: var(--container-padding-tablet);
+    left: var(--container-padding-tablet);
   }
 
-  @media (min-width: $width-desktop) {
-    bottom: $container-padding-desktop;
-    left: $container-padding-desktop;
+  @media (min-width: var(--width-desktop)) {
+    bottom: var(--container-padding-desktop);
+    left: var(--container-padding-desktop);
   }
 }
 
@@ -114,24 +112,24 @@
   height: 0.3125rem;
   border: none;
   cursor: pointer;
-  margin-right: $gap;
-  background: $color-on-background-500;
-  box-shadow: 0 0 0 0.0625em $color-on-gray-400;
+  margin-right: var(--gap);
+  background: var(--color-on-background-500);
+  box-shadow: 0 0 0 0.0625em var(--color-on-gray-400);
   transition: 1s;
 
-  z-index: $z-index-dots;
+  z-index: var(--z-index-dots);
 
   &:first-child {
-    border-radius: $radius * 4 0 0 $radius * 4;
+    border-radius: calc(var(--radius) * 4) 0 0 calc(var(--radius) * 4);
   }
 
   &:last-child {
     margin-right: 0;
-    border-radius: 0 $radius * 4 $radius * 4 0;
+    border-radius: 0 calc(var(--radius) * 4) calc(var(--radius) * 4) 0;
   }
 
   &--active {
-    background: $color-tetriary-500;
+    background: var(--color-tetriary-500);
   }
 }
 
@@ -146,12 +144,12 @@
   width: 100%;
   height: 100%;
 
-  @media (min-width: $width-desktop) {
+  @media (min-width: var(--width-desktop)) {
     display: flex;
   }
 
   button {
-    z-index: $z-index-controls;
+    z-index: var(--z-index-controls);
   }
 }
 
@@ -165,12 +163,12 @@
   outline: none;
   background: transparent;
 
-  width: $container-padding-desktop * 2 + 2rem;
+  width: calc(var(--container-padding-desktop) * 2 + 2rem);
   height: 50%;
   top: 50%;
   transform: translateY(-50%);
 
-  transition: $control-transition;
+  transition: var(--control-transition);
 
   &:active,
   &:focus {
@@ -180,16 +178,16 @@
   }
 
   &--prev {
-    border-radius: 0 $radius * 4 $radius * 4 0;
+    border-radius: 0 calc(var(--radius) * 4) calc(var(--radius) * 4) 0;
     .icon {
-      left: $container-padding-desktop;
+      left: var(--container-padding-desktop);
     }
   }
 
   &--next {
-    border-radius: $radius * 4 0 0 $radius * 4;
+    border-radius: calc(var(--radius) * 4) 0 0 calc(var(--radius) * 4);
     .icon {
-      right: $container-padding-desktop;
+      right: var(--container-padding-desktop);
     }
   }
 }

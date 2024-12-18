@@ -1,6 +1,4 @@
-@import '../../../constants/variables.scss';
-
 .wrapper {
   display: grid;
-  gap: $gap * 2;
+  gap: calc(var(--gap) * 2);
 }
