@@ -1,3 +1,5 @@
+@import '../../../constants/width.scss';
+
 .promo {
   position: relative;
   overflow: hidden;
@@ -48,7 +50,7 @@
   text-shadow: var(--text-shadow);
   margin-bottom: calc(var(--gap) * 3);
 
-  @media (min-width: var(--width-tablet)) {
+  @media (min-width: $width-tablet) {
     font-size: 3.75rem;
   }
 }
@@ -94,12 +96,12 @@
   bottom: var(--container-padding-mobile);
   left: var(--container-padding-mobile);
 
-  @media (min-width: var(--width-tablet)) {
+  @media (min-width: $width-tablet) {
     bottom: var(--container-padding-tablet);
     left: var(--container-padding-tablet);
   }
 
-  @media (min-width: var(--width-desktop)) {
+  @media (min-width: $width-desktop) {
     bottom: var(--container-padding-desktop);
     left: var(--container-padding-desktop);
   }
@@ -144,7 +146,7 @@
   width: 100%;
   height: 100%;
 
-  @media (min-width: var(--width-desktop)) {
+  @media (min-width: $width-desktop) {
     display: flex;
   }
 

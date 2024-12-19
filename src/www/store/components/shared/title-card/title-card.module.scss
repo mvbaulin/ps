@@ -1,3 +1,5 @@
+@import '../../../constants/width.scss';
+
 $margin: calc(var(--gap) * 2);
 
 .card {
@@ -25,7 +27,7 @@ $margin: calc(var(--gap) * 2);
 
   transition: transform 0.3s ease, outline 0.3s ease;
 
-  @media (min-width: var(--width-desktop)) {
+  @media (min-width: $width-desktop) {
     max-width: calc((var(--container-max-width-desktop) - (4 * var(--gap))) / 5);
 
     &:hover {

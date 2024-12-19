@@ -1,3 +1,5 @@
+@import '../../../constants/width.scss';
+
 .sheet {
   position: fixed;
   top: 0;
@@ -14,7 +16,7 @@
     right: 0;
   }
 
-  @media (min-width: var(--width-tablet)) {
+  @media (min-width: $width-tablet) {
     width: 30%;
   }
 }
@@ -24,7 +26,7 @@
   top: calc(var(--control-max-height-mobile) / 2 - var(--gap));
   right: var(--container-padding-mobile);
 
-  @media (min-width: var(--width-tablet)) {
+  @media (min-width: $width-tablet) {
     right: var(--container-padding-tablet);
   }
 }
@@ -36,7 +38,7 @@
   padding-top: var(--container-padding-mobile) - var(--gap) + var(--icon-size-mobile);
   padding-bottom: var(--container-padding-mobile);
 
-  @media (min-width: var(--width-tablet)) {
+  @media (min-width: $width-tablet) {
     padding: 0 var(--container-padding-tablet);
     padding-top: calc(var(--gap) * 2 + var(--icon-size-tablet));
     padding-bottom: var(--container-padding-tablet);

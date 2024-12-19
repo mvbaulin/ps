@@ -5,7 +5,7 @@
 .filters {
   margin-bottom: var(--container-padding-mobile);
 
-  @media (min-width: var(--width-tablet)) {
+  @media (min-width: $width-tablet) {
     margin-bottom: 0;
   }
 }
@@ -17,7 +17,7 @@
   align-items: center;
 }
 
-@media (min-width: var(--width-tablet)) {
+@media (min-width: $width-tablet) {
   .wrapper {
     display: grid;
     grid-template-columns: 260px 1fr;
@@ -26,6 +26,6 @@
   }
 }
 
-@media (min-width: var(--width-desktop)) {
+@media (min-width: $width-desktop) {
 
 }

@@ -4,15 +4,6 @@
   --radius: 0.5rem;
   --circle: 50%;
 
-  --width-mobile: 20rem;
-  --width-mobile-large: 22.5rem;
-  --width-tablet: 48rem;
-  --width-tablet-large: 64rem;
-  --width-desktop: 80rem;
-  --width-desktop-large: 90rem;
-  --width-fullscreen: 120rem;
-  --width-widescreen: 160rem;
-
   --gap: 0.5rem;
   --gap-mobile: calc(var(--gap) * 2);
   --gap-tablet: calc(var(--gap) * 2);

@@ -1,3 +1,5 @@
+@import '../../../constants/width.scss';
+
 .card {
   position: relative;
   width: 100%;
@@ -59,7 +61,7 @@
       margin: 0 auto;
     }
 
-    @media (min-width: var(--width-tablet)) {
+    @media (min-width: $width-tablet) {
       display: none;
     }
 
@@ -85,7 +87,7 @@
   &--tablet {
     display: none;
 
-    @media (min-width: var(--width-tablet)) {
+    @media (min-width: $width-tablet) {
       display: flex;
       padding: calc(var(--gap) * 4);
 

@@ -1,3 +1,5 @@
+@import '../../../constants/width.scss';
+
 .logo {
   display: block;
   font-size: 0;
@@ -11,7 +13,7 @@
     display: none;
   }
 
-  @media (min-width: var(--width-tablet)) {
+  @media (min-width: $width-tablet) {
     &--mobile {
       display: none;
     }

@@ -1,6 +1,5 @@
 import { Section, SubscriptionCard } from '@/components/shared';
 import { ISubscriptions } from '@/types/subscription';
-import classNames from 'classnames';
 import styles from './subscriptions.module.scss';
 import React from 'react';
 

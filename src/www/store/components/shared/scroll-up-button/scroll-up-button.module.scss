@@ -1,15 +1,17 @@
+@import '../../../constants/width.scss';
+
 .wrapper {
   padding: calc(var(--gap) * 2);
   background-color: var(--color-surface-500);
   z-index: 1000;
   border-radius: 50%;
 
-  @media (min-width: var(--width-tablet)) {
+  @media (min-width: $width-tablet) {
     bottom: var(--container-padding-tablet);
     left: var(--container-padding-tablet);
   }
 
-  @media (min-width: var(--width-desktop)) {
+  @media (min-width: $width-desktop) {
     bottom: var(--container-padding-desktop);
     left: var(--container-padding-desktop);
   }

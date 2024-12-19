@@ -1,3 +1,5 @@
+@import '../../../constants/width.scss';
+
 .selection {
   &--tablet,
   &--desktop {
@@ -5,7 +7,7 @@
   }
 }
 
-@media (min-width: var(--width-tablet)) {
+@media (min-width: $width-tablet) {
   .selection {
     &--mobile {
       display: none;
@@ -17,7 +19,7 @@
   }
 }
 
-@media (min-width: var(--width-desktop)) {
+@media (min-width: $width-desktop) {
   .selection {
     &--tablet,
     &--mobile {

@@ -1,3 +1,5 @@
+@import '../../../constants/width.scss';
+
 .wrapper {
   display: flex;
   overflow-x: auto;
@@ -5,13 +7,14 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
+
   padding: 0 var(--container-padding-mobile);
 
-  @media (min-width: var(--width-tablet)) {
+  @media (min-width: $width-tablet) {
     padding: 0 var(--container-padding-tablet);
   }
 
-  @media (min-width: var(--width-desktop)) {
+  @media (min-width: $width-desktop) {
     padding: 0 var(--container-padding-desktop);
   }
 

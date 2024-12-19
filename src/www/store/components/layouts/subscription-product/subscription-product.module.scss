@@ -1,10 +1,12 @@
+@import '../../../constants/width.scss';
+
 .product {
   display: block;
 
   &--mobile {
     display: block;
 
-    @media (min-width: var(--width-tablet)) {
+    @media (min-width: $width-tablet) {
       display: none;
     }
   }
@@ -12,7 +14,7 @@
   &--tablet {
     display: none;
 
-    @media (min-width: var(--width-tablet)) and (max-width: calc(var(--width-desktop) - 1px)) {
+    @media (min-width: $width-tablet) and (max-width: calc($width-desktop - 1px)) {
       display: block;
     }
   }
@@ -20,7 +22,7 @@
   &--desktop {
     display: none;
 
-    @media (min-width: var(--width-desktop)) {
+    @media (min-width: $width-desktop) {
       display: block;
     }
   }
