@@ -319,6 +319,10 @@ export const SubscriptionProduct: React.FC<Props> = ({
                   {title_name}
                 </div>
               </div>
+
+              <div className={classNames(styles.body)}>
+                {subs}
+              </div>
             </div>
           </div>
 
@@ -337,6 +341,10 @@ export const SubscriptionProduct: React.FC<Props> = ({
                 <div className={classNames(styles.right)}>
                   {title_name}
                 </div>
+              </div>
+
+              <div className={classNames(styles.body)}>
+                {subs}
               </div>
             </div>
           </div>

@@ -5,8 +5,10 @@ import { getSubscriptionByCategory } from '@/lib/subscription';
 import { SubscriptionProduct } from '@/components/layouts';
 
 export default async function Page(
-  { params: { subscription } }:
-  { params: { subscription: string } }) {
+  context: { params: { subscription: string } }
+) {
+  const { params } = await context;
+  const { subscription } = await params;
 
   const data = await getSubscriptionByCategory(subscription);
 

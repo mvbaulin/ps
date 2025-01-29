@@ -6,12 +6,14 @@ import { Selection, Product } from '@/components/layouts';
 import { redirect } from 'next/navigation';
 
 export default async function Page(
-  { params: { title } }:
-  { params: { title: string } }) {
+  context: { params: { title: string } }
+) {
+  const { params } = await context;
+  const { title } = await params;
 
   const data = await getTitle(title);
 
-  if (!data?.title.id) {
+  if (!data?.title?.id) {
     redirect('/catalog');
   }
 
@@ -28,25 +30,24 @@ export default async function Page(
       <Product title={data.title} formatedData={formatedData} />
 
       <Selection
-        title='Издания'
+        title="Издания"
         items={data.games}
       />
 
       <Selection
-        title='Бандлы'
+        title="Бандлы"
         items={data.bundles}
       />
 
       <Selection
-        title='Дополнения'
+        title="Дополнения"
         items={data.addons}
       />
 
       <Selection
-        title='Виртуальная валюта'
+        title="Виртуальная валюта"
         items={data.gameCurrency}
       />
-
     </main>
   );
 }
